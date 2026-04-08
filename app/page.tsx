@@ -52,6 +52,12 @@ const services: Service[] = [
     description:
       "Akutní zásah, když se rozpadá checkout, měření, šablona nebo klíčová část funnelu.",
     icon: "fix",
+    cta: {
+      label: "CHCI SOS OPRAVU",
+      href: siteConfig.payments.sosRepairHref,
+      note: "Akutní rezervace a platba bezpečně přes Stripe.",
+      tone: "yellow",
+    },
   },
   {
     title: "SEO optimalizace",
