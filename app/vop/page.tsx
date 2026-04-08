@@ -1,3 +1,5 @@
+import { siteConfig } from "@/lib/site-config";
+
 export default function TermsPage() {
   return (
     <main className="mx-auto w-full max-w-4xl px-6 py-16 sm:px-10 lg:px-12">
@@ -8,6 +10,10 @@ export default function TermsPage() {
         <h1 className="mt-4 font-display text-4xl tracking-tight text-white sm:text-5xl">
           Jednoduchý rámec spolupráce
         </h1>
+        <p className="mt-5 text-sm leading-7 text-white/48">
+          Poskytovatel služeb: {siteConfig.contact.operatorName}, IČO: {siteConfig.contact.ico},{" "}
+          {siteConfig.contact.legalStatus}.
+        </p>
         <div className="mt-8 space-y-6 text-base leading-8 text-white/68">
           <p>
             Spolupráce obvykle začíná úvodní analýzou nebo nezávaznou poptávkou. Na základě zadání

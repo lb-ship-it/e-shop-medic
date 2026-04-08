@@ -8,6 +8,8 @@ export const siteConfig = {
       "Witdesign navrhuje, audituje a opravuje e-shopy se zaměřením na výkon, důvěru a konverze.",
   },
   contact: {
+    operatorName: "Ladislav Blecha",
+    legalStatus: "fyzická osoba zapsaná v živnostenském rejstříku",
     ctaLabel: "Audit zdarma",
     ctaHref: "/#kontakt",
     emailLabel: "Napsat e-mail",
@@ -20,9 +22,7 @@ export const siteConfig = {
     linkedInHref: null as string | null,
     location: "Působím po celé ČR",
     cityLine: "Online / celá ČR",
-    // Inferred from a public business-register result for Ladislav Blecha.
-    // Confirm before treating this as final legal data.
-    ico: "65816382",
+    ico: "01670816",
   },
   payments: {
     expressAuditHref: "https://buy.stripe.com/fZu8wR7VR6Q38vb6912VG00",

@@ -1,4 +1,5 @@
 import { ProtectedEmailLink } from "@/components/protected-email-link";
+import { siteConfig } from "@/lib/site-config";
 
 export default function GdprPage() {
   return (
@@ -10,6 +11,10 @@ export default function GdprPage() {
         <h1 className="mt-4 font-display text-4xl tracking-tight text-white sm:text-5xl">
           Jak pracuji s údaji z poptávky
         </h1>
+        <p className="mt-5 text-sm leading-7 text-white/48">
+          Správce: {siteConfig.contact.operatorName}, IČO: {siteConfig.contact.ico},{" "}
+          {siteConfig.contact.legalStatus}.
+        </p>
         <div className="mt-8 space-y-6 text-base leading-8 text-white/68">
           <p>
             Pokud odešleš e-mail nebo URL svého e-shopu přes kontaktní formulář, zpracovávám jen
