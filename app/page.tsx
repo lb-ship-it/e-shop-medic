@@ -511,7 +511,7 @@ export default function Home() {
                     href="#audit-zdarma-form"
                     className="inline-flex min-h-12 items-center justify-center rounded-full border border-accent-green/22 bg-accent-green px-5 py-3 text-base font-semibold text-black transition hover:translate-y-[-1px]"
                   >
-                    Zkusit štěstí: chci audit zdarma
+                    AUDIT ZDARMA
                   </a>
                   <p className="mt-3 text-sm text-white/48">Zbývají 3 místa v pomalejším režimu.</p>
                 </AuditOptionCard>
