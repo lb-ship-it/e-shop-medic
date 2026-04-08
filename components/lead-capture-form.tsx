@@ -26,15 +26,10 @@ export function LeadCaptureForm({
     setSubmitted(true);
   };
 
-  const alignmentClass =
-    align === "left"
-      ? "items-start text-left"
-      : "items-center text-center";
+  const alignmentClass = align === "left" ? "items-start text-left" : "items-center text-center";
 
   const ctaRowClass =
-    align === "left"
-      ? "sm:items-center sm:justify-start"
-      : "sm:items-center sm:justify-center";
+    align === "left" ? "sm:items-center sm:justify-start" : "sm:items-center sm:justify-center";
 
   return (
     <form
@@ -59,10 +54,10 @@ export function LeadCaptureForm({
         />
       </div>
 
-      <div className={`flex flex-col gap-4 sm:flex-row sm:gap-6 ${ctaRowClass}`}>
+      <div className={`flex flex-col gap-4 sm:flex-row sm:gap-7 ${ctaRowClass}`}>
         <button
           type="submit"
-          className={`inline-grid min-h-14 w-full max-w-[19rem] grid-cols-[1fr_auto] items-center gap-5 rounded-xl px-6 py-3 text-base font-semibold transition sm:min-w-[19rem] sm:px-7 ${
+          className={`inline-grid min-h-14 w-full max-w-[20rem] grid-cols-[1fr_auto] items-center gap-7 rounded-xl px-6 py-3 text-base font-semibold transition sm:min-w-[20rem] sm:px-8 ${
             submitted
               ? "bg-[#00cc7d] text-black shadow-[0_0_28px_rgba(0,204,125,0.22)]"
               : "glow-green bg-accent-green text-black hover:translate-y-[-1px]"
@@ -79,19 +74,19 @@ export function LeadCaptureForm({
               </>
             )}
           </span>
-          <span aria-hidden="true" className="pl-2 text-lg leading-none">
+          <span aria-hidden="true" className="pr-1 text-lg leading-none">
             &gt;
           </span>
         </button>
 
-        <div className="flex items-center gap-3 pl-1 text-sm text-white/55 sm:pl-0">
+        <div className="flex items-center gap-3 pl-1 text-base text-white/55 sm:pl-0">
           <span className="h-2.5 w-2.5 rounded-full bg-accent-green" />
           Odpověď do 24 hodin
         </div>
       </div>
 
-      {error ? <p className="text-sm text-[#ff8e8e]">{error}</p> : null}
-      <p className="text-sm text-white/45">Analýza je zcela nezávazná.</p>
+      {error ? <p className="text-base text-[#ff8e8e]">{error}</p> : null}
+      <p className="text-base text-white/45">Analýza je zcela nezávazná.</p>
     </form>
   );
 }

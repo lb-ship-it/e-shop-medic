@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { Noto_Sans, Noto_Serif } from "next/font/google";
+import { MobileBottomNav } from "@/components/mobile-bottom-nav";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
+import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
 const notoSans = Noto_Sans({
@@ -15,9 +19,8 @@ const notoSerif = Noto_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "E-shop Medic | Záchrana vašeho e-shopu",
-  description:
-    "Servisní landing page pro E-shop Medic s tmavým animovaným pozadím, službami a CTA formulářem.",
+  title: `${siteConfig.brand.name} | Záchrana vašeho e-shopu`,
+  description: siteConfig.brand.description,
   icons: {
     icon: "/logo-mark.png",
     shortcut: "/logo-mark.png",
@@ -35,7 +38,12 @@ export default function RootLayout({
       lang="cs"
       className={`${notoSans.variable} ${notoSerif.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full bg-background text-foreground">
+        <SiteHeader />
+        <div className="pb-24 md:pb-0">{children}</div>
+        <SiteFooter />
+        <MobileBottomNav />
+      </body>
     </html>
   );
 }

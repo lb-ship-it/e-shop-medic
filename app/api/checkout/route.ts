@@ -9,8 +9,7 @@ export async function POST(request: Request) {
   if (!priceId) {
     return NextResponse.json(
       {
-        error:
-          "Chybí STRIPE_PRICE_ID. Vytvoř cenu ve Stripe a doplň ji do env proměnných.",
+        error: "Chybí STRIPE_PRICE_ID. Vytvoř cenu ve Stripe a doplň ji do env proměnných.",
       },
       { status: 500 },
     );
@@ -18,8 +17,7 @@ export async function POST(request: Request) {
 
   try {
     const origin =
-      process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-      new URL(request.url).origin;
+      process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? new URL(request.url).origin;
 
     const session = await getStripeClient().checkout.sessions.create({
       mode: "payment",
@@ -46,9 +44,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ url: session.url });
   } catch (error) {
     const message =
-      error instanceof Error
-        ? error.message
-        : "Stripe checkout se nepodařilo vytvořit.";
+      error instanceof Error ? error.message : "Stripe checkout se nepodařilo vytvořit.";
 
     return NextResponse.json({ error: message }, { status: 500 });
   }

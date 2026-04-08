@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { LeadCaptureForm } from "@/components/lead-capture-form";
 import { NetworkBackground } from "@/components/network-background";
+import { MailIcon, PinIcon } from "@/components/site-icons";
+import { siteConfig } from "@/lib/site-config";
 
 type Service = {
   title: string;
@@ -15,7 +17,7 @@ type Symptom = {
   tone: "green" | "blue";
 };
 
-type WorkflowStep = {
+type ProcessStep = {
   step: string;
   title: string;
   description: string;
@@ -46,7 +48,7 @@ const services: Service[] = [
     title: "SEO optimalizace",
     price: "od 6 500 Kč",
     description:
-      "Technická i obsahová hygiena, aby e-shop nebyl závislý jen na placené návštěvnosti.",
+      "Technická i obsahová hygiena, aby e-shop nestál jen na placené návštěvnosti.",
     icon: "seo",
   },
   {
@@ -69,47 +71,47 @@ const symptoms: Symptom[] = [
   {
     title: "Návštěvnost stojí peníze, ale nevydělává",
     description:
-      "Ads běží, rozpočet mizí, ale landing nebo košík nedokáže návštěvu proměnit v objednávku.",
+      "Reklamy běží, rozpočet mizí, ale landing nebo košík nedokáže návštěvu proměnit v objednávku.",
     tone: "green",
   },
   {
-    title: "Měření ukazuje hezky, realita bolí",
+    title: "Měření vypadá dobře, realita bolí",
     description:
       "GA4, pixel nebo eventy lžou, takže rozhoduješ podle neúplných nebo chybných dat.",
     tone: "blue",
   },
   {
-    title: "Technický dluh ti brzdí růst",
+    title: "Technický dluh brzdí růst",
     description:
       "Pomalé načítání, rozbitý mobil, šablonové chyby nebo pluginový chaos ničí důvěru i výkon.",
     tone: "green",
   },
   {
-    title: "SEO i obsah jsou bez jasné strategie",
+    title: "SEO a obsah nemají jasnou strukturu",
     description:
       "Kategorie, produktové stránky a interní navigace nepracují pro organický růst, jen zabírají prostor.",
     tone: "blue",
   },
 ];
 
-const workflow: WorkflowStep[] = [
+const processSteps: ProcessStep[] = [
   {
     step: "01",
-    title: "Diagnóza",
+    title: "Analýza zdarma",
     description:
-      "Nejdřív rychle odhalím, kde utíkají peníze, důvěra nebo data. Bez omáčky, bez dlouhého onboardingu.",
+      "Rychle vytáhnu kritická místa, která dnes stojí obchod důvěru, data nebo objednávky.",
   },
   {
     step: "02",
-    title: "Akutní zásah",
+    title: "Návrh řešení",
     description:
-      "Srovnáme nejkritičtější místa: checkout, rychlost, obsah, měření, strukturu nebo UX bariéry.",
+      "Dostaneš srozumitelný plán priorit, aby bylo jasné, co opravit hned a co má největší dopad.",
   },
   {
     step: "03",
-    title: "Stabilizace a plán",
+    title: "Implementace",
     description:
-      "Dostaneš jasné priority, co nechat být, co opravit hned a co má největší dopad na další růst.",
+      "Zásah provedu bez zbytečné vaty, s důrazem na rychlost, čitelnost a reálnou konverzi.",
   },
 ];
 
@@ -124,13 +126,13 @@ const evidence: Evidence[] = [
     label: "Anonymizovaný zásah / PrestaShop",
     issue: "Rozpadlé měření a nepřesná data pro kampaně.",
     outcome:
-      "Srovnaný tracking, lepší orientace v výkonu a bezpečnější rozhodování nad rozpočtem.",
+      "Srovnaný tracking, lepší orientace ve výkonu a bezpečnější rozhodování nad rozpočtem.",
   },
   {
     label: "Anonymizovaný zásah / WooCommerce",
     issue: "SEO obsah existoval, ale nepracoval pro kategorii ani produkt.",
     outcome:
-      "Lepší informační architektura a obsahový rámec, který může růst spolu s obchodem.",
+      "Silnější informační architektura a obsahový rámec, který může růst spolu s obchodem.",
   },
 ];
 
@@ -147,13 +149,7 @@ const dashboardItems = [
   { label: "Tracking", score: "Missing events", tone: "blue" },
 ];
 
-const platformPills = [
-  "Shoptet",
-  "PrestaShop",
-  "WooCommerce",
-  "WordPress",
-  "Shopify",
-];
+const platformPills = ["Shoptet", "PrestaShop", "WooCommerce", "WordPress", "Shopify"];
 
 function ServiceIcon({ icon }: Pick<Service, "icon">) {
   const commonProps = {
@@ -209,7 +205,7 @@ function ServiceIcon({ icon }: Pick<Service, "icon">) {
 
 function DiagnosticPanel() {
   return (
-    <div className="mx-auto w-full max-w-[42rem]">
+    <div className="mx-auto w-full max-w-[42rem] lg:pt-6">
       <div className="mb-4 lg:hidden">
         <div className="float-card mb-3 w-fit rounded-2xl border border-red-500/35 bg-black/72 px-4 py-3 text-sm text-white/88 shadow-[0_0_0_1px_rgba(239,68,68,0.14),0_0_28px_rgba(239,68,68,0.18)] backdrop-blur">
           <p className="text-xs uppercase tracking-[0.24em] text-red-300/70">Urgent fix</p>
@@ -222,7 +218,7 @@ function DiagnosticPanel() {
         </div>
       </div>
 
-      <div className="relative mb-4 hidden h-[7.875rem] w-[27.75rem] max-w-full lg:ml-auto lg:block">
+      <div className="relative mb-5 hidden h-[7.75rem] w-[28rem] max-w-full lg:ml-auto lg:block">
         <div className="float-card absolute left-0 top-0 z-20 w-[15rem] rounded-2xl border border-red-500/35 bg-black/72 px-4 py-3 text-sm text-white/88 shadow-[0_0_0_1px_rgba(239,68,68,0.14),0_0_28px_rgba(239,68,68,0.18)] backdrop-blur">
           <p className="text-xs uppercase tracking-[0.24em] text-red-300/70">Urgent fix</p>
           <p className="mt-2 font-medium">Checkout friction detected</p>
@@ -239,20 +235,20 @@ function DiagnosticPanel() {
 
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="max-w-[18rem]">
-            <p className="text-xs uppercase tracking-[0.28em] text-white/35">
+            <p className="text-sm uppercase tracking-[0.28em] text-white/35">
               Diagnostický panel
             </p>
             <h2 className="mt-3 font-display text-3xl leading-tight text-white sm:text-[2.1rem]">
               Operační pohled na e-shop
             </h2>
           </div>
-          <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/62">
+          <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/62">
             Live audit mode
           </div>
         </div>
 
         <div className="mt-8 rounded-[1.6rem] border border-white/8 bg-[#091018]/90 p-5">
-          <div className="flex items-center justify-between text-xs uppercase tracking-[0.22em] text-white/35">
+          <div className="flex items-center justify-between text-sm uppercase tracking-[0.22em] text-white/35">
             <span>Pulse of the store</span>
             <span className="text-accent-green">Monitoring active</span>
           </div>
@@ -293,7 +289,7 @@ function DiagnosticPanel() {
                     : "border-accent-blue/20 bg-accent-blue/6"
                 }`}
               >
-                <p className="text-sm text-white/55">{item.label}</p>
+                <p className="text-base text-white/55">{item.label}</p>
                 <p className="mt-2 text-xl font-semibold text-white">{item.score}</p>
               </div>
             ))}
@@ -311,7 +307,7 @@ function ServiceCard({ title, price, description, icon }: Service) {
         <div className="glow-green flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-green/10 text-accent-green transition duration-300 group-hover:scale-105">
           <ServiceIcon icon={icon} />
         </div>
-        <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-sm text-white/62">
+        <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-base text-white/62">
           {price}
         </span>
       </div>
@@ -335,7 +331,7 @@ function SymptomCard({ title, description, tone }: Symptom) {
             tone === "green" ? "bg-accent-green" : "bg-accent-blue"
           }`}
         />
-        <p className="text-xs uppercase tracking-[0.24em] text-white/35">První nález</p>
+        <p className="text-sm uppercase tracking-[0.24em] text-white/35">První nález</p>
       </div>
       <h3 className="mt-5 text-2xl font-semibold text-white">{title}</h3>
       <p className="mt-4 text-base leading-7 text-white/60">{description}</p>
@@ -343,11 +339,11 @@ function SymptomCard({ title, description, tone }: Symptom) {
   );
 }
 
-function WorkflowCard({ step, title, description }: WorkflowStep) {
+function ProcessCard({ step, title, description }: ProcessStep) {
   return (
     <article className="panel rounded-[1.8rem] border border-white/8 p-6">
       <div className="flex items-center gap-4">
-        <span className="flex h-12 w-12 items-center justify-center rounded-full border border-accent-green/20 bg-accent-green/10 text-sm font-semibold text-accent-green">
+        <span className="flex h-12 w-12 items-center justify-center rounded-full border border-accent-green/20 bg-accent-green/10 text-base font-semibold text-accent-green">
           {step}
         </span>
         <h3 className="text-2xl font-semibold text-white">{title}</h3>
@@ -360,14 +356,14 @@ function WorkflowCard({ step, title, description }: WorkflowStep) {
 function EvidenceCard({ label, issue, outcome }: Evidence) {
   return (
     <article className="panel rounded-[1.8rem] border border-white/8 p-6">
-      <p className="text-xs uppercase tracking-[0.24em] text-white/35">{label}</p>
+      <p className="text-sm uppercase tracking-[0.24em] text-white/35">{label}</p>
       <div className="mt-5 space-y-4">
         <div>
-          <p className="text-sm text-white/42">Situace</p>
+          <p className="text-base text-white/42">Situace</p>
           <p className="mt-2 text-base leading-7 text-white/76">{issue}</p>
         </div>
         <div>
-          <p className="text-sm text-accent-green">Posun po zásahu</p>
+          <p className="text-base text-accent-green">Posun po zásahu</p>
           <p className="mt-2 text-base leading-7 text-white/76">{outcome}</p>
         </div>
       </div>
@@ -380,64 +376,36 @@ export default function Home() {
     <div id="top" className="relative overflow-hidden">
       <NetworkBackground />
 
-      <main className="relative z-10 pb-24">
-        <section className="mx-auto w-full max-w-7xl px-6 pb-18 pt-12 sm:px-10 lg:px-12 lg:pt-18">
-          <div className="mb-8 flex items-center justify-between">
-            <a
-              href="#top"
-              aria-label="Vrátit se nahoru"
-              className="group inline-flex items-center gap-4 rounded-2xl transition-opacity duration-200 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-green/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-            >
-              <span className="block shrink-0">
-                <Image
-                  src="/logo-mark.png"
-                  alt="E-shop Medic"
-                  width={72}
-                  height={72}
-                  className="block h-16 w-16 drop-shadow-[0_14px_28px_rgba(0,0,0,0.5)] drop-shadow-[0_0_18px_rgba(16,240,160,0.16)] sm:h-20 sm:w-20"
-                  priority
-                />
-              </span>
-              <div>
-                <p className="text-xs uppercase tracking-[0.24em] text-white/35">
-                  E-shop Medic
-                </p>
-                <p className="mt-1 text-sm text-white/60">
-                  Diagnostika, stabilizace a rychlý zásah pro e-shopy
-                </p>
-              </div>
-            </a>
-
-          </div>
-
-          <div className="grid items-start gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12 xl:grid-cols-[1.12fr_0.88fr]">
+      <main className="relative z-10 pb-24 pt-6 md:pt-10">
+        <section className="mx-auto w-full max-w-7xl px-6 pb-20 sm:px-10 lg:px-12">
+          <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.03fr)_minmax(22rem,0.97fr)] lg:gap-12 xl:grid-cols-[minmax(0,1.06fr)_minmax(24rem,0.94fr)]">
             <div className="max-w-none lg:pr-4 xl:pr-8">
-              <div className="glow-blue inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70">
+              <div className="glow-blue inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-base text-white/70">
                 <span className="h-2.5 w-2.5 rounded-full bg-accent-green" />
                 Akutní diagnostika e-shopů do 24 hodin
               </div>
 
-              <p className="mt-8 text-sm font-semibold uppercase tracking-[0.3em] text-white/34">
+              <p className="mt-8 text-base font-semibold uppercase tracking-[0.3em] text-white/34">
                 E-shop Medic
               </p>
-              <h1 className="mt-5 max-w-none font-display text-5xl leading-[0.9] tracking-tight text-white sm:text-6xl lg:text-[4.6rem] xl:text-[5.15rem]">
+              <h1 className="mt-5 max-w-[11ch] font-display text-5xl leading-[0.92] tracking-tight text-white sm:text-6xl lg:text-[4.65rem] xl:text-[5rem]">
                 Když e-shop krvácí výkonem, nestačí hezký text. Potřebuje zásah.
               </h1>
-              <p className="mt-6 text-xl font-semibold text-accent-green sm:text-2xl">
+              <p className="mt-6 max-w-3xl text-xl font-semibold text-accent-green sm:text-2xl">
                 Technický audit, UX diagnostika a rychlá stabilizace pro e-shopy, které mají
                 potenciál, ale ztrácejí peníze v tichosti.
               </p>
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/62 sm:text-lg">
                 Řeším situace, kdy traffic stojí peníze, ale checkout drhne, data lžou, SEO
-                nepomáhá a důvěra je slabší, než by měla být. Nejdřív najdeme kritické místo,
-                pak opravíme to, co má největší dopad.
+                nepomáhá a důvěra je slabší, než by měla být. Nejdřív najdeme kritické místo, pak
+                opravíme to, co má největší dopad.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
                 {platformPills.map((platform) => (
                   <span
                     key={platform}
-                    className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/72"
+                    className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/72"
                   >
                     {platform}
                   </span>
@@ -450,9 +418,12 @@ export default function Home() {
 
               <div className="mt-10 grid gap-4 sm:grid-cols-3">
                 {metrics.map((item) => (
-                  <div key={item.value} className="panel rounded-[1.4rem] border border-white/8 px-5 py-5">
+                  <div
+                    key={item.value}
+                    className="panel rounded-[1.4rem] border border-white/8 px-5 py-5"
+                  >
                     <p className="text-2xl font-semibold text-white">{item.value}</p>
-                    <p className="mt-2 text-sm leading-6 text-white/48">{item.label}</p>
+                    <p className="mt-2 text-base leading-6 text-white/48">{item.label}</p>
                   </div>
                 ))}
               </div>
@@ -463,8 +434,53 @@ export default function Home() {
         </section>
 
         <section className="mx-auto w-full max-w-7xl px-6 pb-24 sm:px-10 lg:px-12">
+          <div className="panel rounded-[2rem] border border-white/10 px-6 py-8 sm:px-8 sm:py-10">
+            <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+              <div className="flex items-start gap-4">
+                <Image
+                  src="/logo-mark.png"
+                  alt="Witdesign"
+                  width={80}
+                  height={80}
+                  className="mt-1 h-16 w-16 shrink-0 drop-shadow-[0_0_18px_rgba(16,240,160,0.16)]"
+                />
+                <div>
+                  <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
+                    Studio / přímý kontakt
+                  </p>
+                  <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">
+                    Bez přeposílání mezi accounty. Zásah držím osobně.
+                  </h2>
+                </div>
+              </div>
+
+              <div className="space-y-5 text-base leading-8 text-white/66">
+                <p>
+                  Když e-shop zlobí, nechceš čekat na kolečko mezi projektovým manažerem, vývojem a
+                  marketingem. Potřebuješ člověka, který problém rychle najde, srozumitelně popíše a
+                  dovede ho do opravy.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href={siteConfig.contact.emailHref}
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/78 transition hover:border-accent-blue/35 hover:text-white"
+                  >
+                    <MailIcon className="h-4 w-4" />
+                    {siteConfig.contact.email}
+                  </a>
+                  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/60">
+                    <PinIcon className="h-4 w-4" />
+                    {siteConfig.contact.location}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto w-full max-w-7xl px-6 pb-24 sm:px-10 lg:px-12">
           <div className="mb-10 max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/35">
+            <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
               Kdy volat medika
             </p>
             <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
@@ -482,7 +498,7 @@ export default function Home() {
         <section id="sluzby" className="mx-auto w-full max-w-7xl px-6 pb-24 sm:px-10 lg:px-12">
           <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/35">
+              <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
                 Služby
               </p>
               <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
@@ -502,21 +518,21 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mx-auto w-full max-w-7xl px-6 pb-24 sm:px-10 lg:px-12">
+        <section id="proces" className="mx-auto w-full max-w-7xl px-6 pb-24 sm:px-10 lg:px-12">
           <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="panel-strong rounded-[2rem] border border-white/10 px-6 py-8 sm:px-8 sm:py-10">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/35">
-                Jak zásah probíhá
+              <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
+                Jak to probíhá
               </p>
               <div className="mt-8 grid gap-4">
-                {workflow.map((item) => (
-                  <WorkflowCard key={item.step} {...item} />
+                {processSteps.map((item) => (
+                  <ProcessCard key={item.step} {...item} />
                 ))}
               </div>
             </div>
 
             <div className="panel rounded-[2rem] border border-white/10 px-6 py-8 sm:px-8 sm:py-10">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/35">
+              <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
                 Co dostaneš do ruky
               </p>
               <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">
@@ -546,7 +562,7 @@ export default function Home() {
 
         <section className="mx-auto w-full max-w-7xl px-6 pb-24 sm:px-10 lg:px-12">
           <div className="mb-10 max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/35">
+            <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
               Důvěra bez přikrášlování
             </p>
             <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
@@ -561,14 +577,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          id="kontakt"
-          className="mx-auto w-full max-w-7xl px-6 sm:px-10 lg:px-12"
-        >
+        <section id="kontakt" className="mx-auto w-full max-w-7xl px-6 sm:px-10 lg:px-12">
           <div className="panel-strong rounded-[2.2rem] border border-white/10 px-6 py-10 sm:px-10 sm:py-14">
             <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/35">
+                <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
                   Nezávazná analýza
                 </p>
                 <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
