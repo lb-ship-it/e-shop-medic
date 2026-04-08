@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import type { ReactNode } from "react";
 import { CheckoutButton } from "@/components/checkout-button";
 import { LeadCaptureForm } from "@/components/lead-capture-form";
@@ -40,83 +40,83 @@ type Evidence = {
 
 const services: Service[] = [
   {
-    title: "Rychlý audit",
-    price: "1 500 Kč",
+    title: "RychlĂ˝ audit",
+    price: "1 500 KÄŤ",
     description:
-      "Do 24 hodin dostaneš jasný seznam největších úniků, priorit a doporučených zásahů.",
+      "Do 24 hodin dostaneĹˇ jasnĂ˝ seznam nejvÄ›tĹˇĂ­ch ĂşnikĹŻ, priorit a doporuÄŤenĂ˝ch zĂˇsahĹŻ.",
     icon: "audit",
     cta: {
-      label: "CHCI RYCHLÝ AUDIT",
+      label: "CHCI RYCHLĂť AUDIT",
       href: siteConfig.payments.expressAuditHref,
-      note: "Expresní rezervace a platba bezpečně přes Stripe.",
+      note: "ExpresnĂ­ rezervace a platba bezpeÄŤnÄ› pĹ™es Stripe.",
       tone: "yellow",
     },
   },
   {
     title: "SOS oprava",
-    price: "3 500 Kč",
+    price: "3 500 KÄŤ",
     description:
-      "Akutní zásah, když se rozpadá checkout, měření, šablona nebo klíčová část funnelu.",
+      "AkutnĂ­ zĂˇsah, kdyĹľ se rozpadĂˇ checkout, mÄ›Ĺ™enĂ­, Ĺˇablona nebo klĂ­ÄŤovĂˇ ÄŤĂˇst funnelu.",
     icon: "fix",
     cta: {
       label: "CHCI SOS OPRAVU",
       href: siteConfig.payments.sosRepairHref,
-      note: "Akutní rezervace a platba bezpečně přes Stripe.",
+      note: "AkutnĂ­ rezervace a platba bezpeÄŤnÄ› pĹ™es Stripe.",
       tone: "yellow",
     },
   },
   {
     title: "SEO optimalizace",
-    price: "od 6 500 Kč",
+    price: "od 6 500 KÄŤ",
     description:
-      "Technická i obsahová hygiena, aby e-shop nestál jen na placené návštěvnosti.",
+      "TechnickĂˇ i obsahovĂˇ hygiena, aby e-shop nestĂˇl jen na placenĂ© nĂˇvĹˇtÄ›vnosti.",
     icon: "seo",
     cta: {
       label: "CHCI SEO OPTIMALIZACI",
       href: siteConfig.payments.seoOptimizationHref,
-      note: "Přímá rezervace a platba bezpečně přes Stripe.",
+      note: "PĹ™Ă­mĂˇ rezervace a platba bezpeÄŤnÄ› pĹ™es Stripe.",
       tone: "yellow",
     },
   },
   {
     title: "Konzultace",
-    price: "900 Kč / hod",
+    price: "900 KÄŤ / hod",
     description:
-      "Rychlé rozhodnutí nad UX, akvizicí, platformou, prioritami a dalším postupem.",
+      "RychlĂ© rozhodnutĂ­ nad UX, akvizicĂ­, platformou, prioritami a dalĹˇĂ­m postupem.",
     icon: "consulting",
   },
   {
-    title: "Kompletní restart",
-    price: "od 15 000 Kč",
+    title: "KompletnĂ­ restart",
+    price: "od 15 000 KÄŤ",
     description:
-      "Když je potřeba srovnat design, strukturu, obsah i technický základ do jednoho směru.",
+      "KdyĹľ je potĹ™eba srovnat design, strukturu, obsah i technickĂ˝ zĂˇklad do jednoho smÄ›ru.",
     icon: "restart",
   },
 ];
 
 const symptoms: Symptom[] = [
   {
-    title: "Návštěvnost stojí peníze, ale nevydělává",
+    title: "NĂˇvĹˇtÄ›vnost stojĂ­ penĂ­ze, ale nevydÄ›lĂˇvĂˇ",
     description:
-      "Reklamy běží, rozpočet mizí, ale landing nebo košík nedokáže návštěvu proměnit v objednávku.",
+      "Reklamy bÄ›ĹľĂ­, rozpoÄŤet mizĂ­, ale landing nebo koĹˇĂ­k nedokĂˇĹľe nĂˇvĹˇtÄ›vu promÄ›nit v objednĂˇvku.",
     tone: "green",
   },
   {
-    title: "Měření vypadá dobře, realita bolí",
+    title: "MÄ›Ĺ™enĂ­ vypadĂˇ dobĹ™e, realita bolĂ­",
     description:
-      "GA4, pixel nebo eventy lžou, takže rozhoduješ podle neúplných nebo chybných dat.",
+      "GA4, pixel nebo eventy lĹľou, takĹľe rozhodujeĹˇ podle neĂşplnĂ˝ch nebo chybnĂ˝ch dat.",
     tone: "blue",
   },
   {
-    title: "Technický dluh brzdí růst",
+    title: "TechnickĂ˝ dluh brzdĂ­ rĹŻst",
     description:
-      "Pomalé načítání, rozbitý mobil, šablonové chyby nebo pluginový chaos ničí důvěru i výkon.",
+      "PomalĂ© naÄŤĂ­tĂˇnĂ­, rozbitĂ˝ mobil, ĹˇablonovĂ© chyby nebo pluginovĂ˝ chaos niÄŤĂ­ dĹŻvÄ›ru i vĂ˝kon.",
     tone: "green",
   },
   {
-    title: "SEO a obsah nemají jasnou strukturu",
+    title: "SEO a obsah nemajĂ­ jasnou strukturu",
     description:
-      "Kategorie, produktové stránky a interní navigace nepracují pro organický růst, jen zabírají prostor.",
+      "Kategorie, produktovĂ© strĂˇnky a internĂ­ navigace nepracujĂ­ pro organickĂ˝ rĹŻst, jen zabĂ­rajĂ­ prostor.",
     tone: "blue",
   },
 ];
@@ -124,60 +124,59 @@ const symptoms: Symptom[] = [
 const processSteps: ProcessStep[] = [
   {
     step: "01",
-    title: "Analýza zdarma",
+    title: "AnalĂ˝za zdarma",
     description:
-      "Rychle vytáhnu kritická místa, která dnes stojí obchod důvěru, data nebo objednávky.",
+      "Rychle vytĂˇhnu kritickĂˇ mĂ­sta, kterĂˇ dnes stojĂ­ obchod dĹŻvÄ›ru, data nebo objednĂˇvky.",
   },
   {
     step: "02",
-    title: "Návrh řešení",
+    title: "NĂˇvrh Ĺ™eĹˇenĂ­",
     description:
-      "Dostaneš srozumitelný plán priorit, aby bylo jasné, co opravit hned a co má největší dopad.",
+      "DostaneĹˇ srozumitelnĂ˝ plĂˇn priorit, aby bylo jasnĂ©, co opravit hned a co mĂˇ nejvÄ›tĹˇĂ­ dopad.",
   },
   {
     step: "03",
     title: "Implementace",
     description:
-      "Zásah provedu bez zbytečné vaty, s důrazem na rychlost, čitelnost a reálnou konverzi.",
+      "ZĂˇsah provedu bez zbyteÄŤnĂ© vaty, s dĹŻrazem na rychlost, ÄŤitelnost a reĂˇlnou konverzi.",
   },
 ];
 
 const evidence: Evidence[] = [
   {
-    label: "Anonymizovaný zásah / Shoptet",
-    issue: "Nejasný produktový detail a slabý mobilní nákupní tok.",
+    label: "AnonymizovanĂ˝ zĂˇsah / Shoptet",
+    issue: "NejasnĂ˝ produktovĂ˝ detail a slabĂ˝ mobilnĂ­ nĂˇkupnĂ­ tok.",
     outcome:
-      "Jasnější CTA, čistší struktura a rychlejší cesta k první objednávce bez kompletního rebrandu.",
+      "JasnÄ›jĹˇĂ­ CTA, ÄŤistĹˇĂ­ struktura a rychlejĹˇĂ­ cesta k prvnĂ­ objednĂˇvce bez kompletnĂ­ho rebrandu.",
   },
   {
-    label: "Anonymizovaný zásah / PrestaShop",
-    issue: "Rozpadlé měření a nepřesná data pro kampaně.",
+    label: "AnonymizovanĂ˝ zĂˇsah / PrestaShop",
+    issue: "RozpadlĂ© mÄ›Ĺ™enĂ­ a nepĹ™esnĂˇ data pro kampanÄ›.",
     outcome:
-      "Srovnaný tracking, lepší orientace ve výkonu a bezpečnější rozhodování nad rozpočtem.",
+      "SrovnanĂ˝ tracking, lepĹˇĂ­ orientace ve vĂ˝konu a bezpeÄŤnÄ›jĹˇĂ­ rozhodovĂˇnĂ­ nad rozpoÄŤtem.",
   },
   {
-    label: "Anonymizovaný zásah / WooCommerce",
+    label: "AnonymizovanĂ˝ zĂˇsah / WooCommerce",
     issue: "SEO obsah existoval, ale nepracoval pro kategorii ani produkt.",
     outcome:
-      "Silnější informační architektura a obsahový rámec, který může růst spolu s obchodem.",
+      "SilnÄ›jĹˇĂ­ informaÄŤnĂ­ architektura a obsahovĂ˝ rĂˇmec, kterĂ˝ mĹŻĹľe rĹŻst spolu s obchodem.",
   },
 ];
 
 const metrics = [
-  { value: "24 h", label: "na první diagnostiku" },
-  { value: "5 platforem", label: "které řeším nejčastěji" },
-  { value: "Akutní režim", label: "když je problém teď" },
+  { value: "24 h", label: "na prvnĂ­ diagnostiku" },
+  { value: "5 platforem", label: "kterĂ© Ĺ™eĹˇĂ­m nejÄŤastÄ›ji" },
+  { value: "AkutnĂ­ reĹľim", label: "kdyĹľ je problĂ©m teÄŹ" },
 ];
 
 const dashboardItems = [
   { label: "Checkout flow", score: "68 / 100", tone: "green" },
   { label: "SEO hygiena", score: "41 / 100", tone: "blue" },
-  { label: "Rychlost načtení", score: "2.8 s", tone: "green" },
+  { label: "Rychlost naÄŤtenĂ­", score: "2.8 s", tone: "green" },
   { label: "Tracking", score: "Missing events", tone: "blue" },
 ];
 
 const platformPills = ["Shoptet", "PrestaShop", "WooCommerce", "WordPress", "Shopify"];
-const heroPlatformHighlights = platformPills.slice(0, 3);
 const featuredSymptoms = symptoms.slice(0, 2);
 const extraSymptoms = symptoms.slice(2);
 const featuredServices = services.slice(0, 3);
@@ -330,10 +329,10 @@ function DiagnosticPanel() {
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="max-w-[18rem]">
             <p className="text-sm uppercase tracking-[0.28em] text-white/35">
-              Diagnostický panel
+              DiagnostickĂ˝ panel
             </p>
             <h2 className="mt-3 font-display text-3xl font-semibold leading-tight tracking-[-0.03em] text-white sm:text-[2.1rem]">
-              Operační pohled na e-shop
+              OperaÄŤnĂ­ pohled na e-shop
             </h2>
           </div>
           <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/62">
@@ -441,7 +440,7 @@ function SymptomCard({ title, description, tone }: Symptom) {
             tone === "green" ? "bg-accent-green" : "bg-accent-blue"
           }`}
         />
-        <p className="text-sm uppercase tracking-[0.24em] text-white/35">První nález</p>
+        <p className="text-sm uppercase tracking-[0.24em] text-white/35">PrvnĂ­ nĂˇlez</p>
       </div>
       <h3 className="mt-5 text-2xl font-semibold text-white">{title}</h3>
       <p className="mt-4 text-base leading-7 text-white/60">{description}</p>
@@ -473,7 +472,7 @@ function EvidenceCard({ label, issue, outcome }: Evidence) {
           <p className="mt-2 text-base leading-7 text-white/76">{issue}</p>
         </div>
         <div>
-          <p className="text-base text-accent-green">Posun po zásahu</p>
+          <p className="text-base text-accent-green">Posun po zĂˇsahu</p>
           <p className="mt-2 text-base leading-7 text-white/76">{outcome}</p>
         </div>
       </div>
@@ -492,31 +491,31 @@ export default function Home() {
             <div className="max-w-none lg:pr-4 xl:pr-8">
               <div className="glow-blue inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-white/70">
                 <span className="h-2.5 w-2.5 rounded-full bg-accent-green" />
-                Akutní diagnostika e-shopů do 24 hodin
+                AkutnĂ­ diagnostika e-shopĹŻ do 24 hodin
               </div>
 
               <p className="mt-8 text-base font-semibold uppercase tracking-[0.3em] text-white/34">
                 E-shop Medic
               </p>
               <h1 className="mt-5 max-w-[11ch] font-display text-4xl font-semibold leading-[1.06] tracking-[-0.04em] text-white sm:text-[3rem] sm:leading-[1.02] lg:text-[3.5rem] lg:leading-[0.99] xl:text-[3.85rem]">
-                Když e-shop krvácí výkonem, nestačí hezký text. Potřebuje zásah.
+                KdyĹľ e-shop krvĂˇcĂ­ vĂ˝konem, nestaÄŤĂ­ hezkĂ˝ text. PotĹ™ebuje zĂˇsah.
               </h1>
               <p className="mt-6 max-w-3xl text-xl font-semibold text-accent-green sm:text-2xl">
-                Technický audit, UX diagnostika a rychlá stabilizace pro e-shopy, které mají
-                potenciál, ale ztrácejí peníze v tichosti.
+                TechnickĂ˝ audit, UX diagnostika a rychlĂˇ stabilizace pro e-shopy, kterĂ© majĂ­
+                potenciĂˇl, ale ztrĂˇcejĂ­ penĂ­ze v tichosti.
               </p>
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/62 sm:text-lg">
-                Řeším situace, kdy traffic stojí peníze, ale checkout drhne, data lžou, SEO
-                nepomáhá a důvěra je slabší, než by měla být. Nejdřív najdeme kritické místo, pak
-                opravíme to, co má největší dopad.
+                ĹeĹˇĂ­m situace, kdy traffic stojĂ­ penĂ­ze, ale checkout drhne, data lĹľou, SEO
+                nepomĂˇhĂˇ a dĹŻvÄ›ra je slabĹˇĂ­, neĹľ by mÄ›la bĂ˝t. NejdĹ™Ă­v najdeme kritickĂ© mĂ­sto, pak
+                opravĂ­me to, co mĂˇ nejvÄ›tĹˇĂ­ dopad.
               </p>
 
               <div className="mt-8 grid gap-4 xl:grid-cols-2">
                 <AuditOptionCard
                   eyebrow="Varianta A / Free"
                   title="Audit zdarma"
-                  description="Omezený vstupní rozsah pro první orientaci, když nechceš řešit problém naslepo."
-                  note="Čekací doba 3–5 dní, omezený rozsah."
+                  description="OmezenĂ˝ vstupnĂ­ rozsah pro prvnĂ­ orientaci, kdyĹľ nechceĹˇ Ĺ™eĹˇit problĂ©m naslepo."
+                  note="ÄŚekacĂ­ doba 3â€“5 dnĂ­, omezenĂ˝ rozsah."
                   accent="green"
                 >
                   <a
@@ -525,91 +524,110 @@ export default function Home() {
                   >
                     AUDIT ZDARMA
                   </a>
-                  <p className="mt-3 text-sm text-white/48">Zbývají 3 místa v pomalejším režimu.</p>
+                  <p className="mt-3 text-sm text-white/48">ZbĂ˝vajĂ­ 3 mĂ­sta v pomalejĹˇĂ­m reĹľimu.</p>
                 </AuditOptionCard>
 
                 <AuditOptionCard
                   eyebrow="Varianta B / Paid"
                   title="Express Medic Audit"
-                  description="Placená priorita pro e-shopy, kde je problém dražší než čekání."
-                  note="Garance do 24 hodin, hloubková analýza + 15min konzultace."
+                  description="PlacenĂˇ priorita pro e-shopy, kde je problĂ©m draĹľĹˇĂ­ neĹľ ÄŤekĂˇnĂ­."
+                  note="Garance do 24 hodin, hloubkovĂˇ analĂ˝za + 15min konzultace."
                   accent="yellow"
                 >
                   <CheckoutButton
-                    label="CHCI EXPRESS AUDIT DO 24 HODIN (1 500 Kč)"
+                    label="CHCI EXPRESS AUDIT DO 24 HODIN (1 500 KÄŤ)"
                     className="w-full justify-center rounded-xl bg-[#ffdd00] px-4 py-3 text-center text-sm font-bold text-black shadow-[0_18px_42px_rgba(255,221,0,0.18)] hover:bg-[#ffe44d]"
                   />
-                  <p className="mt-3 text-sm text-white/48">Platba probíhá bezpečně přes Stripe.</p>
+                  <p className="mt-3 text-sm text-white/48">Platba probĂ­hĂˇ bezpeÄŤnÄ› pĹ™es Stripe.</p>
                 </AuditOptionCard>
               </div>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                {heroPlatformHighlights.map((platform) => (
-                  <span
-                    key={platform}
-                    className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/72"
-                  >
-                    {platform}
-                  </span>
-                ))}
-                <span className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/52">
-                  + další platformy
-                </span>
-              </div>
-
-              <MoreDetails label="Více o zásahu">
-                <div className="grid gap-4 sm:grid-cols-3">
-                  {metrics.map((item) => (
-                    <div
-                      key={item.value}
-                      className="panel rounded-[1.4rem] border border-white/8 px-5 py-5"
-                    >
-                      <p className="text-2xl font-semibold text-white">{item.value}</p>
-                      <p className="mt-2 text-base leading-6 text-white/48">{item.label}</p>
+              <div className="panel mt-10 rounded-[2rem] border border-white/10 px-5 py-6 sm:px-6 sm:py-7">
+                <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">
+                      Kde a jak zasahuju
+                    </p>
+                    <h3 className="mt-3 max-w-xl text-2xl font-semibold text-white sm:text-[2rem]">
+                      Nejčastěji Shoptet, PrestaShop, WooCommerce, WordPress a Shopify.
+                    </h3>
+                    <p className="mt-4 max-w-xl text-base leading-7 text-white/62">
+                      Tohle jsou prostředí, kde nejčastěji hledám, kudy utíkají objednávky, data
+                      nebo důvěra v prvních vteřinách. Není to dekorace, ale rychlá orientace,
+                      v čem se typicky pohybuju.
+                    </p>
+                    <div className="mt-5 flex flex-wrap gap-2.5">
+                      {platformPills.map((platform) => (
+                        <span
+                          key={platform}
+                          className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/72"
+                        >
+                          {platform}
+                        </span>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  </div>
 
-                <div className="panel mt-5 rounded-[1.8rem] border border-white/10 px-5 py-5">
-                  <div className="flex items-start gap-4">
-                    <Image
-                      src="/logo-mark.png"
-                      alt="Witdesign"
-                      width={72}
-                      height={72}
-                      className="mt-1 h-14 w-14 shrink-0 drop-shadow-[0_0_18px_rgba(16,240,160,0.16)]"
-                    />
-                    <div className="space-y-4">
-                      <div>
-                        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">
-                          Studio / přímý kontakt
-                        </p>
-                        <p className="mt-2 text-2xl font-semibold text-white">
-                          Bez přeposílání mezi accounty. Zásah držím osobně.
-                        </p>
-                      </div>
-                      <p className="max-w-2xl text-base leading-7 text-white/62">
-                        Když e-shop zlobí, nechceš čekat na kolečko mezi projektovým manažerem,
-                        vývojem a marketingem. Potřebuješ člověka, který problém rychle najde a
-                        dovede ho do opravy.
+                  <div className="space-y-5">
+                    <div>
+                      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">
+                        Co čekat po prvním kontaktu
                       </p>
-                      <div className="flex flex-wrap gap-3">
-                        <ProtectedEmailLink
-                          ariaLabel="Poslat e-mail"
-                          fallbackText="Zobrazit e-mail"
-                          showAddress
-                          className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/78 transition hover:border-accent-blue/35 hover:text-white"
-                          prefix={<MailIcon className="h-4 w-4" />}
+                      <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                        {metrics.map((item) => (
+                          <div
+                            key={item.value}
+                            className="rounded-[1.35rem] border border-white/8 bg-white/[0.03] px-4 py-4"
+                          >
+                            <p className="text-2xl font-semibold text-white">{item.value}</p>
+                            <p className="mt-2 text-sm leading-6 text-white/48">{item.label}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="rounded-[1.6rem] border border-white/8 bg-white/[0.03] px-5 py-5">
+                      <div className="flex items-start gap-4">
+                        <Image
+                          src="/logo-mark.png"
+                          alt="Witdesign"
+                          width={72}
+                          height={72}
+                          className="mt-1 h-12 w-12 shrink-0 drop-shadow-[0_0_18px_rgba(16,240,160,0.16)]"
                         />
-                        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/60">
-                          <PinIcon className="h-4 w-4" />
-                          {siteConfig.contact.location}
+                        <div className="space-y-4">
+                          <div>
+                            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">
+                              Studio / přímý kontakt
+                            </p>
+                            <p className="mt-2 text-2xl font-semibold text-white">
+                              Bez přeposílání mezi accounty. Zásah držím osobně.
+                            </p>
+                          </div>
+                          <p className="max-w-2xl text-base leading-7 text-white/62">
+                            Když e-shop zlobí, nechceš čekat na kolečko mezi projektovým
+                            manažerem, vývojem a marketingem. Potřebuješ člověka, který problém
+                            rychle najde a dovede ho do opravy.
+                          </p>
+                          <div className="flex flex-wrap gap-3">
+                            <ProtectedEmailLink
+                              ariaLabel="Poslat e-mail"
+                              fallbackText="Zobrazit e-mail"
+                              showAddress
+                              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/78 transition hover:border-accent-blue/35 hover:text-white"
+                              prefix={<MailIcon className="h-4 w-4" />}
+                            />
+                            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/60">
+                              <PinIcon className="h-4 w-4" />
+                              {siteConfig.contact.location}
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </MoreDetails>
+              </div>
             </div>
 
             <DiagnosticPanel />
@@ -622,7 +640,7 @@ export default function Home() {
               Kdy volat medika
             </p>
             <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              Tohle jsou symptomy, které obvykle najdu během prvních 15 minut.
+              Tohle jsou symptomy, kterĂ© obvykle najdu bÄ›hem prvnĂ­ch 15 minut.
             </h2>
           </div>
 
@@ -633,7 +651,7 @@ export default function Home() {
           </div>
 
           {extraSymptoms.length > 0 ? (
-            <MoreDetails label="Více symptomů">
+            <MoreDetails label="VĂ­ce symptomĹŻ">
               <div className="grid gap-5 md:grid-cols-2">
                 {extraSymptoms.map((symptom) => (
                   <SymptomCard key={symptom.title} {...symptom} />
@@ -647,15 +665,15 @@ export default function Home() {
           <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
               <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
-                Služby
+                SluĹľby
               </p>
               <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-                Zásahy od rychlé první pomoci po kompletní restart.
+                ZĂˇsahy od rychlĂ© prvnĂ­ pomoci po kompletnĂ­ restart.
               </h2>
             </div>
             <p className="max-w-xl text-base leading-7 text-white/55">
-              Každá služba míří na jiný typ bolesti. Někdy stačí přesná diagnóza, jindy je potřeba
-              akutní technický zásah nebo srovnání celé prezentace obchodu.
+              KaĹľdĂˇ sluĹľba mĂ­Ĺ™Ă­ na jinĂ˝ typ bolesti. NÄ›kdy staÄŤĂ­ pĹ™esnĂˇ diagnĂłza, jindy je potĹ™eba
+              akutnĂ­ technickĂ˝ zĂˇsah nebo srovnĂˇnĂ­ celĂ© prezentace obchodu.
             </p>
           </div>
 
@@ -666,7 +684,7 @@ export default function Home() {
           </div>
 
           {extraServices.length > 0 ? (
-            <MoreDetails label="Další služby">
+            <MoreDetails label="DalĹˇĂ­ sluĹľby">
               <div className="grid gap-5 lg:grid-cols-2">
                 {extraServices.map((service) => (
                   <ServiceCard key={service.title} {...service} />
@@ -680,7 +698,7 @@ export default function Home() {
           <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="panel-strong rounded-[2rem] border border-white/10 px-6 py-8 sm:px-8 sm:py-10">
               <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
-                Jak to probíhá
+                Jak to probĂ­hĂˇ
               </p>
               <div className="mt-8 grid gap-4">
                 {processSteps.map((item) => (
@@ -691,17 +709,17 @@ export default function Home() {
 
             <div className="panel rounded-[2rem] border border-white/10 px-6 py-8 sm:px-8 sm:py-10">
               <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
-                Co dostaneš do ruky
+                Co dostaneĹˇ do ruky
               </p>
               <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">
-                Ne pocit. Konkrétní orientaci.
+                Ne pocit. KonkrĂ©tnĂ­ orientaci.
               </h2>
               <div className="mt-8 space-y-4">
                 {[
-                  "Prioritizovaný seznam problémů od kritických po kosmetické.",
-                  "Jasné doporučení, co opravit hned a co může počkat.",
-                  "Směr pro design, UX, obsah i technickou hygienu.",
-                  "Kontext, proč problém vzniká a kde přesně bolí výkon obchodu.",
+                  "PrioritizovanĂ˝ seznam problĂ©mĹŻ od kritickĂ˝ch po kosmetickĂ©.",
+                  "JasnĂ© doporuÄŤenĂ­, co opravit hned a co mĹŻĹľe poÄŤkat.",
+                  "SmÄ›r pro design, UX, obsah i technickou hygienu.",
+                  "Kontext, proÄŤ problĂ©m vznikĂˇ a kde pĹ™esnÄ› bolĂ­ vĂ˝kon obchodu.",
                 ].map((item) => (
                   <div
                     key={item}
@@ -721,10 +739,10 @@ export default function Home() {
         <section className="mx-auto w-full max-w-7xl px-6 pb-16 sm:px-10 lg:px-12">
           <div className="mb-10 max-w-3xl">
             <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
-              Důvěra bez přikrášlování
+              DĹŻvÄ›ra bez pĹ™ikrĂˇĹˇlovĂˇnĂ­
             </p>
             <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              Typické situace, které řeším v anonymizované podobě.
+              TypickĂ© situace, kterĂ© Ĺ™eĹˇĂ­m v anonymizovanĂ© podobÄ›.
             </h2>
           </div>
 
@@ -735,7 +753,7 @@ export default function Home() {
           </div>
 
           {extraEvidence.length > 0 ? (
-            <MoreDetails label="Více ukázek">
+            <MoreDetails label="VĂ­ce ukĂˇzek">
               <div className="grid gap-5 lg:grid-cols-2">
                 {extraEvidence.map((item) => (
                   <EvidenceCard key={item.label} {...item} />
@@ -750,14 +768,14 @@ export default function Home() {
             <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
               <div>
                 <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
-                  Nezávazná analýza
+                  NezĂˇvaznĂˇ analĂ˝za
                 </p>
                 <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-                  První dojem z webu musí působit jistě. Stejně jako první zásah.
+                  PrvnĂ­ dojem z webu musĂ­ pĹŻsobit jistÄ›. StejnÄ› jako prvnĂ­ zĂˇsah.
                 </h2>
                 <p className="mt-5 max-w-xl text-base leading-8 text-white/58 sm:text-lg">
-                  Pošli URL svého e-shopu. Podívám se na technický stav, UX tření i první dojem a
-                  vrátím ti rychlou orientaci, kde obchod ztrácí nejvíc.
+                  PoĹˇli URL svĂ©ho e-shopu. PodĂ­vĂˇm se na technickĂ˝ stav, UX tĹ™enĂ­ i prvnĂ­ dojem a
+                  vrĂˇtĂ­m ti rychlou orientaci, kde obchod ztrĂˇcĂ­ nejvĂ­c.
                 </p>
               </div>
 
@@ -771,11 +789,11 @@ export default function Home() {
                       Varianta A / zdarma
                     </p>
                     <p className="mt-2 text-lg font-semibold text-white">
-                      Audit zdarma s čekací dobou 3–5 dní
+                      Audit zdarma s ÄŤekacĂ­ dobou 3â€“5 dnĂ­
                     </p>
                   </div>
                   <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/58">
-                    Omezený rozsah
+                    OmezenĂ˝ rozsah
                   </div>
                 </div>
                 <LeadCaptureForm />
