@@ -464,6 +464,7 @@ export default function Home() {
                     label="CHCI EXPRESS AUDIT DO 24 HODIN (1 500 Kč)"
                     className="w-full justify-center rounded-2xl bg-[#ffdd00] px-5 py-4 text-center text-base font-bold text-black shadow-[0_18px_42px_rgba(255,221,0,0.18)] hover:bg-[#ffe44d]"
                   />
+                  <p className="mt-3 text-sm text-white/48">Platba probíhá bezpečně přes Stripe.</p>
                 </AuditOptionCard>
               </div>
 

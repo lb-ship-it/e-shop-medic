@@ -22,6 +22,9 @@ export const siteConfig = {
     // Confirm before treating this as final legal data.
     ico: "65816382",
   },
+  payments: {
+    expressAuditHref: "https://buy.stripe.com/fZu8wR7VR6Q38vb6912VG00",
+  },
   legal: {
     privacyHref: "/gdpr",
     termsHref: "/vop",

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import { siteConfig } from "@/lib/site-config";
 
 type CheckoutButtonProps = {
   className?: string;
@@ -21,8 +22,15 @@ export function CheckoutButton({
     .filter(Boolean)
     .join(" ");
 
+  const directCheckoutHref = siteConfig.payments.expressAuditHref;
+
   const handleCheckout = () => {
     setError(null);
+
+    if (directCheckoutHref) {
+      window.location.assign(directCheckoutHref);
+      return;
+    }
 
     startTransition(async () => {
       try {
