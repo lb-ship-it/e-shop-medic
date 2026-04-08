@@ -113,8 +113,11 @@ export function SiteFooter() {
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-6 py-5 text-sm text-white/52 sm:px-10 lg:flex-row lg:items-center lg:justify-between lg:px-12">
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <span>{siteConfig.contact.operatorName}</span>
-            <span>IČO: {siteConfig.contact.ico}</span>
-            <span>{siteConfig.contact.legalStatus}</span>
+            <span>Sídlo: {siteConfig.contact.registeredOffice}</span>
+            <span>
+              IČO: {siteConfig.contact.ico} {siteConfig.contact.legalStatus}
+            </span>
+            <span>{siteConfig.contact.vatStatus}</span>
             <Link href={siteConfig.legal.privacyHref} className="transition hover:text-white">
               GDPR / Ochrana osobních údajů
             </Link>

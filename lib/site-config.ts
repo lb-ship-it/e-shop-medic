@@ -9,7 +9,9 @@ export const siteConfig = {
   },
   contact: {
     operatorName: "Ladislav Blecha",
-    legalStatus: "fyzická osoba zapsaná v živnostenském rejstříku",
+    registeredOffice: "Hlohová 367 326 00 Letkov",
+    legalStatus: "Fyzická osoba zapsaná v živnostenském rejstříku",
+    vatStatus: "Nejsem plátce DPH",
     ctaLabel: "Audit zdarma",
     ctaHref: "/#kontakt",
     emailLabel: "Napsat e-mail",
