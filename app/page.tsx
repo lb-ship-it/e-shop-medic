@@ -152,6 +152,13 @@ const dashboardItems = [
 ];
 
 const platformPills = ["Shoptet", "PrestaShop", "WooCommerce", "WordPress", "Shopify"];
+const heroPlatformHighlights = platformPills.slice(0, 3);
+const featuredSymptoms = symptoms.slice(0, 2);
+const extraSymptoms = symptoms.slice(2);
+const featuredServices = services.slice(0, 3);
+const extraServices = services.slice(3);
+const featuredEvidence = evidence.slice(0, 1);
+const extraEvidence = evidence.slice(1);
 
 function AuditOptionCard({
   eyebrow,
@@ -183,6 +190,24 @@ function AuditOptionCard({
       <p className={`mt-4 text-base font-medium ${noteClass}`}>{note}</p>
       <div className="mt-5">{children}</div>
     </article>
+  );
+}
+
+function MoreDetails({
+  label,
+  children,
+}: {
+  label: string;
+  children: ReactNode;
+}) {
+  return (
+    <details className="group mt-6">
+      <summary className="inline-flex cursor-pointer list-none items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base font-medium text-white/76 transition hover:border-accent-blue/35 hover:text-white">
+        <span>{label}</span>
+        <span className="text-white/38">+</span>
+      </summary>
+      <div className="mt-5">{children}</div>
+    </details>
   );
 }
 
@@ -411,7 +436,7 @@ export default function Home() {
     <div id="top" className="relative overflow-hidden">
       <NetworkBackground />
 
-      <main className="relative z-10 pb-24 pt-6 md:pt-10">
+      <main className="relative z-10 pb-20 pt-6 md:pt-10">
         <section className="mx-auto w-full max-w-7xl px-6 pb-20 sm:px-10 lg:px-12">
           <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.03fr)_minmax(22rem,0.97fr)] lg:gap-12 xl:grid-cols-[minmax(0,1.06fr)_minmax(24rem,0.94fr)]">
             <div className="max-w-none lg:pr-4 xl:pr-8">
@@ -469,7 +494,7 @@ export default function Home() {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                {platformPills.map((platform) => (
+                {heroPlatformHighlights.map((platform) => (
                   <span
                     key={platform}
                     className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/72"
@@ -477,70 +502,71 @@ export default function Home() {
                     {platform}
                   </span>
                 ))}
+                <span className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/52">
+                  + další platformy
+                </span>
               </div>
-              <div className="mt-10 grid gap-4 sm:grid-cols-3">
-                {metrics.map((item) => (
-                  <div
-                    key={item.value}
-                    className="panel rounded-[1.4rem] border border-white/8 px-5 py-5"
-                  >
-                    <p className="text-2xl font-semibold text-white">{item.value}</p>
-                    <p className="mt-2 text-base leading-6 text-white/48">{item.label}</p>
+
+              <MoreDetails label="Více o zásahu">
+                <div className="grid gap-4 sm:grid-cols-3">
+                  {metrics.map((item) => (
+                    <div
+                      key={item.value}
+                      className="panel rounded-[1.4rem] border border-white/8 px-5 py-5"
+                    >
+                      <p className="text-2xl font-semibold text-white">{item.value}</p>
+                      <p className="mt-2 text-base leading-6 text-white/48">{item.label}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="panel mt-5 rounded-[1.8rem] border border-white/10 px-5 py-5">
+                  <div className="flex items-start gap-4">
+                    <Image
+                      src="/logo-mark.png"
+                      alt="Witdesign"
+                      width={72}
+                      height={72}
+                      className="mt-1 h-14 w-14 shrink-0 drop-shadow-[0_0_18px_rgba(16,240,160,0.16)]"
+                    />
+                    <div className="space-y-4">
+                      <div>
+                        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">
+                          Studio / přímý kontakt
+                        </p>
+                        <p className="mt-2 text-2xl font-semibold text-white">
+                          Bez přeposílání mezi accounty. Zásah držím osobně.
+                        </p>
+                      </div>
+                      <p className="max-w-2xl text-base leading-7 text-white/62">
+                        Když e-shop zlobí, nechceš čekat na kolečko mezi projektovým manažerem,
+                        vývojem a marketingem. Potřebuješ člověka, který problém rychle najde a
+                        dovede ho do opravy.
+                      </p>
+                      <div className="flex flex-wrap gap-3">
+                        <a
+                          href={siteConfig.contact.emailHref}
+                          className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/78 transition hover:border-accent-blue/35 hover:text-white"
+                        >
+                          <MailIcon className="h-4 w-4" />
+                          {siteConfig.contact.email}
+                        </a>
+                        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/60">
+                          <PinIcon className="h-4 w-4" />
+                          {siteConfig.contact.location}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              </MoreDetails>
             </div>
 
             <DiagnosticPanel />
           </div>
         </section>
 
-        <section className="mx-auto w-full max-w-7xl px-6 pb-24 sm:px-10 lg:px-12">
-          <div className="panel rounded-[2rem] border border-white/10 px-6 py-8 sm:px-8 sm:py-10">
-            <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-              <div className="flex items-start gap-4">
-                <Image
-                  src="/logo-mark.png"
-                  alt="Witdesign"
-                  width={80}
-                  height={80}
-                  className="mt-1 h-16 w-16 shrink-0 drop-shadow-[0_0_18px_rgba(16,240,160,0.16)]"
-                />
-                <div>
-                  <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
-                    Studio / přímý kontakt
-                  </p>
-                  <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">
-                    Bez přeposílání mezi accounty. Zásah držím osobně.
-                  </h2>
-                </div>
-              </div>
-
-              <div className="space-y-5 text-base leading-8 text-white/66">
-                <p>
-                  Když e-shop zlobí, nechceš čekat na kolečko mezi projektovým manažerem, vývojem a
-                  marketingem. Potřebuješ člověka, který problém rychle najde, srozumitelně popíše a
-                  dovede ho do opravy.
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <a
-                    href={siteConfig.contact.emailHref}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/78 transition hover:border-accent-blue/35 hover:text-white"
-                  >
-                    <MailIcon className="h-4 w-4" />
-                    {siteConfig.contact.email}
-                  </a>
-                  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/60">
-                    <PinIcon className="h-4 w-4" />
-                    {siteConfig.contact.location}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="mx-auto w-full max-w-7xl px-6 pb-24 sm:px-10 lg:px-12">
+        <section className="mx-auto w-full max-w-7xl px-6 pb-16 sm:px-10 lg:px-12">
           <div className="mb-10 max-w-3xl">
             <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
               Kdy volat medika
@@ -551,13 +577,23 @@ export default function Home() {
           </div>
 
           <div className="grid gap-5 md:grid-cols-2">
-            {symptoms.map((symptom) => (
+            {featuredSymptoms.map((symptom) => (
               <SymptomCard key={symptom.title} {...symptom} />
             ))}
           </div>
+
+          {extraSymptoms.length > 0 ? (
+            <MoreDetails label="Více symptomů">
+              <div className="grid gap-5 md:grid-cols-2">
+                {extraSymptoms.map((symptom) => (
+                  <SymptomCard key={symptom.title} {...symptom} />
+                ))}
+              </div>
+            </MoreDetails>
+          ) : null}
         </section>
 
-        <section id="sluzby" className="mx-auto w-full max-w-7xl px-6 pb-24 sm:px-10 lg:px-12">
+        <section id="sluzby" className="mx-auto w-full max-w-7xl px-6 pb-16 sm:px-10 lg:px-12">
           <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
               <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
@@ -574,13 +610,23 @@ export default function Home() {
           </div>
 
           <div className="grid gap-5 lg:grid-cols-2 xl:grid-cols-3">
-            {services.map((service) => (
+            {featuredServices.map((service) => (
               <ServiceCard key={service.title} {...service} />
             ))}
           </div>
+
+          {extraServices.length > 0 ? (
+            <MoreDetails label="Další služby">
+              <div className="grid gap-5 lg:grid-cols-2">
+                {extraServices.map((service) => (
+                  <ServiceCard key={service.title} {...service} />
+                ))}
+              </div>
+            </MoreDetails>
+          ) : null}
         </section>
 
-        <section id="proces" className="mx-auto w-full max-w-7xl px-6 pb-24 sm:px-10 lg:px-12">
+        <section id="proces" className="mx-auto w-full max-w-7xl px-6 pb-16 sm:px-10 lg:px-12">
           <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="panel-strong rounded-[2rem] border border-white/10 px-6 py-8 sm:px-8 sm:py-10">
               <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
@@ -622,7 +668,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mx-auto w-full max-w-7xl px-6 pb-24 sm:px-10 lg:px-12">
+        <section className="mx-auto w-full max-w-7xl px-6 pb-16 sm:px-10 lg:px-12">
           <div className="mb-10 max-w-3xl">
             <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
               Důvěra bez přikrášlování
@@ -632,11 +678,21 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-3">
-            {evidence.map((item) => (
+          <div className="grid gap-5 lg:grid-cols-1">
+            {featuredEvidence.map((item) => (
               <EvidenceCard key={item.label} {...item} />
             ))}
           </div>
+
+          {extraEvidence.length > 0 ? (
+            <MoreDetails label="Více ukázek">
+              <div className="grid gap-5 lg:grid-cols-2">
+                {extraEvidence.map((item) => (
+                  <EvidenceCard key={item.label} {...item} />
+                ))}
+              </div>
+            </MoreDetails>
+          ) : null}
         </section>
 
         <section id="kontakt" className="mx-auto w-full max-w-7xl px-6 sm:px-10 lg:px-12">
