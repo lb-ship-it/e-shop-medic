@@ -228,7 +228,7 @@ function MoreDetails({
   return (
     <>
       <details className="group mt-6 md:hidden">
-        <summary className="inline-flex cursor-pointer list-none items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base font-medium text-white/76 transition hover:border-accent-blue/35 hover:text-white">
+        <summary className="inline-flex cursor-pointer list-none items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm font-medium text-white/76 transition hover:border-accent-blue/35 hover:text-white">
           <span>{label}</span>
           <span className="text-white/38">+</span>
         </summary>
@@ -236,7 +236,7 @@ function MoreDetails({
       </details>
 
       <div className="mt-6 hidden md:block">
-        <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base font-medium text-white/76">
+        <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm font-medium text-white/76">
           <span>{label}</span>
         </div>
         {children}
@@ -336,7 +336,7 @@ function DiagnosticPanel() {
               Operační pohled na e-shop
             </h2>
           </div>
-          <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/62">
+          <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/62">
             Live audit mode
           </div>
         </div>
@@ -406,7 +406,7 @@ function ServiceCard({ title, price, description, icon, cta }: Service) {
         <div className="glow-green flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-green/10 text-accent-green transition duration-300 group-hover:scale-105">
           <ServiceIcon icon={icon} />
         </div>
-        <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-base text-white/62">
+        <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-sm text-white/62">
           {price}
         </span>
       </div>
@@ -416,7 +416,7 @@ function ServiceCard({ title, price, description, icon, cta }: Service) {
         <div className="mt-auto pt-6 space-y-3">
           <a
             href={cta.href}
-            className={`inline-flex min-h-12 w-full items-center justify-center rounded-2xl px-5 py-4 text-center text-sm font-bold tracking-[0.08em] transition hover:-translate-y-0.5 ${ctaClass}`}
+            className={`inline-flex min-h-11 w-full items-center justify-center rounded-xl px-4 py-3 text-center text-[0.8rem] font-bold tracking-[0.06em] transition hover:-translate-y-0.5 ${ctaClass}`}
           >
             {cta.label}
           </a>
@@ -490,7 +490,7 @@ export default function Home() {
         <section className="mx-auto w-full max-w-7xl px-6 pb-20 sm:px-10 lg:px-12">
           <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.03fr)_minmax(22rem,0.97fr)] lg:gap-12 xl:grid-cols-[minmax(0,1.06fr)_minmax(24rem,0.94fr)]">
             <div className="max-w-none lg:pr-4 xl:pr-8">
-              <div className="glow-blue inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-base text-white/70">
+              <div className="glow-blue inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-white/70">
                 <span className="h-2.5 w-2.5 rounded-full bg-accent-green" />
                 Akutní diagnostika e-shopů do 24 hodin
               </div>
@@ -521,7 +521,7 @@ export default function Home() {
                 >
                   <a
                     href="#audit-zdarma-form"
-                    className="inline-flex min-h-12 items-center justify-center rounded-full border border-accent-green/22 bg-accent-green px-5 py-3 text-base font-semibold text-black transition hover:translate-y-[-1px]"
+                    className="inline-flex min-h-10 items-center justify-center rounded-full border border-accent-green/22 bg-accent-green px-4 py-2 text-sm font-semibold text-black transition hover:translate-y-[-1px]"
                   >
                     AUDIT ZDARMA
                   </a>
@@ -537,7 +537,7 @@ export default function Home() {
                 >
                   <CheckoutButton
                     label="CHCI EXPRESS AUDIT DO 24 HODIN (1 500 Kč)"
-                    className="w-full justify-center rounded-2xl bg-[#ffdd00] px-5 py-4 text-center text-base font-bold text-black shadow-[0_18px_42px_rgba(255,221,0,0.18)] hover:bg-[#ffe44d]"
+                    className="w-full justify-center rounded-xl bg-[#ffdd00] px-4 py-3 text-center text-sm font-bold text-black shadow-[0_18px_42px_rgba(255,221,0,0.18)] hover:bg-[#ffe44d]"
                   />
                   <p className="mt-3 text-sm text-white/48">Platba probíhá bezpečně přes Stripe.</p>
                 </AuditOptionCard>
@@ -547,12 +547,12 @@ export default function Home() {
                 {heroPlatformHighlights.map((platform) => (
                   <span
                     key={platform}
-                    className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/72"
+                    className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/72"
                   >
                     {platform}
                   </span>
                 ))}
-                <span className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/52">
+                <span className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/52">
                   + další platformy
                 </span>
               </div>
@@ -598,10 +598,10 @@ export default function Home() {
                           ariaLabel="Poslat e-mail"
                           fallbackText="Zobrazit e-mail"
                           showAddress
-                          className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/78 transition hover:border-accent-blue/35 hover:text-white"
+                          className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/78 transition hover:border-accent-blue/35 hover:text-white"
                           prefix={<MailIcon className="h-4 w-4" />}
                         />
-                        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/60">
+                        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/60">
                           <PinIcon className="h-4 w-4" />
                           {siteConfig.contact.location}
                         </div>
@@ -774,7 +774,7 @@ export default function Home() {
                       Audit zdarma s čekací dobou 3–5 dní
                     </p>
                   </div>
-                  <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/58">
+                  <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/58">
                     Omezený rozsah
                   </div>
                 </div>

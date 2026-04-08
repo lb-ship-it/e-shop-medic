@@ -34,12 +34,12 @@ export function MobileBottomNav() {
   const hasPhone = Boolean(siteConfig.contact.phoneHref);
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-black/88 px-3 py-3 backdrop-blur-xl md:hidden">
+    <nav className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-black/88 px-3 py-2.5 backdrop-blur-xl md:hidden">
       <div className="mx-auto grid max-w-xl grid-cols-3 gap-2">
         {hasPhone ? (
           <a
             href={siteConfig.contact.phoneHref ?? undefined}
-            className="inline-flex min-h-14 flex-col items-center justify-center gap-1 rounded-2xl border border-white/8 bg-white/[0.03] px-3 py-2 text-base font-semibold text-white/76 transition hover:border-accent-green/35 hover:text-white"
+            className="inline-flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-[1.15rem] border border-white/8 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white/76 transition hover:border-accent-green/35 hover:text-white"
           >
             {navIcon(primaryLabel)}
             <span>{primaryLabel}</span>
@@ -48,7 +48,7 @@ export function MobileBottomNav() {
           <ProtectedEmailLink
             ariaLabel="Napsat e-mail"
             fallbackText="E-mail"
-            className="inline-flex min-h-14 flex-col items-center justify-center gap-1 rounded-2xl border border-white/8 bg-white/[0.03] px-3 py-2 text-base font-semibold text-white/76 transition hover:border-accent-green/35 hover:text-white"
+            className="inline-flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-[1.15rem] border border-white/8 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white/76 transition hover:border-accent-green/35 hover:text-white"
             prefix={navIcon(primaryLabel)}
           >
             {primaryLabel}
@@ -57,7 +57,7 @@ export function MobileBottomNav() {
 
         <a
           href={getBottomNavSecondaryHref()}
-          className="inline-flex min-h-14 flex-col items-center justify-center gap-1 rounded-2xl border border-white/8 bg-white/[0.03] px-3 py-2 text-base font-semibold text-white/76 transition hover:border-accent-green/35 hover:text-white"
+          className="inline-flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-[1.15rem] border border-white/8 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white/76 transition hover:border-accent-green/35 hover:text-white"
         >
           {navIcon(secondaryLabel)}
           <span>{secondaryLabel}</span>
@@ -65,7 +65,7 @@ export function MobileBottomNav() {
 
         <a
           href={siteConfig.contact.ctaHref}
-          className="inline-flex min-h-14 flex-col items-center justify-center gap-1 rounded-2xl border border-white/8 bg-white/[0.03] px-3 py-2 text-base font-semibold text-white/76 transition hover:border-accent-green/35 hover:text-white"
+          className="inline-flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-[1.15rem] border border-white/8 bg-white/[0.03] px-3 py-2 text-sm font-semibold text-white/76 transition hover:border-accent-green/35 hover:text-white"
         >
           {navIcon("Poptávka")}
           <span>Poptávka</span>

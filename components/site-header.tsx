@@ -11,7 +11,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/8 bg-background/78 backdrop-blur-xl">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-12">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-2.5 sm:px-6 lg:px-12">
         <Link
           href="/"
           className="flex min-w-0 items-center gap-3 rounded-2xl transition-opacity hover:opacity-90"
@@ -38,7 +38,7 @@ export function SiteHeader() {
           {hasPhone ? (
             <a
               href={siteConfig.contact.phoneHref ?? undefined}
-              className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-5 py-3 text-base text-white/78 transition hover:border-accent-blue/35 hover:text-white"
+              className="inline-flex min-h-10 items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/78 transition hover:border-accent-blue/35 hover:text-white"
             >
               <PhoneIcon className="h-4 w-4" />
               {getHeaderContactLabel()}
@@ -47,7 +47,7 @@ export function SiteHeader() {
             <ProtectedEmailLink
               ariaLabel="Napsat e-mail"
               fallbackText={siteConfig.contact.emailLabel}
-              className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-5 py-3 text-base text-white/78 transition hover:border-accent-blue/35 hover:text-white"
+              className="inline-flex min-h-10 items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/78 transition hover:border-accent-blue/35 hover:text-white"
               prefix={<MailIcon className="h-4 w-4" />}
             >
               {siteConfig.contact.emailLabel}
@@ -55,7 +55,7 @@ export function SiteHeader() {
           )}
           <a
             href={siteConfig.contact.ctaHref}
-            className="glow-green inline-flex min-h-12 items-center rounded-full bg-accent-green px-6 py-3 text-base font-semibold text-black transition hover:translate-y-[-1px]"
+            className="glow-green inline-flex min-h-10 items-center rounded-full bg-accent-green px-5 py-2 text-sm font-semibold text-black transition hover:translate-y-[-1px]"
           >
             {siteConfig.contact.ctaLabel}
           </a>
@@ -64,7 +64,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2 md:hidden">
           <a
             href={siteConfig.contact.ctaHref}
-            className="glow-green inline-flex min-h-11 items-center rounded-full bg-accent-green px-4 py-2 text-base font-semibold text-black transition hover:translate-y-[-1px]"
+            className="glow-green inline-flex min-h-10 items-center rounded-full bg-accent-green px-3.5 py-2 text-sm font-semibold text-black transition hover:translate-y-[-1px]"
           >
             Audit
           </a>
@@ -72,7 +72,7 @@ export function SiteHeader() {
             <a
               href={siteConfig.contact.phoneHref ?? undefined}
               aria-label="Volat"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/80 transition hover:border-accent-blue/35 hover:text-white"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/80 transition hover:border-accent-blue/35 hover:text-white"
             >
               <PhoneIcon className="h-5 w-5" />
             </a>
@@ -80,7 +80,7 @@ export function SiteHeader() {
             <ProtectedEmailLink
               ariaLabel="Napsat e-mail"
               fallbackText=""
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/80 transition hover:border-accent-blue/35 hover:text-white"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/80 transition hover:border-accent-blue/35 hover:text-white"
               prefix={<MailIcon className="h-5 w-5" />}
             />
           )}

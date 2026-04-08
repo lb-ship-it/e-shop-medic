@@ -89,7 +89,7 @@ export function LeadCaptureForm({ align = "center" }: LeadCaptureFormProps) {
       onSubmit={handleSubmit}
       className={`flex w-full max-w-3xl flex-col gap-4 ${alignmentClass}`}
     >
-      <div className="panel-strong glow-blue flex w-full items-center gap-3 rounded-2xl px-5 py-4">
+      <div className="panel-strong glow-blue flex w-full items-center gap-3 rounded-2xl px-5 py-3">
         <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm font-semibold text-accent-blue">
           URL
         </span>
@@ -108,7 +108,7 @@ export function LeadCaptureForm({ align = "center" }: LeadCaptureFormProps) {
         />
       </div>
 
-      <div className="panel-strong flex w-full items-center gap-3 rounded-2xl px-5 py-4">
+      <div className="panel-strong flex w-full items-center gap-3 rounded-2xl px-5 py-3">
         <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm font-semibold text-accent-blue">
           @
         </span>
@@ -131,7 +131,7 @@ export function LeadCaptureForm({ align = "center" }: LeadCaptureFormProps) {
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`inline-grid min-h-14 w-full max-w-[20rem] grid-cols-[1fr_auto] items-center gap-7 rounded-xl px-6 py-3 text-base font-semibold transition sm:min-w-[20rem] sm:px-8 ${
+          className={`inline-grid min-h-12 w-full max-w-[18.5rem] grid-cols-[1fr_auto] items-center gap-5 rounded-xl px-5 py-2.5 text-sm font-semibold transition sm:min-w-[18.5rem] sm:px-7 ${
             submitted
               ? "bg-[#00cc7d] text-black shadow-[0_0_28px_rgba(0,204,125,0.22)]"
               : "glow-green bg-accent-green text-black hover:translate-y-[-1px] disabled:cursor-not-allowed disabled:opacity-75"
@@ -154,12 +154,12 @@ export function LeadCaptureForm({ align = "center" }: LeadCaptureFormProps) {
               </>
             )}
           </span>
-          <span aria-hidden="true" className="pr-1 text-lg leading-none">
+          <span aria-hidden="true" className="pr-1 text-base leading-none">
             &gt;
           </span>
         </button>
 
-        <div className="flex items-center gap-3 pl-1 text-base text-white/55 sm:pl-0">
+        <div className="flex items-center gap-3 pl-1 text-sm text-white/55 sm:pl-0">
           <span className="h-2.5 w-2.5 rounded-full bg-accent-green" />
           Odpověď do 24 hodin
         </div>
