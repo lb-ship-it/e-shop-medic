@@ -1,3 +1,5 @@
+const contactEmail = "lblecha2020@gmail.com";
+
 export const siteConfig = {
   brand: {
     name: "E-shop Medic",
@@ -10,8 +12,9 @@ export const siteConfig = {
   contact: {
     ctaLabel: "Audit zdarma",
     ctaHref: "/#kontakt",
-    email: "lblecha2020@gmail.com",
-    emailHref: "mailto:lblecha2020@gmail.com",
+    email: contactEmail,
+    emailHref: `mailto:${contactEmail}`,
+    emailComposeHref: `https://mail.google.com/mail/?view=cm&fs=1&to=${contactEmail}`,
     phoneDisplay: null as string | null,
     phoneHref: null as string | null,
     whatsappHref: null as string | null,
@@ -39,7 +42,11 @@ export function getHeaderContactLabel() {
 }
 
 export function getHeaderContactHref() {
-  return siteConfig.contact.phoneHref ?? siteConfig.contact.emailHref;
+  return siteConfig.contact.phoneHref ?? siteConfig.contact.emailComposeHref;
+}
+
+export function getHeaderContactTarget() {
+  return siteConfig.contact.phoneHref ? undefined : "_blank";
 }
 
 export function getBottomNavPrimaryLabel() {
@@ -47,7 +54,7 @@ export function getBottomNavPrimaryLabel() {
 }
 
 export function getBottomNavPrimaryHref() {
-  return siteConfig.contact.phoneHref ?? siteConfig.contact.emailHref;
+  return siteConfig.contact.phoneHref ?? siteConfig.contact.emailComposeHref;
 }
 
 export function getBottomNavSecondaryLabel() {

@@ -6,11 +6,13 @@ import { MailIcon, PhoneIcon } from "@/components/site-icons";
 import {
   getHeaderContactHref,
   getHeaderContactLabel,
+  getHeaderContactTarget,
   siteConfig,
 } from "@/lib/site-config";
 
 export function SiteHeader() {
   const hasPhone = Boolean(siteConfig.contact.phoneHref);
+  const contactTarget = getHeaderContactTarget();
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/8 bg-background/78 backdrop-blur-xl">
@@ -40,6 +42,8 @@ export function SiteHeader() {
         <div className="hidden items-center gap-3 md:flex">
           <a
             href={getHeaderContactHref()}
+            target={contactTarget}
+            rel={contactTarget ? "noreferrer" : undefined}
             className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-5 py-3 text-base text-white/78 transition hover:border-accent-blue/35 hover:text-white"
           >
             {hasPhone ? <PhoneIcon className="h-4 w-4" /> : <MailIcon className="h-4 w-4" />}
@@ -63,6 +67,8 @@ export function SiteHeader() {
           <a
             href={getHeaderContactHref()}
             aria-label={hasPhone ? "Volat" : "Napsat e-mail"}
+            target={contactTarget}
+            rel={contactTarget ? "noreferrer" : undefined}
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/80 transition hover:border-accent-blue/35 hover:text-white"
           >
             {hasPhone ? <PhoneIcon className="h-5 w-5" /> : <MailIcon className="h-5 w-5" />}
