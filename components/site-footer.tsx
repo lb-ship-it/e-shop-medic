@@ -48,9 +48,7 @@ export function SiteFooter() {
               </a>
             ) : (
               <a
-                href={siteConfig.contact.emailComposeHref}
-                target="_blank"
-                rel="noreferrer"
+                href={siteConfig.contact.emailHref}
                 className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/78 transition hover:border-accent-blue/35 hover:text-white"
               >
                 <MailIcon className="h-4 w-4" />

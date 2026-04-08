@@ -42,11 +42,11 @@ export function getHeaderContactLabel() {
 }
 
 export function getHeaderContactHref() {
-  return siteConfig.contact.phoneHref ?? siteConfig.contact.emailComposeHref;
+  return siteConfig.contact.phoneHref ?? siteConfig.contact.emailHref;
 }
 
 export function getHeaderContactTarget() {
-  return siteConfig.contact.phoneHref ? undefined : "_blank";
+  return undefined;
 }
 
 export function getBottomNavPrimaryLabel() {
@@ -54,7 +54,7 @@ export function getBottomNavPrimaryLabel() {
 }
 
 export function getBottomNavPrimaryHref() {
-  return siteConfig.contact.phoneHref ?? siteConfig.contact.emailComposeHref;
+  return siteConfig.contact.phoneHref ?? siteConfig.contact.emailHref;
 }
 
 export function getBottomNavSecondaryLabel() {
