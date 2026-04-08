@@ -75,6 +75,12 @@ export function SiteFooter() {
             <Link href="/#kontakt" className="transition hover:text-accent-green">
               Kontakt
             </Link>
+            <Link href={siteConfig.legal.privacyHref} className="transition hover:text-accent-green">
+              GDPR / Ochrana osobních údajů
+            </Link>
+            <Link href={siteConfig.legal.termsHref} className="transition hover:text-accent-green">
+              VOP
+            </Link>
           </nav>
         </div>
 
@@ -117,12 +123,6 @@ export function SiteFooter() {
             <span>IČO: {siteConfig.contact.ico}</span>
             <span>{siteConfig.contact.legalStatus}</span>
             <span>{siteConfig.contact.vatStatus}</span>
-            <Link href={siteConfig.legal.privacyHref} className="transition hover:text-white">
-              GDPR / Ochrana osobních údajů
-            </Link>
-            <Link href={siteConfig.legal.termsHref} className="transition hover:text-white">
-              VOP
-            </Link>
           </div>
           <span>
             © {year} {siteConfig.brand.domain}
