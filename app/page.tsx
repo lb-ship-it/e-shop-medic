@@ -270,25 +270,25 @@ function ServiceIcon({ icon }: Pick<Service, "icon">) {
 function DiagnosticPanel() {
   return (
     <div className="mx-auto w-full max-w-[42rem] lg:pt-6">
-      <div className="mb-4 lg:hidden">
-        <div className="float-card mb-3 w-fit rounded-2xl border border-red-500/35 bg-black/72 px-4 py-3 text-sm text-white/88 shadow-[0_0_0_1px_rgba(239,68,68,0.14),0_0_28px_rgba(239,68,68,0.18)] backdrop-blur">
+        <div className="mb-4 lg:hidden">
+          <div className="static-copy float-card mb-3 w-fit rounded-2xl border border-red-500/35 bg-black/72 px-4 py-3 text-sm text-white/88 shadow-[0_0_0_1px_rgba(239,68,68,0.14),0_0_28px_rgba(239,68,68,0.18)] backdrop-blur">
           <p className="text-xs uppercase tracking-[0.24em] text-red-300/70">Urgent fix</p>
           <p className="mt-2 font-medium">Checkout friction detected</p>
         </div>
 
-        <div className="float-card-delayed ml-auto w-fit rounded-2xl border border-accent-blue/25 bg-black/60 px-4 py-3 text-sm text-white/80 backdrop-blur">
+          <div className="static-copy float-card-delayed ml-auto w-fit rounded-2xl border border-accent-blue/25 bg-black/60 px-4 py-3 text-sm text-white/80 backdrop-blur">
           <p className="text-xs uppercase tracking-[0.24em] text-white/35">Tracking</p>
           <p className="mt-2 font-medium">2 events missing in funnel</p>
         </div>
       </div>
 
       <div className="relative mb-5 hidden h-[7.75rem] w-[28rem] max-w-full lg:ml-auto lg:block">
-        <div className="float-card absolute left-0 top-0 z-20 w-[15rem] rounded-2xl border border-red-500/35 bg-black/72 px-4 py-3 text-sm text-white/88 shadow-[0_0_0_1px_rgba(239,68,68,0.14),0_0_28px_rgba(239,68,68,0.18)] backdrop-blur">
+        <div className="static-copy float-card absolute left-0 top-0 z-20 w-[15rem] rounded-2xl border border-red-500/35 bg-black/72 px-4 py-3 text-sm text-white/88 shadow-[0_0_0_1px_rgba(239,68,68,0.14),0_0_28px_rgba(239,68,68,0.18)] backdrop-blur">
           <p className="text-xs uppercase tracking-[0.24em] text-red-300/70">Urgent fix</p>
           <p className="mt-2 font-medium">Checkout friction detected</p>
         </div>
 
-        <div className="float-card-delayed absolute left-[13.75rem] top-[3.125rem] z-10 w-[14rem] rounded-2xl border border-accent-blue/25 bg-black/60 px-4 py-3 text-sm text-white/80 backdrop-blur">
+        <div className="static-copy float-card-delayed absolute left-[13.75rem] top-[3.125rem] z-10 w-[14rem] rounded-2xl border border-accent-blue/25 bg-black/60 px-4 py-3 text-sm text-white/80 backdrop-blur">
           <p className="text-xs uppercase tracking-[0.24em] text-white/35">Tracking</p>
           <p className="mt-2 font-medium">2 events missing in funnel</p>
         </div>
@@ -297,7 +297,7 @@ function DiagnosticPanel() {
       <div className="panel-strong panel-sheen hero-grid relative overflow-hidden rounded-[2rem] border border-white/10 p-6 sm:p-7">
         <div className="scanline pointer-events-none absolute inset-x-[12%] top-0 h-28 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,255,157,0.14)_0%,rgba(0,170,255,0.08)_24%,rgba(0,170,255,0.03)_46%,transparent_72%)] blur-3xl [mask-image:radial-gradient(ellipse_at_center,black_36%,transparent_78%)]" />
 
-        <div className="flex flex-wrap items-start justify-between gap-4">
+        <div className="static-copy flex flex-wrap items-start justify-between gap-4">
           <div className="max-w-[18rem]">
             <p className="text-sm uppercase tracking-[0.28em] text-white/35">
               Diagnostický panel
@@ -311,7 +311,7 @@ function DiagnosticPanel() {
           </div>
         </div>
 
-        <div className="mt-8 rounded-[1.6rem] border border-white/8 bg-[#091018]/90 p-5">
+          <div className="static-copy mt-8 rounded-[1.6rem] border border-white/8 bg-[#091018]/90 p-5">
           <div className="flex items-center justify-between text-sm uppercase tracking-[0.22em] text-white/35">
             <span>Pulse of the store</span>
             <span className="text-accent-green">Monitoring active</span>
@@ -535,19 +535,19 @@ export default function Home() {
         <section className="mx-auto w-full max-w-7xl px-6 pb-20 sm:px-10 lg:px-12">
           <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.03fr)_minmax(22rem,0.97fr)] lg:gap-12 xl:grid-cols-[minmax(0,1.06fr)_minmax(24rem,0.94fr)]">
             <div className="max-w-none lg:pr-4 xl:pr-8">
-              <div className="glow-blue inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-white/70">
+              <div className="static-copy glow-blue inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-white/70">
                 <span className="h-2.5 w-2.5 rounded-full bg-accent-green" />
                 Akutní diagnostika e-shopů do 24 hodin
               </div>
 
-              <h1 className="mt-5 max-w-[11ch] font-display text-4xl font-semibold leading-[1.06] tracking-[-0.04em] text-white sm:text-[3rem] sm:leading-[1.02] lg:text-[3.5rem] lg:leading-[0.99] xl:text-[3.85rem]">
+              <h1 className="static-copy mt-5 max-w-[11ch] font-display text-4xl font-semibold leading-[1.06] tracking-[-0.04em] text-white sm:text-[3rem] sm:leading-[1.02] lg:text-[3.5rem] lg:leading-[0.99] xl:text-[3.85rem]">
                 Když e-shop krvácí výkonem, nestačí hezký text. Potřebuje zásah.
               </h1>
-              <p className="mt-6 max-w-3xl text-xl font-semibold text-accent-green sm:text-2xl">
+              <p className="static-copy mt-6 max-w-3xl text-xl font-semibold text-accent-green sm:text-2xl">
                 Technický audit, UX diagnostika a rychlá stabilizace pro e-shopy, které mají
                 potenciál, ale ztrácejí peníze v tichosti.
               </p>
-              <p className="mt-6 max-w-2xl text-base leading-8 text-white/62 sm:text-lg">
+              <p className="static-copy mt-6 max-w-2xl text-base leading-8 text-white/62 sm:text-lg">
                 Řeším situace, kdy traffic stojí peníze, ale checkout drhne, data lžou, SEO
                 nepomáhá a důvěra je slabší, než by měla být. Nejdřív najdeme kritické místo, pak
                 opravíme to, co má největší dopad.

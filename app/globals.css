@@ -160,6 +160,13 @@ body::after {
   mix-blend-mode: screen;
 }
 
+.static-copy {
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  caret-color: transparent;
+}
+
 @keyframes float-card {
   0%,
   100% {
