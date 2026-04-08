@@ -6,9 +6,37 @@ type LeadCaptureFormProps = {
   align?: "left" | "center";
 };
 
-export function LeadCaptureForm({
-  align = "center",
-}: LeadCaptureFormProps) {
+function normalizeLeadUrl(rawValue: string) {
+  let value = rawValue.trim();
+
+  if (!value) {
+    return null;
+  }
+
+  // Accept forgiving variants like "/www.example.cz", "http:/example.cz" or bare domains.
+  value = value.replace(/^\/+/, "");
+  value = value.replace(/^https?:\/(?!\/)/i, (match) => `${match}/`);
+
+  if (value.startsWith("//")) {
+    value = `https:${value}`;
+  } else if (!/^[a-z][a-z\d+.-]*:\/\//i.test(value)) {
+    value = `https://${value}`;
+  }
+
+  try {
+    const parsed = new URL(value);
+
+    if (!parsed.hostname || !parsed.hostname.includes(".")) {
+      return null;
+    }
+
+    return parsed.toString();
+  } catch {
+    return null;
+  }
+}
+
+export function LeadCaptureForm({ align = "center" }: LeadCaptureFormProps) {
   const [url, setUrl] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
@@ -16,20 +44,26 @@ export function LeadCaptureForm({
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (!url.trim()) {
+    const normalizedUrl = normalizeLeadUrl(url);
+
+    if (!normalizedUrl) {
       setSubmitted(false);
-      setError("Prosím, zadejte URL adresu vašeho e-shopu.");
+      setError("Prosím, zadejte platnou URL adresu vašeho e-shopu.");
       return;
     }
 
+    setUrl(normalizedUrl);
     setError(null);
     setSubmitted(true);
   };
 
-  const alignmentClass = align === "left" ? "items-start text-left" : "items-center text-center";
+  const alignmentClass =
+    align === "left" ? "items-start text-left" : "items-center text-center";
 
   const ctaRowClass =
-    align === "left" ? "sm:items-center sm:justify-start" : "sm:items-center sm:justify-center";
+    align === "left"
+      ? "sm:items-center sm:justify-start"
+      : "sm:items-center sm:justify-center";
 
   return (
     <form
@@ -41,7 +75,8 @@ export function LeadCaptureForm({
           URL
         </span>
         <input
-          type="url"
+          type="text"
+          inputMode="url"
           value={url}
           onChange={(event) => {
             setUrl(event.target.value);
@@ -63,7 +98,11 @@ export function LeadCaptureForm({
               : "glow-green bg-accent-green text-black hover:translate-y-[-1px]"
           }`}
         >
-          <span className={align === "left" ? "text-left leading-tight" : "text-center leading-tight"}>
+          <span
+            className={
+              align === "left" ? "text-left leading-tight" : "text-center leading-tight"
+            }
+          >
             {submitted ? (
               "Odesláno! Brzy se ozvu."
             ) : (
