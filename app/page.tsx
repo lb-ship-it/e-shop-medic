@@ -12,6 +12,12 @@ type Service = {
   price: string;
   description: string;
   icon: "audit" | "fix" | "seo" | "consulting" | "restart";
+  cta?: {
+    label: string;
+    href: string;
+    note?: string;
+    tone?: "yellow" | "green";
+  };
 };
 
 type Symptom = {
@@ -53,6 +59,12 @@ const services: Service[] = [
     description:
       "Technická i obsahová hygiena, aby e-shop nestál jen na placené návštěvnosti.",
     icon: "seo",
+    cta: {
+      label: "CHCI SEO OPTIMALIZACI",
+      href: siteConfig.payments.seoOptimizationHref,
+      note: "Přímá rezervace a platba bezpečně přes Stripe.",
+      tone: "yellow",
+    },
   },
   {
     title: "Konzultace",
@@ -370,7 +382,12 @@ function DiagnosticPanel() {
   );
 }
 
-function ServiceCard({ title, price, description, icon }: Service) {
+function ServiceCard({ title, price, description, icon, cta }: Service) {
+  const ctaClass =
+    cta?.tone === "green"
+      ? "bg-accent-green text-black shadow-[0_18px_42px_rgba(0,255,157,0.18)] hover:bg-[#37ffb3]"
+      : "bg-[#ffdd00] text-black shadow-[0_18px_42px_rgba(255,221,0,0.18)] hover:bg-[#ffe44d]";
+
   return (
     <article className="panel group rounded-[1.8rem] border border-white/8 p-6 transition duration-300 hover:-translate-y-1 hover:border-accent-green/30 hover:bg-white/[0.05]">
       <div className="flex items-start justify-between gap-4">
@@ -383,6 +400,17 @@ function ServiceCard({ title, price, description, icon }: Service) {
       </div>
       <h3 className="mt-6 text-2xl font-semibold text-white">{title}</h3>
       <p className="mt-4 text-base leading-7 text-white/60">{description}</p>
+      {cta ? (
+        <div className="mt-6 space-y-3">
+          <a
+            href={cta.href}
+            className={`inline-flex min-h-12 w-full items-center justify-center rounded-2xl px-5 py-4 text-center text-sm font-bold tracking-[0.08em] transition hover:-translate-y-0.5 ${ctaClass}`}
+          >
+            {cta.label}
+          </a>
+          {cta.note ? <p className="text-sm text-white/48">{cta.note}</p> : null}
+        </div>
+      ) : null}
     </article>
   );
 }

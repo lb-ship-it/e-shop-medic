@@ -26,6 +26,7 @@ export const siteConfig = {
   },
   payments: {
     expressAuditHref: "https://buy.stripe.com/fZu8wR7VR6Q38vb6912VG00",
+    seoOptimizationHref: "https://buy.stripe.com/dRm14pdgbfmz3aR2WP2VG02",
   },
   legal: {
     privacyHref: "/gdpr",
