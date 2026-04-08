@@ -540,9 +540,6 @@ export default function Home() {
                 Akutní diagnostika e-shopů do 24 hodin
               </div>
 
-              <p className="mt-8 text-base font-semibold uppercase tracking-[0.3em] text-white/34">
-                E-shop Medic
-              </p>
               <h1 className="mt-5 max-w-[11ch] font-display text-4xl font-semibold leading-[1.06] tracking-[-0.04em] text-white sm:text-[3rem] sm:leading-[1.02] lg:text-[3.5rem] lg:leading-[0.99] xl:text-[3.85rem]">
                 Když e-shop krvácí výkonem, nestačí hezký text. Potřebuje zásah.
               </h1>

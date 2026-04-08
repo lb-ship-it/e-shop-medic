@@ -25,11 +25,8 @@ export function SiteHeader() {
             priority
           />
           <div className="min-w-0">
-            <p className="truncate text-xs font-semibold uppercase tracking-[0.28em] text-white/42">
+            <p className="truncate text-xs font-semibold uppercase tracking-[0.28em] text-white/42 sm:text-sm">
               {siteConfig.brand.name}
-            </p>
-            <p className="hidden truncate text-base text-white/72 sm:block">
-              Diagnostika, stabilizace a rychlý zásah pro e-shopy
             </p>
           </div>
         </Link>
