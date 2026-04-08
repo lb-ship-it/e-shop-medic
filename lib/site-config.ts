@@ -1,4 +1,4 @@
-const contactEmail = "lblecha2020@gmail.com";
+const contactEmail = "lblecha@witdesign.cz";
 
 export const siteConfig = {
   brand: {
