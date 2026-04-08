@@ -32,12 +32,6 @@ type ProcessStep = {
   description: string;
 };
 
-type Evidence = {
-  label: string;
-  issue: string;
-  outcome: string;
-};
-
 const services: Service[] = [
   {
     title: "Rychlý audit",
@@ -142,27 +136,6 @@ const processSteps: ProcessStep[] = [
   },
 ];
 
-const evidence: Evidence[] = [
-  {
-    label: "Anonymizovaný zásah / Shoptet",
-    issue: "Nejasný produktový detail a slabý mobilní nákupní tok.",
-    outcome:
-      "Jasnější CTA, čistší struktura a rychlejší cesta k první objednávce bez kompletního rebrandu.",
-  },
-  {
-    label: "Anonymizovaný zásah / PrestaShop",
-    issue: "Rozpadlé měření a nepřesná data pro kampaně.",
-    outcome:
-      "Srovnaný tracking, lepší orientace ve výkonu a bezpečnější rozhodování nad rozpočtem.",
-  },
-  {
-    label: "Anonymizovaný zásah / WooCommerce",
-    issue: "SEO obsah existoval, ale nepracoval pro kategorii ani produkt.",
-    outcome:
-      "Silnější informační architektura a obsahový rámec, který může růst spolu s obchodem.",
-  },
-];
-
 const metrics = [
   { value: "24 h", label: "na první diagnostiku" },
   { value: "5 platforem", label: "řeším nejčastěji" },
@@ -181,8 +154,6 @@ const featuredSymptoms = symptoms.slice(0, 2);
 const extraSymptoms = symptoms.slice(2);
 const featuredServices = services.slice(0, 3);
 const extraServices = services.slice(3);
-const featuredEvidence = evidence.slice(0, 1);
-const extraEvidence = evidence.slice(1);
 
 function AuditOptionCard({
   eyebrow,
@@ -462,24 +433,6 @@ function ProcessCard({ step, title, description }: ProcessStep) {
   );
 }
 
-function EvidenceCard({ label, issue, outcome }: Evidence) {
-  return (
-    <article className="panel rounded-[1.8rem] border border-white/8 p-6">
-      <p className="text-sm uppercase tracking-[0.24em] text-white/35">{label}</p>
-      <div className="mt-5 space-y-4">
-        <div>
-          <p className="text-base text-white/42">Situace</p>
-          <p className="mt-2 text-base leading-7 text-white/76">{issue}</p>
-        </div>
-        <div>
-          <p className="text-base text-accent-green">Posun po zásahu</p>
-          <p className="mt-2 text-base leading-7 text-white/76">{outcome}</p>
-        </div>
-      </div>
-    </article>
-  );
-}
-
 function HeroContextPanel() {
   return (
     <div className="panel rounded-[2rem] border border-white/10 px-5 py-6 sm:px-6 sm:py-7 lg:px-7 lg:py-8">
@@ -744,33 +697,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
-
-        <section className="mx-auto w-full max-w-7xl px-6 pb-16 sm:px-10 lg:px-12">
-          <div className="mb-10 max-w-3xl">
-            <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
-              Důvěra bez přikrášlování
-            </p>
-            <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              Typické situace, které řeším v anonymizované podobě.
-            </h2>
-          </div>
-
-          <div className="grid gap-5 lg:grid-cols-1">
-            {featuredEvidence.map((item) => (
-              <EvidenceCard key={item.label} {...item} />
-            ))}
-          </div>
-
-          {extraEvidence.length > 0 ? (
-            <MoreDetails label="Více ukázek">
-              <div className="grid gap-5 lg:grid-cols-2">
-                {extraEvidence.map((item) => (
-                  <EvidenceCard key={item.label} {...item} />
-                ))}
-              </div>
-            </MoreDetails>
-          ) : null}
         </section>
 
         <section id="kontakt" className="mx-auto w-full max-w-7xl px-6 sm:px-10 lg:px-12">
