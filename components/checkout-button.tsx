@@ -9,13 +9,13 @@ type CheckoutButtonProps = {
 
 export function CheckoutButton({
   className,
-  label = "Spustit Stripe checkout",
+  label = "Chci express audit do 24 hodin (1 500 Kč)",
 }: CheckoutButtonProps) {
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
   const classes = [
-    "inline-flex items-center justify-center rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70",
+    "inline-flex items-center justify-center rounded-full bg-foreground px-6 py-3 text-base font-semibold text-background transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70",
     className,
   ]
     .filter(Boolean)
@@ -39,9 +39,7 @@ export function CheckoutButton({
         };
 
         if (!response.ok || !data.url) {
-          throw new Error(
-            data.error ?? "Stripe checkout se nepodařilo vytvořit.",
-          );
+          throw new Error(data.error ?? "Stripe checkout se nepodařilo vytvořit.");
         }
 
         window.location.assign(data.url);
@@ -58,15 +56,10 @@ export function CheckoutButton({
 
   return (
     <div className="space-y-2">
-      <button
-        type="button"
-        onClick={handleCheckout}
-        disabled={isPending}
-        className={classes}
-      >
+      <button type="button" onClick={handleCheckout} disabled={isPending} className={classes}>
         {isPending ? "Přesměrovávám do Stripe..." : label}
       </button>
-      {error ? <p className="text-sm text-[#9a3d16]">{error}</p> : null}
+      {error ? <p className="text-sm text-[#ffb28b]">{error}</p> : null}
     </div>
   );
 }

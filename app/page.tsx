@@ -1,4 +1,6 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
+import { CheckoutButton } from "@/components/checkout-button";
 import { LeadCaptureForm } from "@/components/lead-capture-form";
 import { NetworkBackground } from "@/components/network-background";
 import { MailIcon, PinIcon } from "@/components/site-icons";
@@ -150,6 +152,39 @@ const dashboardItems = [
 ];
 
 const platformPills = ["Shoptet", "PrestaShop", "WooCommerce", "WordPress", "Shopify"];
+
+function AuditOptionCard({
+  eyebrow,
+  title,
+  description,
+  note,
+  accent,
+  children,
+}: {
+  eyebrow: string;
+  title: string;
+  description: string;
+  note: string;
+  accent: "green" | "yellow";
+  children: ReactNode;
+}) {
+  const accentClass =
+    accent === "yellow"
+      ? "border-[#ffdd00]/30 bg-[#ffdd00]/[0.06]"
+      : "border-accent-green/20 bg-accent-green/[0.05]";
+
+  const noteClass = accent === "yellow" ? "text-[#ffe67a]" : "text-accent-green";
+
+  return (
+    <article className={`panel rounded-[1.8rem] border p-5 ${accentClass}`}>
+      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/40">{eyebrow}</p>
+      <h3 className="mt-3 text-2xl font-semibold text-white">{title}</h3>
+      <p className="mt-3 text-base leading-7 text-white/66">{description}</p>
+      <p className={`mt-4 text-base font-medium ${noteClass}`}>{note}</p>
+      <div className="mt-5">{children}</div>
+    </article>
+  );
+}
 
 function ServiceIcon({ icon }: Pick<Service, "icon">) {
   const commonProps = {
@@ -401,6 +436,37 @@ export default function Home() {
                 opravíme to, co má největší dopad.
               </p>
 
+              <div className="mt-8 grid gap-4 xl:grid-cols-2">
+                <AuditOptionCard
+                  eyebrow="Varianta A / Free"
+                  title="Audit zdarma"
+                  description="Omezený vstupní rozsah pro první orientaci, když nechceš řešit problém naslepo."
+                  note="Čekací doba 3–5 dní, omezený rozsah."
+                  accent="green"
+                >
+                  <a
+                    href="#audit-zdarma-form"
+                    className="inline-flex min-h-12 items-center justify-center rounded-full border border-accent-green/22 bg-accent-green px-5 py-3 text-base font-semibold text-black transition hover:translate-y-[-1px]"
+                  >
+                    Zkusit štěstí: chci audit zdarma
+                  </a>
+                  <p className="mt-3 text-sm text-white/48">Zbývají 3 místa v pomalejším režimu.</p>
+                </AuditOptionCard>
+
+                <AuditOptionCard
+                  eyebrow="Varianta B / Paid"
+                  title="Express Medic Audit"
+                  description="Placená priorita pro e-shopy, kde je problém dražší než čekání."
+                  note="Garance do 24 hodin, hloubková analýza + 15min konzultace."
+                  accent="yellow"
+                >
+                  <CheckoutButton
+                    label="CHCI EXPRESS AUDIT DO 24 HODIN (1 500 Kč)"
+                    className="w-full justify-center rounded-2xl bg-[#ffdd00] px-5 py-4 text-center text-base font-bold text-black shadow-[0_18px_42px_rgba(255,221,0,0.18)] hover:bg-[#ffe44d]"
+                  />
+                </AuditOptionCard>
+              </div>
+
               <div className="mt-8 flex flex-wrap gap-3">
                 {platformPills.map((platform) => (
                   <span
@@ -411,11 +477,6 @@ export default function Home() {
                   </span>
                 ))}
               </div>
-
-              <div className="mt-10">
-                <LeadCaptureForm align="left" />
-              </div>
-
               <div className="mt-10 grid gap-4 sm:grid-cols-3">
                 {metrics.map((item) => (
                   <div
@@ -593,7 +654,23 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="rounded-[1.8rem] border border-white/8 bg-[#0a1118]/88 p-5 sm:p-6">
+              <div
+                id="audit-zdarma-form"
+                className="rounded-[1.8rem] border border-white/8 bg-[#0a1118]/88 p-5 sm:p-6"
+              >
+                <div className="mb-5 flex flex-wrap items-start justify-between gap-4">
+                  <div>
+                    <p className="text-base font-semibold uppercase tracking-[0.22em] text-white/35">
+                      Varianta A / zdarma
+                    </p>
+                    <p className="mt-2 text-lg font-semibold text-white">
+                      Audit zdarma s čekací dobou 3–5 dní
+                    </p>
+                  </div>
+                  <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/58">
+                    Omezený rozsah
+                  </div>
+                </div>
                 <LeadCaptureForm />
               </div>
             </div>
