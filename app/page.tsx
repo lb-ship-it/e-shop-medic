@@ -480,6 +480,97 @@ function EvidenceCard({ label, issue, outcome }: Evidence) {
   );
 }
 
+function HeroContextPanel() {
+  return (
+    <div className="panel rounded-[2rem] border border-white/10 px-5 py-6 sm:px-6 sm:py-7 lg:px-7 lg:py-8">
+      <div className="grid gap-8 xl:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] xl:gap-10">
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">
+            Kde a jak zasahuju
+          </p>
+          <h3 className="mt-3 max-w-2xl text-2xl font-semibold text-white sm:text-[2rem] lg:text-[2.2rem]">
+            Nejčastěji Shoptet, PrestaShop, WooCommerce, WordPress a Shopify.
+          </h3>
+          <p className="mt-4 max-w-2xl text-base leading-7 text-white/62 sm:text-[1.05rem]">
+            Tohle jsou prostředí, kde nejčastěji hledám, kudy utíkají objednávky, data nebo
+            důvěra v prvních vteřinách. Není to dekorace, ale rychlá orientace, v čem se typicky
+            pohybuju.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2.5">
+            {platformPills.map((platform) => (
+              <span
+                key={platform}
+                className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/72"
+              >
+                {platform}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid gap-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:gap-6">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">
+              Co čekat po prvním kontaktu
+            </p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+              {metrics.map((item) => (
+                <div
+                  key={item.value}
+                  className="rounded-[1.35rem] border border-white/8 bg-white/[0.03] px-4 py-4"
+                >
+                  <p className="text-2xl font-semibold text-white">{item.value}</p>
+                  <p className="mt-2 text-sm leading-6 text-white/48">{item.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-[1.6rem] border border-white/8 bg-white/[0.03] px-5 py-5">
+            <div className="flex items-start gap-4">
+              <Image
+                src="/logo-mark.png"
+                alt="Witdesign"
+                width={72}
+                height={72}
+                className="mt-1 h-12 w-12 shrink-0 drop-shadow-[0_0_18px_rgba(16,240,160,0.16)]"
+              />
+              <div className="space-y-4">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">
+                    Studio / přímý kontakt
+                  </p>
+                  <p className="mt-2 text-2xl font-semibold text-white">
+                    Bez přeposílání mezi accounty. Zásah držím osobně.
+                  </p>
+                </div>
+                <p className="max-w-2xl text-base leading-7 text-white/62">
+                  Když e-shop zlobí, nechceš čekat na kolečko mezi projektovým manažerem, vývojem a
+                  marketingem. Potřebuješ člověka, který problém rychle najde a dovede ho do
+                  opravy.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <ProtectedEmailLink
+                    ariaLabel="Poslat e-mail"
+                    fallbackText="Zobrazit e-mail"
+                    showAddress
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/78 transition hover:border-accent-blue/35 hover:text-white"
+                    prefix={<MailIcon className="h-4 w-4" />}
+                  />
+                  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/60">
+                    <PinIcon className="h-4 w-4" />
+                    {siteConfig.contact.location}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <div id="top" className="relative overflow-hidden">
@@ -542,95 +633,12 @@ export default function Home() {
                 </AuditOptionCard>
               </div>
 
-              <div className="panel mt-10 rounded-[2rem] border border-white/10 px-5 py-6 sm:px-6 sm:py-7">
-                <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">
-                      Kde a jak zasahuju
-                    </p>
-                    <h3 className="mt-3 max-w-xl text-2xl font-semibold text-white sm:text-[2rem]">
-                      Nejčastěji Shoptet, PrestaShop, WooCommerce, WordPress a Shopify.
-                    </h3>
-                    <p className="mt-4 max-w-xl text-base leading-7 text-white/62">
-                      Tohle jsou prostředí, kde nejčastěji hledám, kudy utíkají objednávky, data
-                      nebo důvěra v prvních vteřinách. Není to dekorace, ale rychlá orientace,
-                      v čem se typicky pohybuju.
-                    </p>
-                    <div className="mt-5 flex flex-wrap gap-2.5">
-                      {platformPills.map((platform) => (
-                        <span
-                          key={platform}
-                          className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/72"
-                        >
-                          {platform}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="space-y-5">
-                    <div>
-                      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">
-                        Co čekat po prvním kontaktu
-                      </p>
-                      <div className="mt-4 grid gap-3 sm:grid-cols-3">
-                        {metrics.map((item) => (
-                          <div
-                            key={item.value}
-                            className="rounded-[1.35rem] border border-white/8 bg-white/[0.03] px-4 py-4"
-                          >
-                            <p className="text-2xl font-semibold text-white">{item.value}</p>
-                            <p className="mt-2 text-sm leading-6 text-white/48">{item.label}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="rounded-[1.6rem] border border-white/8 bg-white/[0.03] px-5 py-5">
-                      <div className="flex items-start gap-4">
-                        <Image
-                          src="/logo-mark.png"
-                          alt="Witdesign"
-                          width={72}
-                          height={72}
-                          className="mt-1 h-12 w-12 shrink-0 drop-shadow-[0_0_18px_rgba(16,240,160,0.16)]"
-                        />
-                        <div className="space-y-4">
-                          <div>
-                            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">
-                              Studio / přímý kontakt
-                            </p>
-                            <p className="mt-2 text-2xl font-semibold text-white">
-                              Bez přeposílání mezi accounty. Zásah držím osobně.
-                            </p>
-                          </div>
-                          <p className="max-w-2xl text-base leading-7 text-white/62">
-                            Když e-shop zlobí, nechceš čekat na kolečko mezi projektovým
-                            manažerem, vývojem a marketingem. Potřebuješ člověka, který problém
-                            rychle najde a dovede ho do opravy.
-                          </p>
-                          <div className="flex flex-wrap gap-3">
-                            <ProtectedEmailLink
-                              ariaLabel="Poslat e-mail"
-                              fallbackText="Zobrazit e-mail"
-                              showAddress
-                              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/78 transition hover:border-accent-blue/35 hover:text-white"
-                              prefix={<MailIcon className="h-4 w-4" />}
-                            />
-                            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/60">
-                              <PinIcon className="h-4 w-4" />
-                              {siteConfig.contact.location}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <DiagnosticPanel />
+            <div className="lg:col-span-2">
+              <HeroContextPanel />
+            </div>
           </div>
         </section>
 

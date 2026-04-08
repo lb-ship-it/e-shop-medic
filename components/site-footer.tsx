@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 import { ProtectedEmailLink } from "@/components/protected-email-link";
 import { LinkedInIcon, MailIcon, PhoneIcon, PinIcon } from "@/components/site-icons";
@@ -19,7 +19,7 @@ export function SiteFooter() {
     <footer className="mt-24 border-t border-white/8 bg-black/38">
       <div className="mx-auto grid w-full max-w-7xl gap-10 px-6 py-12 sm:px-10 lg:grid-cols-3 lg:px-12">
         <div className="space-y-4">
-          <FooterHeading>O mně / Studio</FooterHeading>
+          <FooterHeading>O mnÄ› / Studio</FooterHeading>
           <div className="flex items-center gap-4">
             <Image
               src="/logo-mark.png"
@@ -61,22 +61,10 @@ export function SiteFooter() {
         </div>
 
         <div className="space-y-4">
-          <FooterHeading>Rychlé odkazy</FooterHeading>
+          <FooterHeading>RychlĂ© odkazy</FooterHeading>
           <nav className="flex flex-col gap-3 text-base text-white/72">
-            <Link href="/#sluzby" className="transition hover:text-accent-green">
-              Služby
-            </Link>
-            <Link href="/portfolio" className="transition hover:text-accent-green">
-              Portfolio
-            </Link>
-            <Link href="/blog" className="transition hover:text-accent-green">
-              Blog
-            </Link>
-            <Link href="/#kontakt" className="transition hover:text-accent-green">
-              Kontakt
-            </Link>
             <Link href={siteConfig.legal.privacyHref} className="transition hover:text-accent-green">
-              GDPR / Ochrana osobních údajů
+              GDPR / Ochrana osobnĂ­ch ĂşdajĹŻ
             </Link>
             <Link href={siteConfig.legal.termsHref} className="transition hover:text-accent-green">
               VOP
@@ -119,13 +107,13 @@ export function SiteFooter() {
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-6 py-5 text-sm text-white/52 sm:px-10 lg:flex-row lg:items-center lg:justify-between lg:px-12">
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <span>{siteConfig.contact.operatorName}</span>
-            <span>Sídlo: {siteConfig.contact.registeredOffice}</span>
-            <span>IČO: {siteConfig.contact.ico}</span>
+            <span>SĂ­dlo: {siteConfig.contact.registeredOffice}</span>
+            <span>IÄŚO: {siteConfig.contact.ico}</span>
             <span>{siteConfig.contact.legalStatus}</span>
             <span>{siteConfig.contact.vatStatus}</span>
           </div>
           <span>
-            © {year} {siteConfig.brand.domain}
+            Â© {year} {siteConfig.brand.domain}
           </span>
         </div>
       </div>
