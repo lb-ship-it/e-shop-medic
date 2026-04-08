@@ -45,6 +45,12 @@ const services: Service[] = [
     description:
       "Do 24 hodin dostaneš jasný seznam největších úniků, priorit a doporučených zásahů.",
     icon: "audit",
+    cta: {
+      label: "CHCI RYCHLÝ AUDIT",
+      href: siteConfig.payments.expressAuditHref,
+      note: "Expresní rezervace a platba bezpečně přes Stripe.",
+      tone: "yellow",
+    },
   },
   {
     title: "SOS oprava",
