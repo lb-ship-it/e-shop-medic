@@ -201,13 +201,22 @@ function MoreDetails({
   children: ReactNode;
 }) {
   return (
-    <details className="group mt-6">
-      <summary className="inline-flex cursor-pointer list-none items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base font-medium text-white/76 transition hover:border-accent-blue/35 hover:text-white">
-        <span>{label}</span>
-        <span className="text-white/38">+</span>
-      </summary>
-      <div className="mt-5">{children}</div>
-    </details>
+    <>
+      <details className="group mt-6 md:hidden">
+        <summary className="inline-flex cursor-pointer list-none items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base font-medium text-white/76 transition hover:border-accent-blue/35 hover:text-white">
+          <span>{label}</span>
+          <span className="text-white/38">+</span>
+        </summary>
+        <div className="mt-5">{children}</div>
+      </details>
+
+      <div className="mt-6 hidden md:block">
+        <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base font-medium text-white/76">
+          <span>{label}</span>
+        </div>
+        {children}
+      </div>
+    </>
   );
 }
 
