@@ -142,11 +142,12 @@ export function NetworkBackground() {
 
   return (
     <div className="pointer-events-none fixed inset-0 -z-20 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(72%_54%_at_50%_0%,rgba(255,255,255,0.03)_0%,rgba(255,255,255,0.014)_26%,transparent_74%)]" />
-      <div className="absolute left-[-18rem] top-[-8rem] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,rgba(0,170,255,0.16)_0%,rgba(0,170,255,0.08)_30%,rgba(0,170,255,0.03)_52%,transparent_74%)] blur-3xl" />
-      <div className="absolute bottom-[-12rem] right-[-12rem] h-[36rem] w-[36rem] rounded-full bg-[radial-gradient(circle,rgba(0,255,157,0.14)_0%,rgba(0,255,157,0.07)_28%,rgba(0,255,157,0.025)_50%,transparent_74%)] blur-3xl" />
+      <div className="absolute inset-0 bg-[radial-gradient(78%_58%_at_50%_0%,rgba(255,255,255,0.026)_0%,rgba(255,255,255,0.012)_28%,transparent_76%)]" />
+      <div className="absolute left-[-24rem] top-[-14rem] h-[42rem] w-[56rem] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,255,157,0.1)_0%,rgba(0,255,157,0.05)_30%,rgba(0,255,157,0.016)_58%,transparent_88%)] blur-[120px]" />
+      <div className="absolute right-[-24rem] top-[4rem] h-[44rem] w-[58rem] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,170,255,0.11)_0%,rgba(0,170,255,0.05)_32%,rgba(0,170,255,0.016)_60%,transparent_88%)] blur-[128px]" />
+      <div className="absolute left-1/2 top-[36%] h-[28rem] w-[52rem] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,255,157,0.03)_0%,rgba(0,170,255,0.025)_34%,transparent_82%)] blur-[140px]" />
       <canvas ref={canvasRef} className="h-full w-full" aria-hidden="true" />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,9,12,0.08),rgba(7,9,12,0.26)_34%,rgba(7,9,12,0.56)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,9,12,0.04),rgba(7,9,12,0.14)_38%,rgba(7,9,12,0.28)_100%)]" />
     </div>
   );
 }
