@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# e-shop-medic
 
-## Getting Started
+Starter storefront for `Vercel + Stripe Checkout`, prepared as a fast first version for `witdesign.cz`.
 
-First, run the development server:
+## Stack
+
+- `Next.js 16` with App Router
+- `Tailwind CSS 4`
+- `Stripe Checkout Sessions`
+- deployment target: `Vercel`
+
+## Why this setup
+
+For a first ecommerce launch with one-time payments, Stripe best practices recommend `Checkout Sessions`. It is the fastest safe path to production and fits Vercel very well.
+
+This starter intentionally keeps scope small:
+
+- one featured product flow
+- fresh homepage instead of boilerplate
+- success and cancel return pages
+- no cart, no order database, no webhook fulfillment yet
+
+## Local run
+
+1. Copy `.env.example` to `.env.local`
+2. Fill in:
+   - `STRIPE_SECRET_KEY`
+   - `STRIPE_PRICE_ID`
+   - optionally `NEXT_PUBLIC_SITE_URL`
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Start development:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stripe setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. In Stripe Dashboard create a product and a one-time price
+2. Copy the resulting `price_...` ID into `STRIPE_PRICE_ID`
+3. Copy your secret key into `STRIPE_SECRET_KEY`
 
-## Learn More
+The current checkout route is in `app/api/checkout/route.ts`.
 
-To learn more about Next.js, take a look at the following resources:
+## Vercel deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Import the repo/project into Vercel
+2. Add the same environment variables in the Vercel project settings:
+   - `STRIPE_SECRET_KEY`
+   - `STRIPE_PRICE_ID`
+   - `NEXT_PUBLIC_SITE_URL`
+3. Set `NEXT_PUBLIC_SITE_URL` to your production URL, for example `https://witdesign.cz`
+4. Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Next recommended step
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Before going live with real orders, add a Stripe webhook for `checkout.session.completed` and connect it to order creation, email, or fulfillment.
