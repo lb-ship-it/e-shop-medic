@@ -24,7 +24,7 @@
   --color-accent-green: var(--accent-green);
   --color-accent-blue: var(--accent-blue);
   --font-sans: var(--font-noto-sans);
-  --font-display: var(--font-noto-serif);
+  --font-display: var(--font-manrope);
 }
 
 html {

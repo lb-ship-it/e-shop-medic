@@ -238,7 +238,7 @@ function DiagnosticPanel() {
             <p className="text-sm uppercase tracking-[0.28em] text-white/35">
               Diagnostický panel
             </p>
-            <h2 className="mt-3 font-display text-3xl leading-tight text-white sm:text-[2.1rem]">
+            <h2 className="mt-3 font-display text-3xl font-semibold leading-tight tracking-[-0.03em] text-white sm:text-[2.1rem]">
               Operační pohled na e-shop
             </h2>
           </div>
@@ -388,7 +388,7 @@ export default function Home() {
               <p className="mt-8 text-base font-semibold uppercase tracking-[0.3em] text-white/34">
                 E-shop Medic
               </p>
-              <h1 className="mt-5 max-w-[11ch] font-display text-5xl leading-[0.92] tracking-tight text-white sm:text-6xl lg:text-[4.65rem] xl:text-[5rem]">
+              <h1 className="mt-5 max-w-[11ch] font-display text-5xl font-semibold leading-[0.9] tracking-[-0.045em] text-white sm:text-6xl lg:text-[4.65rem] xl:text-[5rem]">
                 Když e-shop krvácí výkonem, nestačí hezký text. Potřebuje zásah.
               </h1>
               <p className="mt-6 max-w-3xl text-xl font-semibold text-accent-green sm:text-2xl">

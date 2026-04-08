@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Sans, Noto_Serif } from "next/font/google";
+import { Manrope, Noto_Sans } from "next/font/google";
 import { MobileBottomNav } from "@/components/mobile-bottom-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -12,8 +12,8 @@ const notoSans = Noto_Sans({
   display: "swap",
 });
 
-const notoSerif = Noto_Serif({
-  variable: "--font-noto-serif",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin-ext"],
   display: "swap",
 });
@@ -34,10 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="cs"
-      className={`${notoSans.variable} ${notoSerif.variable} h-full antialiased`}
-    >
+    <html lang="cs" className={`${notoSans.variable} ${manrope.variable} h-full antialiased`}>
       <body className="min-h-full bg-background text-foreground">
         <SiteHeader />
         <div className="pb-24 md:pb-0">{children}</div>
