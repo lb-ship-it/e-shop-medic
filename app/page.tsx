@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { CheckoutButton } from "@/components/checkout-button";
 import { LeadCaptureForm } from "@/components/lead-capture-form";
 import { NetworkBackground } from "@/components/network-background";
+import { ProtectedEmailLink } from "@/components/protected-email-link";
 import { MailIcon, PinIcon } from "@/components/site-icons";
 import { siteConfig } from "@/lib/site-config";
 
@@ -553,13 +554,13 @@ export default function Home() {
                         dovede ho do opravy.
                       </p>
                       <div className="flex flex-wrap gap-3">
-                        <a
-                          href={siteConfig.contact.emailHref}
+                        <ProtectedEmailLink
+                          ariaLabel="Poslat e-mail"
+                          fallbackText="Zobrazit e-mail"
+                          showAddress
                           className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/78 transition hover:border-accent-blue/35 hover:text-white"
-                        >
-                          <MailIcon className="h-4 w-4" />
-                          {siteConfig.contact.email}
-                        </a>
+                          prefix={<MailIcon className="h-4 w-4" />}
+                        />
                         <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/60">
                           <PinIcon className="h-4 w-4" />
                           {siteConfig.contact.location}

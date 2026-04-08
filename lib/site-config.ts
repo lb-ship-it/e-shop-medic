@@ -1,5 +1,3 @@
-const contactEmail = "lblecha@witdesign.cz";
-
 export const siteConfig = {
   brand: {
     name: "E-shop Medic",
@@ -12,9 +10,10 @@ export const siteConfig = {
   contact: {
     ctaLabel: "Audit zdarma",
     ctaHref: "/#kontakt",
-    email: contactEmail,
-    emailHref: `mailto:${contactEmail}`,
-    emailComposeHref: `https://mail.google.com/mail/?view=cm&fs=1&to=${contactEmail}`,
+    emailLabel: "Napsat e-mail",
+    emailLocalEncoded: "bGJsZWNoYQ==",
+    emailDomainEncoded: "d2l0ZGVzaWdu",
+    emailTldEncoded: "Y3o=",
     phoneDisplay: null as string | null,
     phoneHref: null as string | null,
     whatsappHref: null as string | null,
@@ -38,23 +37,11 @@ export const siteConfig = {
 } as const;
 
 export function getHeaderContactLabel() {
-  return siteConfig.contact.phoneDisplay ?? "Napsat e-mail";
-}
-
-export function getHeaderContactHref() {
-  return siteConfig.contact.phoneHref ?? siteConfig.contact.emailHref;
-}
-
-export function getHeaderContactTarget() {
-  return undefined;
+  return siteConfig.contact.phoneDisplay ?? siteConfig.contact.emailLabel;
 }
 
 export function getBottomNavPrimaryLabel() {
   return siteConfig.contact.phoneHref ? "Volat" : "E-mail";
-}
-
-export function getBottomNavPrimaryHref() {
-  return siteConfig.contact.phoneHref ?? siteConfig.contact.emailHref;
 }
 
 export function getBottomNavSecondaryLabel() {

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ProtectedEmailLink } from "@/components/protected-email-link";
 import { LinkedInIcon, MailIcon, PhoneIcon, PinIcon } from "@/components/site-icons";
 import { siteConfig } from "@/lib/site-config";
 
@@ -47,13 +48,14 @@ export function SiteFooter() {
                 LinkedIn
               </a>
             ) : (
-              <a
-                href={siteConfig.contact.emailHref}
+              <ProtectedEmailLink
+                ariaLabel="Napsat e-mail"
+                fallbackText={siteConfig.contact.emailLabel}
                 className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/78 transition hover:border-accent-blue/35 hover:text-white"
+                prefix={<MailIcon className="h-4 w-4" />}
               >
-                <MailIcon className="h-4 w-4" />
-                Napsat e-mail
-              </a>
+                {siteConfig.contact.emailLabel}
+              </ProtectedEmailLink>
             )}
           </div>
         </div>
@@ -88,13 +90,13 @@ export function SiteFooter() {
                 <span>{siteConfig.contact.phoneDisplay}</span>
               </a>
             ) : null}
-            <a
-              href={siteConfig.contact.emailHref}
+            <ProtectedEmailLink
+              ariaLabel="Poslat e-mail"
+              fallbackText="Zobrazit e-mail"
+              showAddress
               className="flex items-start gap-3 transition hover:text-accent-green"
-            >
-              <MailIcon className="mt-0.5 h-5 w-5 shrink-0" />
-              <span>{siteConfig.contact.email}</span>
-            </a>
+              prefix={<MailIcon className="mt-0.5 h-5 w-5 shrink-0" />}
+            />
             <div className="flex items-start gap-3">
               <PinIcon className="mt-0.5 h-5 w-5 shrink-0 text-white/55" />
               <span>

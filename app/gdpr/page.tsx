@@ -1,4 +1,4 @@
-import { siteConfig } from "@/lib/site-config";
+import { ProtectedEmailLink } from "@/components/protected-email-link";
 
 export default function GdprPage() {
   return (
@@ -22,9 +22,12 @@ export default function GdprPage() {
           </p>
           <p>
             Pokud si budeš přát údaje upravit nebo smazat, napiš na{" "}
-            <a href={siteConfig.contact.emailHref} className="text-accent-green transition hover:text-white">
-              {siteConfig.contact.email}
-            </a>
+            <ProtectedEmailLink
+              ariaLabel="Poslat e-mail"
+              fallbackText="kontaktní e-mail"
+              showAddress
+              className="text-accent-green transition hover:text-white"
+            />
             .
           </p>
           <p>
