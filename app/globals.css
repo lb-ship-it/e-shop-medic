@@ -36,6 +36,9 @@ body {
   background: linear-gradient(180deg, #05070a 0%, #070a0f 48%, #05070a 100%);
   color: var(--foreground);
   font-family: var(--font-noto-sans), sans-serif;
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 body::before {
@@ -83,6 +86,25 @@ body::after {
 ::selection {
   background: rgba(0, 255, 157, 0.2);
   color: var(--foreground);
+}
+
+a,
+button,
+summary,
+[role="button"],
+label[for] {
+  cursor: pointer;
+}
+
+input,
+textarea,
+select,
+option,
+[contenteditable="true"] {
+  cursor: text;
+  user-select: text;
+  -webkit-user-select: text;
+  caret-color: auto;
 }
 
 .panel {
