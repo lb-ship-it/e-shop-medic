@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/site-config";
 
 function FooterHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="font-display text-lg font-semibold uppercase tracking-[0.22em] text-white/78">
+    <h2 className="font-display text-[0.94rem] font-semibold uppercase tracking-[0.2em] text-white/78 sm:text-base">
       {children}
     </h2>
   );
@@ -16,9 +16,9 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-24 border-t border-white/8 bg-black/38">
-      <div className="mx-auto grid w-full max-w-7xl gap-10 px-6 py-12 sm:px-10 lg:grid-cols-3 lg:px-12">
-        <div className="space-y-4">
+    <footer className="mt-20 border-t border-white/8 bg-black/38">
+      <div className="mx-auto grid w-full max-w-7xl gap-8 px-5 py-10 sm:px-10 lg:grid-cols-3 lg:px-12">
+        <div className="space-y-3.5">
           <FooterHeading>O mně / Studio</FooterHeading>
           <div className="flex items-center gap-4">
             <Image
@@ -26,14 +26,14 @@ export function SiteFooter() {
               alt={siteConfig.brand.name}
               width={64}
               height={64}
-              className="h-14 w-14 drop-shadow-[0_0_18px_rgba(16,240,160,0.16)]"
+              className="h-12 w-12 drop-shadow-[0_0_18px_rgba(16,240,160,0.16)]"
             />
             <div>
-              <p className="text-lg font-semibold text-white">{siteConfig.brand.name}</p>
-              <p className="text-base text-white/60">{siteConfig.brand.domain}</p>
+              <p className="text-base font-semibold text-white">{siteConfig.brand.name}</p>
+              <p className="text-[0.92rem] text-white/60">{siteConfig.brand.domain}</p>
             </div>
           </div>
-          <p className="max-w-md text-base leading-7 text-white/65">
+          <p className="max-w-md text-[0.94rem] leading-6 text-white/65">
             {siteConfig.brand.studioBlurb}
           </p>
           <div className="flex flex-wrap gap-3">
@@ -42,7 +42,7 @@ export function SiteFooter() {
                 href={siteConfig.contact.linkedInHref}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/78 transition hover:border-accent-blue/35 hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-[0.9rem] text-white/78 transition hover:border-accent-blue/35 hover:text-white"
               >
                 <LinkedInIcon className="h-4 w-4" />
                 LinkedIn
@@ -51,7 +51,7 @@ export function SiteFooter() {
               <ProtectedEmailLink
                 ariaLabel="Napsat e-mail"
                 fallbackText={siteConfig.contact.emailLabel}
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-base text-white/78 transition hover:border-accent-blue/35 hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-[0.9rem] text-white/78 transition hover:border-accent-blue/35 hover:text-white"
                 prefix={<MailIcon className="h-4 w-4" />}
               >
                 {siteConfig.contact.emailLabel}
@@ -60,9 +60,9 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3.5">
           <FooterHeading>Rychlé odkazy</FooterHeading>
-          <nav className="flex flex-col gap-3 text-base text-white/72">
+          <nav className="flex flex-col gap-2.5 text-[0.94rem] text-white/72">
             <Link href={siteConfig.legal.privacyHref} className="transition hover:text-accent-green">
               GDPR / Ochrana osobních údajů
             </Link>
@@ -72,9 +72,9 @@ export function SiteFooter() {
           </nav>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3.5">
           <FooterHeading>Kontakt</FooterHeading>
-          <div className="space-y-3 text-base text-white/72">
+          <div className="space-y-2.5 text-[0.94rem] text-white/72">
             {siteConfig.contact.phoneHref ? (
               <a
                 href={siteConfig.contact.phoneHref}
@@ -104,7 +104,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-white/8 bg-black/72">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-6 py-5 text-sm text-white/52 sm:px-10 lg:flex-row lg:items-center lg:justify-between lg:px-12">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 px-5 py-4 text-[0.78rem] text-white/52 sm:px-10 sm:text-[0.82rem] lg:flex-row lg:items-center lg:justify-between lg:px-12">
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <span>{siteConfig.contact.operatorName}</span>
             <span>Sídlo: {siteConfig.contact.registeredOffice}</span>

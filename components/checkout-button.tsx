@@ -16,7 +16,7 @@ export function CheckoutButton({
   const [isPending, startTransition] = useTransition();
 
   const classes = [
-    "inline-flex items-center justify-center rounded-full bg-foreground px-6 py-3 text-base font-semibold text-background transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70",
+    "inline-flex items-center justify-center rounded-full bg-foreground px-5 py-2.5 text-[0.92rem] font-semibold text-background transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70",
     className,
   ]
     .filter(Boolean)

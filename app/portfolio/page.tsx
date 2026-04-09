@@ -15,31 +15,31 @@ export default function PortfolioPage() {
   ];
 
   return (
-    <main className="mx-auto w-full max-w-6xl px-6 py-16 sm:px-10 lg:px-12">
-      <section className="mb-10 max-w-3xl">
-        <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
+    <main className="mx-auto w-full max-w-6xl px-5 py-12 sm:px-10 lg:px-12">
+      <section className="mb-8 max-w-3xl">
+        <p className="text-[0.82rem] font-semibold uppercase tracking-[0.22em] text-white/35 sm:text-sm">
           Portfolio
         </p>
-        <h1 className="mt-4 font-display text-3xl tracking-tight text-white sm:text-4xl">
+        <h1 className="mt-3 font-display text-[1.7rem] tracking-tight text-white sm:text-[2.3rem]">
           Typy zásahů, které dávají e-shopům rychlý klid
         </h1>
-        <p className="mt-5 text-base leading-8 text-white/64">
+        <p className="mt-4 text-[0.94rem] leading-7 text-white/64">
           Část realizací sdílím jen v anonymizované podobě, protože řeším interní výkon, data nebo
           technické problémy. Tohle jsou nejčastější scénáře, se kterými pomáhám.
         </p>
       </section>
 
-      <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {cases.map((item) => (
           <article
             key={item.title}
-            className="panel rounded-[1.8rem] border border-white/8 p-6"
+            className="panel rounded-[1.4rem] border border-white/8 p-5"
           >
-            <p className="text-base font-semibold uppercase tracking-[0.2em] text-white/35">
+            <p className="text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-white/35 sm:text-[0.84rem]">
               Case type
             </p>
-            <h2 className="mt-5 text-xl font-semibold text-white sm:text-[1.6rem]">{item.title}</h2>
-            <p className="mt-4 text-base leading-7 text-white/62">{item.text}</p>
+            <h2 className="mt-3.5 text-[1.02rem] font-semibold text-white sm:text-[1.24rem]">{item.title}</h2>
+            <p className="mt-3 text-[0.92rem] leading-6 text-white/62">{item.text}</p>
           </article>
         ))}
       </section>

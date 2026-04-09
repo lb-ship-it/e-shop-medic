@@ -89,8 +89,8 @@ export function LeadCaptureForm({ align = "center" }: LeadCaptureFormProps) {
       onSubmit={handleSubmit}
       className={`flex w-full max-w-3xl flex-col gap-4 ${alignmentClass}`}
     >
-      <div className="panel-strong glow-blue flex w-full items-center gap-3 rounded-[1.15rem] px-4 py-2.5 sm:rounded-2xl sm:px-5 sm:py-3">
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xs font-semibold text-accent-blue sm:h-11 sm:w-11 sm:text-sm">
+      <div className="panel-strong glow-blue flex w-full items-center gap-2.5 rounded-[1rem] px-3.5 py-2 sm:rounded-[1.15rem] sm:px-4 sm:py-2.5">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[0.68rem] font-semibold text-accent-blue sm:h-10 sm:w-10 sm:text-xs">
           URL
         </span>
         <input
@@ -103,13 +103,13 @@ export function LeadCaptureForm({ align = "center" }: LeadCaptureFormProps) {
             setSubmitted(false);
           }}
           placeholder="https://vas-eshop.cz"
-          className="w-full bg-transparent text-[0.95rem] text-white outline-none placeholder:text-white/35 sm:text-base"
+          className="w-full bg-transparent text-[0.9rem] text-white outline-none placeholder:text-white/35 sm:text-[0.95rem]"
           autoComplete="url"
         />
       </div>
 
-      <div className="panel-strong flex w-full items-center gap-3 rounded-[1.15rem] px-4 py-2.5 sm:rounded-2xl sm:px-5 sm:py-3">
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xs font-semibold text-accent-blue sm:h-11 sm:w-11 sm:text-sm">
+      <div className="panel-strong flex w-full items-center gap-2.5 rounded-[1rem] px-3.5 py-2 sm:rounded-[1.15rem] sm:px-4 sm:py-2.5">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[0.68rem] font-semibold text-accent-blue sm:h-10 sm:w-10 sm:text-xs">
           @
         </span>
         <input
@@ -122,16 +122,16 @@ export function LeadCaptureForm({ align = "center" }: LeadCaptureFormProps) {
             setSubmitted(false);
           }}
           placeholder="vas@email.cz"
-          className="w-full bg-transparent text-[0.95rem] text-white outline-none placeholder:text-white/35 sm:text-base"
+          className="w-full bg-transparent text-[0.9rem] text-white outline-none placeholder:text-white/35 sm:text-[0.95rem]"
           autoComplete="email"
         />
       </div>
 
-      <div className={`flex flex-col gap-3 sm:flex-row sm:gap-7 ${ctaRowClass}`}>
+      <div className={`flex flex-col gap-2.5 sm:flex-row sm:gap-5 ${ctaRowClass}`}>
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`inline-grid min-h-11 w-full grid-cols-[1fr_auto] items-center gap-4 rounded-[1rem] px-4 py-2.5 text-[0.92rem] font-semibold transition sm:min-h-12 sm:max-w-[18.5rem] sm:min-w-[18.5rem] sm:gap-5 sm:rounded-xl sm:px-7 sm:text-sm ${
+          className={`inline-grid min-h-10 w-full grid-cols-[1fr_auto] items-center gap-3.5 rounded-[0.95rem] px-3.5 py-2 text-[0.86rem] font-semibold transition sm:min-h-[2.625rem] sm:max-w-[17.25rem] sm:min-w-[17.25rem] sm:gap-4 sm:rounded-[1rem] sm:px-5 sm:text-[0.82rem] ${
             submitted
               ? "bg-[#00cc7d] text-black shadow-[0_0_28px_rgba(0,204,125,0.22)]"
               : "glow-green bg-accent-green text-black hover:translate-y-[-1px] disabled:cursor-not-allowed disabled:opacity-75"
@@ -154,19 +154,19 @@ export function LeadCaptureForm({ align = "center" }: LeadCaptureFormProps) {
               </>
             )}
           </span>
-          <span aria-hidden="true" className="pr-1 text-sm leading-none sm:text-base">
+          <span aria-hidden="true" className="pr-1 text-[0.9rem] leading-none sm:text-sm">
             &gt;
           </span>
         </button>
 
-        <div className="flex items-center gap-2.5 pl-1 text-[0.88rem] text-white/55 sm:gap-3 sm:pl-0 sm:text-sm">
+        <div className="flex items-center gap-2 pl-1 text-[0.82rem] text-white/55 sm:gap-2.5 sm:pl-0 sm:text-[0.84rem]">
           <span className="h-2 w-2 rounded-full bg-accent-green sm:h-2.5 sm:w-2.5" />
           Odpověď do 24 hodin
         </div>
       </div>
 
-      {error ? <p className="text-[0.95rem] text-[#ff8e8e] sm:text-base">{error}</p> : null}
-      <p className="text-[0.95rem] text-white/45 sm:text-base">Analýza je zcela nezávazná.</p>
+      {error ? <p className="text-[0.88rem] text-[#ff8e8e] sm:text-[0.92rem]">{error}</p> : null}
+      <p className="text-[0.86rem] text-white/45 sm:text-[0.9rem]">Analýza je zcela nezávazná.</p>
     </form>
   );
 }
