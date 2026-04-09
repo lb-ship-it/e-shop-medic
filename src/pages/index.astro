@@ -116,7 +116,7 @@ const extraSymptoms = site.symptoms.slice(2);
                   </div>
                 </div>
 
-                <form id="free-audit-form" data-recipient={site.contact.email} class="space-y-3">
+                <form id="free-audit-form" data-recipient={site.contact.email} class="space-y-3" novalidate>
                   <label class="block">
                     <span class="mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/35">URL e‑shopu</span>
                     <input
@@ -124,8 +124,9 @@ const extraSymptoms = site.symptoms.slice(2);
                       type="url"
                       name="URL e‑shopu"
                       placeholder="https://vas-eshop.cz"
-                      required
-                      class="w-full rounded-2xl border border-white/10 bg-black/18 px-4 py-3 text-[0.92rem] text-white outline-none transition placeholder:text-white/28 focus:border-[color:var(--blue)]/45"
+                      autocomplete="url"
+                      aria-required="true"
+                      class="form-field"
                     />
                   </label>
                   <label class="block">
@@ -135,8 +136,10 @@ const extraSymptoms = site.symptoms.slice(2);
                       type="email"
                       name="E-mail"
                       placeholder="vas@email.cz"
-                      required
-                      class="w-full rounded-2xl border border-white/10 bg-black/18 px-4 py-3 text-[0.92rem] text-white outline-none transition placeholder:text-white/28 focus:border-[color:var(--blue)]/45"
+                      autocomplete="email"
+                      inputmode="email"
+                      aria-required="true"
+                      class="form-field"
                     />
                   </label>
                   <label class="block">
@@ -146,9 +149,11 @@ const extraSymptoms = site.symptoms.slice(2);
                       name="Poznámka"
                       rows="3"
                       placeholder="Co teď nejvíc bolí?"
-                      class="w-full rounded-2xl border border-white/10 bg-black/18 px-4 py-3 text-[0.92rem] text-white outline-none transition placeholder:text-white/28 focus:border-[color:var(--blue)]/45"
+                      class="form-field"
                     ></textarea>
                   </label>
+
+                  <div id="free-audit-message" class="form-alert" role="alert" aria-live="polite"></div>
 
                   <div class="flex flex-col gap-3 md:flex-row md:items-center">
                     <button type="submit" class="cta-green min-h-11 w-full md:w-auto">ODESLAT</button>
@@ -424,18 +429,105 @@ const extraSymptoms = site.symptoms.slice(2);
     const freeAuditForm = document.getElementById("free-audit-form");
 
     if (freeAuditForm instanceof HTMLFormElement) {
+      const urlInput = document.getElementById("free-audit-url");
+      const emailInput = document.getElementById("free-audit-email");
+      const noteInput = document.getElementById("free-audit-note");
+      const messageBox = document.getElementById("free-audit-message");
+
+      const supportsFieldHandling =
+        urlInput instanceof HTMLInputElement &&
+        emailInput instanceof HTMLInputElement &&
+        noteInput instanceof HTMLTextAreaElement &&
+        messageBox instanceof HTMLDivElement;
+
+      const toggleFieldError = (field, isInvalid) => {
+        field.classList.toggle("is-invalid", isInvalid);
+      };
+
+      const showMessage = (message) => {
+        if (!supportsFieldHandling) return;
+        messageBox.textContent = message;
+        messageBox.classList.add("is-visible");
+      };
+
+      const hideMessage = () => {
+        if (!supportsFieldHandling) return;
+        messageBox.textContent = "";
+        messageBox.classList.remove("is-visible");
+      };
+
+      const normalizeUrl = (value) => {
+        const trimmed = value.trim();
+
+        if (!trimmed) {
+          return "";
+        }
+
+        const fixedProtocol = trimmed.replace(/^https?:\/(?!\/)/i, (match) => `${match}/`);
+        const withProtocol = /^[a-z][a-z\d+\-.]*:\/\//i.test(fixedProtocol)
+          ? fixedProtocol
+          : `https://${fixedProtocol.replace(/^\/+/, "")}`;
+
+        try {
+          const parsed = new URL(withProtocol);
+
+          if (!parsed.hostname || !parsed.hostname.includes(".")) {
+            return null;
+          }
+
+          return parsed.toString();
+        } catch {
+          return null;
+        }
+      };
+
+      const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+
+      if (supportsFieldHandling) {
+        [urlInput, emailInput, noteInput].forEach((field) => {
+          field.addEventListener("input", () => {
+            toggleFieldError(field, false);
+            if (messageBox.classList.contains("is-visible")) {
+              hideMessage();
+            }
+          });
+        });
+      }
+
       freeAuditForm.addEventListener("submit", (event) => {
         event.preventDefault();
 
-        if (!freeAuditForm.reportValidity()) {
+        if (!supportsFieldHandling) {
           return;
         }
 
-        const urlInput = document.getElementById("free-audit-url");
-        const emailInput = document.getElementById("free-audit-email");
-        const noteInput = document.getElementById("free-audit-note");
+        hideMessage();
+        toggleFieldError(urlInput, false);
+        toggleFieldError(emailInput, false);
 
-        if (!(urlInput instanceof HTMLInputElement) || !(emailInput instanceof HTMLInputElement) || !(noteInput instanceof HTMLTextAreaElement)) {
+        const normalizedUrl = normalizeUrl(urlInput.value);
+        const trimmedEmail = emailInput.value.trim();
+        let message = "";
+
+        if (!urlInput.value.trim()) {
+          toggleFieldError(urlInput, true);
+          message = "Doplň URL e‑shopu, ať vím, na co se podívat.";
+        } else if (!normalizedUrl) {
+          toggleFieldError(urlInput, true);
+          message = "Zadej platnou URL, klidně jen ve tvaru witdesign.cz.";
+        }
+
+        if (!trimmedEmail) {
+          toggleFieldError(emailInput, true);
+          message ||= "Doplň svůj e-mail, ať se ti můžu ozvat.";
+        } else if (!isValidEmail(trimmedEmail)) {
+          toggleFieldError(emailInput, true);
+          message ||= "Zadej platný e-mail ve tvaru jmeno@domena.cz.";
+        }
+
+        if (message) {
+          showMessage(message);
+          (urlInput.classList.contains("is-invalid") ? urlInput : emailInput).focus();
           return;
         }
 
@@ -445,10 +537,13 @@ const extraSymptoms = site.symptoms.slice(2);
           return;
         }
 
+        urlInput.value = normalizedUrl;
+        emailInput.value = trimmedEmail;
+
         const subject = "Audit zdarma z witdesign.cz";
         const body = [
-          `URL e-shopu: ${urlInput.value.trim()}`,
-          `E-mail: ${emailInput.value.trim()}`,
+          `URL e-shopu: ${normalizedUrl}`,
+          `E-mail: ${trimmedEmail}`,
           "",
           "Poznámka:",
           noteInput.value.trim() || "Bez poznámky",
