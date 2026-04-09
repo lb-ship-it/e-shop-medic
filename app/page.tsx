@@ -245,7 +245,7 @@ function QuickActionBlock() {
         </div>
       </div>
 
-      <div className="mt-5 grid gap-3 sm:grid-cols-2">
+      <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
         {quickActions.map((action) => {
           const toneClass =
             action.tone === "green"
@@ -256,12 +256,12 @@ function QuickActionBlock() {
             <a
               key={action.label}
               href={action.href}
-              className={`group flex min-h-16 flex-col justify-center rounded-[1.2rem] border px-4 py-3 transition hover:-translate-y-0.5 ${toneClass}`}
+              className={`group flex min-h-16 flex-col justify-center rounded-[1.2rem] border px-4 py-3 transition hover:-translate-y-0.5 xl:min-h-[5.25rem] ${toneClass}`}
             >
-              <span className="text-[0.92rem] font-bold uppercase tracking-[0.04em]">
+              <span className="text-[0.88rem] font-bold uppercase tracking-[0.04em] xl:text-[0.82rem]">
                 {action.label}
               </span>
-              <span className="mt-1 text-sm text-black/72">{action.helper}</span>
+              <span className="mt-1 text-sm text-black/72 xl:text-[0.82rem]">{action.helper}</span>
             </a>
           );
         })}
@@ -635,13 +635,12 @@ export default function Home() {
                 opravíme to, co má největší dopad.
               </p>
 
-              <div className="mt-8">
-                <QuickActionBlock />
-              </div>
-
             </div>
 
             <DiagnosticPanel />
+            <div className="lg:col-span-2">
+              <QuickActionBlock />
+            </div>
             <div className="lg:col-span-2">
               <HeroContextPanel />
             </div>
