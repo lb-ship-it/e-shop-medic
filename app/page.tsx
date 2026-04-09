@@ -711,27 +711,29 @@ export default function Home() {
         </section>
 
         <section className="mx-auto w-full max-w-7xl px-4 pb-10 sm:px-10 sm:pb-14 lg:px-12">
-          <div className="mb-5 max-w-3xl sm:mb-6">
-            <p className="text-[0.82rem] font-semibold uppercase tracking-[0.22em] text-white/35 sm:text-sm">
-              Kdy kontaktovat medika
-            </p>
-          </div>
+          <div className="panel rounded-[1.35rem] border border-white/10 px-4 py-5 sm:rounded-[1.7rem] sm:px-6 sm:py-7">
+            <div className="mb-5 max-w-3xl sm:mb-6">
+              <p className="text-[0.82rem] font-semibold uppercase tracking-[0.22em] text-white/35 sm:text-sm">
+                Kdy kontaktovat e-shop medika
+              </p>
+            </div>
 
-          <div className="grid gap-4 md:grid-cols-2 md:gap-5">
-            {featuredSymptoms.map((symptom) => (
-              <SymptomCard key={symptom.title} {...symptom} />
-            ))}
-          </div>
+            <div className="grid gap-4 md:grid-cols-2 md:gap-5">
+              {featuredSymptoms.map((symptom) => (
+                <SymptomCard key={symptom.title} {...symptom} />
+              ))}
+            </div>
 
-          {extraSymptoms.length > 0 ? (
-            <MoreDetails label="Více symptomů">
-              <div className="grid gap-5 md:grid-cols-2">
-                {extraSymptoms.map((symptom) => (
-                  <SymptomCard key={symptom.title} {...symptom} />
-                ))}
-              </div>
-            </MoreDetails>
-          ) : null}
+            {extraSymptoms.length > 0 ? (
+              <MoreDetails label="Více symptomů">
+                <div className="grid gap-5 md:grid-cols-2">
+                  {extraSymptoms.map((symptom) => (
+                    <SymptomCard key={symptom.title} {...symptom} />
+                  ))}
+                </div>
+              </MoreDetails>
+            ) : null}
+          </div>
         </section>
 
         <section id="sluzby" className="mx-auto w-full max-w-7xl px-4 pb-10 sm:px-10 sm:pb-14 lg:px-12">
