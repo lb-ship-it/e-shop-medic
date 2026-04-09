@@ -212,25 +212,25 @@ function AuditOptionCard({
   const noteClass = accent === "yellow" ? "text-[#ffe67a]" : "text-accent-green";
 
   return (
-    <article className={`panel rounded-[1.8rem] border p-5 ${accentClass}`}>
+    <article className={`panel rounded-[1.45rem] border p-4 sm:rounded-[1.8rem] sm:p-5 ${accentClass}`}>
       <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/40">{eyebrow}</p>
       <h3 className="mt-3 text-xl font-semibold text-white sm:text-[1.65rem]">{title}</h3>
-      <p className="mt-3 text-base leading-7 text-white/66">{description}</p>
-      <p className={`mt-4 text-base font-medium ${noteClass}`}>{note}</p>
-      <div className="mt-5">{children}</div>
+      <p className="mt-3 text-[0.95rem] leading-6 text-white/66 sm:text-base sm:leading-7">{description}</p>
+      <p className={`mt-3 text-[0.95rem] font-medium sm:mt-4 sm:text-base ${noteClass}`}>{note}</p>
+      <div className="mt-4 sm:mt-5">{children}</div>
     </article>
   );
 }
 
 function QuickActionBlock() {
   return (
-    <div className="panel rounded-[1.8rem] border border-white/10 px-5 py-5 sm:px-6 sm:py-6">
-      <div className="grid gap-4 border-b border-white/8 pb-5 lg:grid-cols-[minmax(0,1fr)_16rem] lg:items-end lg:gap-8">
+    <div className="panel rounded-[1.5rem] border border-white/10 px-4 py-4 sm:rounded-[1.8rem] sm:px-6 sm:py-6">
+      <div className="grid gap-3 border-b border-white/8 pb-4 sm:pb-5 lg:grid-cols-[minmax(0,1fr)_16rem] lg:items-end lg:gap-8">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">
             Rychlá akce
           </p>
-          <p className="mt-3 text-base leading-7 text-white/62 sm:text-[1.05rem]">
+          <p className="mt-2 text-[0.95rem] leading-6 text-white/62 sm:mt-3 sm:text-[1.05rem] sm:leading-7">
             Vyber si nejrychlejší cestu podle toho, jak moc to hoří.
             <br />
             Bez scrollování k detailům, rovnou k akci.
@@ -240,7 +240,7 @@ function QuickActionBlock() {
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/28">
             Platby
           </p>
-          <p className="mt-2 max-w-[14rem] text-sm leading-6 text-white/45">
+          <p className="mt-1 max-w-[14rem] text-[0.82rem] leading-5 text-white/45 sm:mt-2 sm:text-sm sm:leading-6">
             Placené vstupy pokračují
             <br />
             přímo přes Stripe.
@@ -248,7 +248,7 @@ function QuickActionBlock() {
         </div>
       </div>
 
-      <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="mt-4 grid grid-cols-2 gap-2.5 sm:mt-5 sm:gap-3 xl:grid-cols-4">
         {quickActions.map((action) => {
           const toneClass =
             action.tone === "green"
@@ -259,12 +259,14 @@ function QuickActionBlock() {
             <a
               key={action.label}
               href={action.href}
-              className={`group flex min-h-16 flex-col justify-center rounded-[1.2rem] border px-4 py-3 transition hover:-translate-y-0.5 xl:min-h-[5.25rem] ${toneClass}`}
+              className={`group flex min-h-[4.55rem] flex-col justify-center rounded-[1rem] border px-3 py-2.5 transition hover:-translate-y-0.5 sm:min-h-16 sm:rounded-[1.2rem] sm:px-4 sm:py-3 xl:min-h-[5.25rem] ${toneClass}`}
             >
-              <span className="text-[0.88rem] font-bold uppercase tracking-[0.04em] xl:text-[0.82rem]">
+              <span className="text-[0.76rem] font-bold uppercase tracking-[0.03em] sm:text-[0.88rem] xl:text-[0.82rem]">
                 {action.label}
               </span>
-              <span className="mt-1 text-sm text-black/72 xl:text-[0.82rem]">{action.helper}</span>
+              <span className="mt-0.5 text-[0.78rem] leading-5 text-black/72 sm:mt-1 sm:text-sm xl:text-[0.82rem]">
+                {action.helper}
+              </span>
             </a>
           );
         })}
@@ -354,8 +356,8 @@ function ServiceIcon({ icon }: Pick<Service, "icon">) {
 
 function DiagnosticPanel() {
   return (
-    <div className="mx-auto w-full max-w-[42rem] lg:pt-6">
-        <div className="mb-4 lg:hidden">
+      <div className="mx-auto w-full max-w-[42rem] lg:pt-6">
+        <div className="hidden">
           <div className="static-copy float-card mb-3 w-fit rounded-2xl border border-red-500/35 bg-black/72 px-4 py-3 text-sm text-white/88 shadow-[0_0_0_1px_rgba(239,68,68,0.14),0_0_28px_rgba(239,68,68,0.18)] backdrop-blur">
           <p className="text-xs uppercase tracking-[0.24em] text-red-300/70">Urgent fix</p>
           <p className="mt-2 font-medium">Checkout friction detected</p>
@@ -379,31 +381,31 @@ function DiagnosticPanel() {
         </div>
       </div>
 
-      <div className="panel-strong panel-sheen hero-grid relative overflow-hidden rounded-[2rem] border border-white/10 p-6 sm:p-7">
+      <div className="panel-strong panel-sheen hero-grid relative overflow-hidden rounded-[1.6rem] border border-white/10 p-4 sm:rounded-[2rem] sm:p-7">
         <div className="scanline pointer-events-none absolute inset-x-[12%] top-0 h-28 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,255,157,0.14)_0%,rgba(0,170,255,0.08)_24%,rgba(0,170,255,0.03)_46%,transparent_72%)] blur-3xl [mask-image:radial-gradient(ellipse_at_center,black_36%,transparent_78%)]" />
 
-        <div className="static-copy flex flex-wrap items-start justify-between gap-4">
+        <div className="static-copy flex flex-wrap items-start justify-between gap-3 sm:gap-4">
           <div className="max-w-[18rem]">
             <p className="text-sm uppercase tracking-[0.28em] text-white/35">
               Diagnostický panel
             </p>
-            <h2 className="mt-3 font-display text-[1.85rem] font-semibold leading-tight tracking-[-0.03em] text-white sm:text-[1.95rem]">
+            <h2 className="mt-2 font-display text-[1.45rem] font-semibold leading-tight tracking-[-0.03em] text-white sm:mt-3 sm:text-[1.95rem]">
               Operační pohled na e-shop
             </h2>
           </div>
-          <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/62">
+          <div className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-white/62 sm:px-4 sm:py-1.5 sm:text-sm">
             Live audit mode
           </div>
         </div>
 
-          <div className="static-copy mt-8 rounded-[1.6rem] border border-white/8 bg-[#091018]/90 p-5">
-          <div className="flex items-center justify-between text-sm uppercase tracking-[0.22em] text-white/35">
+          <div className="static-copy mt-5 rounded-[1.35rem] border border-white/8 bg-[#091018]/90 p-3.5 sm:mt-8 sm:rounded-[1.6rem] sm:p-5">
+          <div className="flex items-center justify-between text-[0.7rem] uppercase tracking-[0.2em] text-white/35 sm:text-sm sm:tracking-[0.22em]">
             <span>Pulse of the store</span>
             <span className="text-accent-green">Monitoring active</span>
           </div>
 
-          <div className="mt-5 overflow-hidden rounded-2xl border border-white/6 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] p-4">
-            <svg viewBox="0 0 320 100" className="h-28 w-full" aria-hidden="true">
+          <div className="mt-4 overflow-hidden rounded-[1.2rem] border border-white/6 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] p-3 sm:mt-5 sm:rounded-2xl sm:p-4">
+            <svg viewBox="0 0 320 100" className="h-22 w-full sm:h-28" aria-hidden="true">
               <path
                 d="M0 50 H54 L72 50 L84 32 L96 70 L112 18 L128 84 L144 50 H196 L214 50 L228 36 L240 66 L254 30 L268 50 H320"
                 fill="none"
@@ -428,18 +430,18 @@ function DiagnosticPanel() {
             </svg>
           </div>
 
-          <div className="mt-5 grid gap-3 sm:grid-cols-2">
+          <div className="mt-4 grid grid-cols-2 gap-2.5 sm:mt-5 sm:gap-3">
             {dashboardItems.map((item) => (
               <div
                 key={item.label}
-                className={`rounded-2xl border px-4 py-4 ${
+                className={`rounded-[1.1rem] border px-3 py-3 sm:rounded-2xl sm:px-4 sm:py-4 ${
                   item.tone === "green"
                     ? "border-accent-green/20 bg-accent-green/6"
                     : "border-accent-blue/20 bg-accent-blue/6"
                 }`}
               >
-                <p className="text-base text-white/55">{item.label}</p>
-                <p className="mt-2 text-[1.1rem] font-semibold text-white sm:text-[1.35rem]">{item.score}</p>
+                <p className="text-sm text-white/55 sm:text-base">{item.label}</p>
+                <p className="mt-1.5 text-[1rem] font-semibold text-white sm:mt-2 sm:text-[1.35rem]">{item.score}</p>
               </div>
             ))}
           </div>
@@ -456,26 +458,26 @@ function ServiceCard({ title, price, description, icon, cta }: Service) {
       : "bg-[#ffdd00] text-black shadow-[0_18px_42px_rgba(255,221,0,0.18)] hover:bg-[#ffe44d]";
 
   return (
-    <article className="panel group flex h-full flex-col rounded-[1.8rem] border border-white/8 p-6 transition duration-300 hover:-translate-y-1 hover:border-accent-green/30 hover:bg-white/[0.05]">
+    <article className="panel group flex h-full flex-col rounded-[1.45rem] border border-white/8 p-5 transition duration-300 hover:-translate-y-1 hover:border-accent-green/30 hover:bg-white/[0.05] sm:rounded-[1.8rem] sm:p-6">
       <div className="flex items-start justify-between gap-4">
-        <div className="glow-green flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-green/10 text-accent-green transition duration-300 group-hover:scale-105">
+        <div className="glow-green flex h-12 w-12 items-center justify-center rounded-[1rem] bg-accent-green/10 text-accent-green transition duration-300 group-hover:scale-105 sm:h-14 sm:w-14 sm:rounded-2xl">
           <ServiceIcon icon={icon} />
         </div>
-        <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-sm text-white/62">
+        <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[0.78rem] text-white/62 sm:text-sm">
           {price}
         </span>
       </div>
       <h3 className="mt-6 text-xl font-semibold text-white sm:text-[1.6rem]">{title}</h3>
-      <p className="mt-4 text-base leading-7 text-white/60">{description}</p>
+      <p className="mt-3 text-[0.95rem] leading-6 text-white/60 sm:mt-4 sm:text-base sm:leading-7">{description}</p>
       {cta ? (
-        <div className="mt-auto pt-6 space-y-3">
+        <div className="mt-auto pt-5 space-y-2.5 sm:pt-6 sm:space-y-3">
           <a
             href={cta.href}
-            className={`inline-flex min-h-11 w-full items-center justify-center rounded-xl px-4 py-3 text-center text-[0.8rem] font-bold tracking-[0.06em] transition hover:-translate-y-0.5 ${ctaClass}`}
+            className={`inline-flex min-h-10 w-full items-center justify-center rounded-[0.95rem] px-3.5 py-2.5 text-center text-[0.74rem] font-bold tracking-[0.05em] transition hover:-translate-y-0.5 sm:min-h-11 sm:rounded-xl sm:px-4 sm:py-3 sm:text-[0.8rem] sm:tracking-[0.06em] ${ctaClass}`}
           >
             {cta.label}
           </a>
-          {cta.note ? <p className="text-sm text-white/48">{cta.note}</p> : null}
+          {cta.note ? <p className="text-[0.82rem] leading-5 text-white/48 sm:text-sm">{cta.note}</p> : null}
         </div>
       ) : null}
     </article>
@@ -489,7 +491,7 @@ function SymptomCard({ title, description, tone }: Symptom) {
       : "border-accent-blue/18 bg-accent-blue/[0.06]";
 
   return (
-    <article className={`panel rounded-[1.8rem] border p-6 ${toneClass}`}>
+    <article className={`panel rounded-[1.45rem] border p-5 sm:rounded-[1.8rem] sm:p-6 ${toneClass}`}>
       <div className="flex items-center gap-3">
         <span
           className={`h-3 w-3 rounded-full ${
@@ -499,46 +501,46 @@ function SymptomCard({ title, description, tone }: Symptom) {
         <p className="text-sm uppercase tracking-[0.24em] text-white/35">První nález</p>
       </div>
       <h3 className="mt-5 text-xl font-semibold text-white sm:text-[1.6rem]">{title}</h3>
-      <p className="mt-4 text-base leading-7 text-white/60">{description}</p>
+      <p className="mt-3 text-[0.95rem] leading-6 text-white/60 sm:mt-4 sm:text-base sm:leading-7">{description}</p>
     </article>
   );
 }
 
 function ProcessCard({ step, title, description }: ProcessStep) {
   return (
-    <article className="panel rounded-[1.8rem] border border-white/8 p-6">
-      <div className="flex items-center gap-4">
-        <span className="flex h-12 w-12 items-center justify-center rounded-full border border-accent-green/20 bg-accent-green/10 text-base font-semibold text-accent-green">
+    <article className="panel rounded-[1.45rem] border border-white/8 p-5 sm:rounded-[1.8rem] sm:p-6">
+      <div className="flex items-center gap-3 sm:gap-4">
+        <span className="flex h-10 w-10 items-center justify-center rounded-full border border-accent-green/20 bg-accent-green/10 text-sm font-semibold text-accent-green sm:h-12 sm:w-12 sm:text-base">
           {step}
         </span>
         <h3 className="text-xl font-semibold text-white sm:text-[1.6rem]">{title}</h3>
       </div>
-      <p className="mt-5 text-base leading-7 text-white/60">{description}</p>
+      <p className="mt-4 text-[0.95rem] leading-6 text-white/60 sm:mt-5 sm:text-base sm:leading-7">{description}</p>
     </article>
   );
 }
 
 function HeroContextPanel() {
   return (
-    <div className="panel rounded-[2rem] border border-white/10 px-5 py-6 sm:px-6 sm:py-7 lg:px-7 lg:py-8">
+    <div className="panel rounded-[1.6rem] border border-white/10 px-4 py-5 sm:rounded-[2rem] sm:px-6 sm:py-7 lg:px-7 lg:py-8">
       <div className="grid gap-8 xl:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] xl:gap-12">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">
             Kde a jak zasahuju
           </p>
-          <h3 className="mt-3 max-w-2xl text-[1.85rem] font-semibold text-white sm:text-[1.95rem] lg:text-[2.05rem]">
+          <h3 className="mt-2 max-w-2xl text-[1.45rem] font-semibold text-white sm:mt-3 sm:text-[1.95rem] lg:text-[2.05rem]">
             Nejčastěji Shoptet, PrestaShop, WooCommerce, WordPress a Shopify.
           </h3>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-white/62 sm:text-[1.05rem]">
+          <p className="mt-3 max-w-2xl text-[0.95rem] leading-6 text-white/62 sm:mt-4 sm:text-[1.05rem] sm:leading-7">
             Tohle jsou prostředí, kde nejčastěji hledám, kudy utíkají objednávky, data nebo
             důvěra v prvních vteřinách. Není to dekorace, ale rychlá orientace, v čem se typicky
             pohybuju.
           </p>
-          <div className="mt-6 flex flex-wrap gap-2.5">
+          <div className="mt-5 flex flex-wrap gap-2">
             {platformPills.map((platform) => (
               <span
                 key={platform}
-                className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/72"
+                className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[0.78rem] text-white/72 sm:px-4 sm:py-1.5 sm:text-sm"
               >
                 {platform}
               </span>
@@ -551,53 +553,53 @@ function HeroContextPanel() {
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">
               Co čekat po prvním kontaktu
             </p>
-            <div className="mt-4 grid gap-3 md:grid-cols-3">
+            <div className="mt-4 grid grid-cols-3 gap-2.5 sm:gap-3">
               {metrics.map((item) => (
                 <div
                   key={item.value}
-                  className="rounded-[1.35rem] border border-white/8 bg-white/[0.03] px-4 py-4"
+                  className="rounded-[1.1rem] border border-white/8 bg-white/[0.03] px-3 py-3 sm:rounded-[1.35rem] sm:px-4 sm:py-4"
                 >
-                  <p className="text-[1.55rem] font-semibold leading-none text-white sm:text-[1.7rem]">
+                  <p className="text-[1.1rem] font-semibold leading-none text-white sm:text-[1.7rem]">
                     {item.value}
                   </p>
-                  <p className="mt-2 text-sm leading-6 text-white/48">{item.label}</p>
+                  <p className="mt-1.5 text-[0.72rem] leading-5 text-white/48 sm:mt-2 sm:text-sm sm:leading-6">{item.label}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="rounded-[1.6rem] border border-white/8 bg-white/[0.03] px-5 py-5">
-            <div className="flex items-start gap-4">
+          <div className="rounded-[1.35rem] border border-white/8 bg-white/[0.03] px-4 py-4 sm:rounded-[1.6rem] sm:px-5 sm:py-5">
+            <div className="flex flex-col items-start gap-4 sm:flex-row">
               <Image
                 src="/logo-mark.png"
                 alt="Witdesign"
                 width={72}
                 height={72}
-                className="mt-1 h-12 w-12 shrink-0 drop-shadow-[0_0_18px_rgba(16,240,160,0.16)]"
+                className="mt-0.5 h-10 w-10 shrink-0 drop-shadow-[0_0_18px_rgba(16,240,160,0.16)] sm:mt-1 sm:h-12 sm:w-12"
               />
               <div className="space-y-4">
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">
                     Studio / přímý kontakt
                   </p>
-                  <p className="mt-2 text-[1.7rem] font-semibold text-white sm:text-[1.85rem]">
+                  <p className="mt-2 text-[1.35rem] font-semibold text-white sm:text-[1.85rem]">
                     Bez přeposílání mezi accounty. Zásah držím osobně.
                   </p>
                 </div>
-                <p className="max-w-2xl text-base leading-7 text-white/62">
+                <p className="max-w-2xl text-[0.95rem] leading-6 text-white/62 sm:text-base sm:leading-7">
                   Když e-shop zlobí, nechceš čekat na kolečko mezi projektovým manažerem, vývojem a
                   marketingem. Potřebuješ člověka, který problém rychle najde a dovede ho do
                   opravy.
                 </p>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-3">
                   <ProtectedEmailLink
                     ariaLabel="Poslat e-mail"
                     fallbackText="Zobrazit e-mail"
                     showAddress
-                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/78 transition hover:border-accent-blue/35 hover:text-white"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/78 transition hover:border-accent-blue/35 hover:text-white"
                     prefix={<MailIcon className="h-4 w-4" />}
                   />
-                  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-sm text-white/60">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/60">
                     <PinIcon className="h-4 w-4" />
                     {siteConfig.contact.location}
                   </div>
@@ -616,23 +618,23 @@ export default function Home() {
     <div id="top" className="relative overflow-hidden">
       <NetworkBackground />
 
-      <main className="relative z-10 pb-20 pt-6 md:pt-10">
-        <section className="mx-auto w-full max-w-7xl px-6 pb-20 sm:px-10 lg:px-12">
+      <main className="relative z-10 pb-16 pt-4 md:pt-10">
+        <section className="mx-auto w-full max-w-7xl px-4 pb-12 sm:px-10 sm:pb-20 lg:px-12">
           <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.03fr)_minmax(22rem,0.97fr)] lg:gap-12 xl:grid-cols-[minmax(0,1.06fr)_minmax(24rem,0.94fr)]">
-            <div className="max-w-none lg:pr-4 xl:pr-8">
-              <div className="static-copy glow-blue inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-white/70">
+            <div className="order-1 max-w-none lg:pr-4 xl:pr-8">
+              <div className="static-copy glow-blue inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-1 text-[0.78rem] text-white/70 sm:gap-3 sm:px-4 sm:py-1.5 sm:text-sm">
                 <span className="h-2.5 w-2.5 rounded-full bg-accent-green" />
                 Akutní diagnostika e-shopů do 24 hodin
               </div>
 
-              <h1 className="static-copy mt-5 max-w-[11ch] font-display text-[2rem] font-semibold leading-[1.08] tracking-[-0.04em] text-white sm:text-[2.45rem] sm:leading-[1.04] lg:text-[2.95rem] lg:leading-[1.01] xl:text-[3.2rem]">
+              <h1 className="static-copy mt-4 max-w-[11ch] font-display text-[1.72rem] font-semibold leading-[1.08] tracking-[-0.04em] text-white sm:mt-5 sm:text-[2.45rem] sm:leading-[1.04] lg:text-[2.95rem] lg:leading-[1.01] xl:text-[3.2rem]">
                 Když e-shop krvácí výkonem, nestačí hezký text. Potřebuje zásah.
               </h1>
-              <p className="static-copy mt-6 max-w-3xl text-xl font-semibold text-accent-green sm:text-2xl">
+              <p className="static-copy mt-4 max-w-3xl text-[1.08rem] font-semibold leading-7 text-accent-green sm:mt-6 sm:text-2xl">
                 Technický audit, UX diagnostika a rychlá stabilizace pro e-shopy, které mají
                 potenciál, ale ztrácejí peníze v tichosti.
               </p>
-              <p className="static-copy mt-6 max-w-2xl text-base leading-8 text-white/62 sm:text-lg">
+              <p className="static-copy mt-4 max-w-2xl text-[0.95rem] leading-7 text-white/62 sm:mt-6 sm:text-lg sm:leading-8">
                 Řeším situace, kdy traffic stojí peníze, ale checkout drhne, data lžou, SEO
                 nepomáhá a důvěra je slabší, než by měla být. Nejdřív najdeme kritické místo, pak
                 opravíme to, co má největší dopad.
@@ -640,27 +642,29 @@ export default function Home() {
 
             </div>
 
-            <DiagnosticPanel />
-            <div className="lg:col-span-2">
+            <div className="order-2 lg:order-3 lg:col-span-2">
               <QuickActionBlock />
             </div>
-            <div className="lg:col-span-2">
+            <div className="order-3 lg:order-2">
+              <DiagnosticPanel />
+            </div>
+            <div className="order-4 lg:col-span-2">
               <HeroContextPanel />
             </div>
           </div>
         </section>
 
-        <section className="mx-auto w-full max-w-7xl px-6 pb-16 sm:px-10 lg:px-12">
+        <section className="mx-auto w-full max-w-7xl px-4 pb-12 sm:px-10 sm:pb-16 lg:px-12">
           <div className="mb-10 max-w-3xl">
             <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
               Kdy volat medika
             </p>
-            <h2 className="mt-4 text-[2.35rem] font-semibold tracking-tight text-white sm:text-[3rem]">
+            <h2 className="mt-4 text-[1.9rem] font-semibold tracking-tight text-white sm:text-[3rem]">
               Tohle jsou symptomy, které obvykle najdu během prvních 15 minut.
             </h2>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2 md:gap-5">
             {featuredSymptoms.map((symptom) => (
               <SymptomCard key={symptom.title} {...symptom} />
             ))}
@@ -677,13 +681,13 @@ export default function Home() {
           ) : null}
         </section>
 
-        <section id="sluzby" className="mx-auto w-full max-w-7xl px-6 pb-16 sm:px-10 lg:px-12">
-          <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+        <section id="sluzby" className="mx-auto w-full max-w-7xl px-4 pb-12 sm:px-10 sm:pb-16 lg:px-12">
+          <div className="mb-8 flex flex-col gap-4 lg:mb-10 lg:flex-row lg:items-end lg:justify-between lg:gap-5">
             <div className="max-w-3xl">
               <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
                 Služby
               </p>
-              <h2 className="mt-4 text-[2.35rem] font-semibold tracking-tight text-white sm:text-[3rem]">
+              <h2 className="mt-4 text-[1.9rem] font-semibold tracking-tight text-white sm:text-[3rem]">
                 Zásahy od rychlé první pomoci po kompletní restart.
               </h2>
             </div>
@@ -693,7 +697,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-4 lg:grid-cols-2 lg:gap-5 xl:grid-cols-3">
             {featuredServices.map((service) => (
               <ServiceCard key={service.title} {...service} />
             ))}
@@ -710,27 +714,27 @@ export default function Home() {
           ) : null}
         </section>
 
-        <section id="proces" className="mx-auto w-full max-w-7xl px-6 pb-16 sm:px-10 lg:px-12">
-          <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="panel-strong rounded-[2rem] border border-white/10 px-6 py-8 sm:px-8 sm:py-10">
+        <section id="proces" className="mx-auto w-full max-w-7xl px-4 pb-12 sm:px-10 sm:pb-16 lg:px-12">
+          <div className="grid gap-4 sm:gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="panel-strong rounded-[1.6rem] border border-white/10 px-4 py-6 sm:rounded-[2rem] sm:px-8 sm:py-10">
               <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
                 Jak to probíhá
               </p>
-              <div className="mt-8 grid gap-4">
+              <div className="mt-6 grid gap-3 sm:mt-8 sm:gap-4">
                 {processSteps.map((item) => (
                   <ProcessCard key={item.step} {...item} />
                 ))}
               </div>
             </div>
 
-            <div className="panel rounded-[2rem] border border-white/10 px-6 py-8 sm:px-8 sm:py-10">
+            <div className="panel rounded-[1.6rem] border border-white/10 px-4 py-6 sm:rounded-[2rem] sm:px-8 sm:py-10">
               <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
                 Co dostaneš do ruky
               </p>
-              <h2 className="mt-4 text-[2rem] font-semibold text-white sm:text-[2.55rem]">
+              <h2 className="mt-4 text-[1.7rem] font-semibold text-white sm:text-[2.55rem]">
                 Ne pocit. Konkrétní orientaci.
               </h2>
-              <div className="mt-8 space-y-4">
+              <div className="mt-6 space-y-3 sm:mt-8 sm:space-y-4">
                 {[
                   "Prioritizovaný seznam problémů od kritických po kosmetické.",
                   "Jasné doporučení, co opravit hned a co může počkat.",
@@ -739,7 +743,7 @@ export default function Home() {
                 ].map((item) => (
                   <div
                     key={item}
-                    className="flex items-start gap-4 rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-4"
+                    className="flex items-start gap-3 rounded-[1.15rem] border border-white/8 bg-white/[0.03] px-3.5 py-3.5 sm:gap-4 sm:rounded-2xl sm:px-4 sm:py-4"
                   >
                     <span className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-blue/12 text-accent-blue">
                       +
@@ -754,14 +758,14 @@ export default function Home() {
 
         <section
           id="vstupni-varianty"
-          className="mx-auto w-full max-w-7xl px-6 pb-16 sm:px-10 lg:px-12"
+          className="mx-auto w-full max-w-7xl px-4 pb-12 sm:px-10 sm:pb-16 lg:px-12"
         >
-          <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div className="mb-8 flex flex-col gap-4 lg:mb-10 lg:flex-row lg:items-end lg:justify-between lg:gap-5">
             <div className="max-w-3xl">
               <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
                 Vstupní režimy
               </p>
-              <h2 className="mt-4 text-[2.35rem] font-semibold tracking-tight text-white sm:text-[3rem]">
+              <h2 className="mt-4 text-[1.9rem] font-semibold tracking-tight text-white sm:text-[3rem]">
                 Dvě cesty podle toho, jak rychle potřebuješ jasno.
               </h2>
             </div>
@@ -804,14 +808,14 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="kontakt" className="mx-auto w-full max-w-7xl px-6 sm:px-10 lg:px-12">
-          <div className="panel-strong rounded-[2.2rem] border border-white/10 px-6 py-10 sm:px-10 sm:py-14">
-            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <section id="kontakt" className="mx-auto w-full max-w-7xl px-4 sm:px-10 lg:px-12">
+          <div className="panel-strong rounded-[1.8rem] border border-white/10 px-4 py-7 sm:rounded-[2.2rem] sm:px-10 sm:py-14">
+            <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-8">
               <div>
                 <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
                   Nezávazná analýza
                 </p>
-                <h2 className="mt-4 text-[2.35rem] font-semibold tracking-tight text-white sm:text-[3rem]">
+                <h2 className="mt-4 text-[1.95rem] font-semibold tracking-tight text-white sm:text-[3rem]">
                   První dojem z webu musí působit jistě. Stejně jako první zásah.
                 </h2>
                 <p className="mt-5 max-w-xl text-base leading-8 text-white/58 sm:text-lg">
@@ -822,7 +826,7 @@ export default function Home() {
 
               <div
                 id="audit-zdarma-form"
-                className="rounded-[1.8rem] border border-white/8 bg-[#0a1118]/88 p-5 sm:p-6"
+                className="rounded-[1.35rem] border border-white/8 bg-[#0a1118]/88 p-4 sm:rounded-[1.8rem] sm:p-6"
               >
                 <div className="mb-5 flex flex-wrap items-start justify-between gap-4">
                   <div>
