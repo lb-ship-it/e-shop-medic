@@ -158,14 +158,6 @@ const processSteps: ProcessStep[] = [
 
 const quickActions: QuickAction[] = [
   {
-    label: "Poslat URL zdarma",
-    href: "#audit-zdarma-form",
-    helper: "První orientace do 3-5 dní",
-    title: "Poslat URL e-shopu zdarma a získat první orientaci",
-    ariaLabel: "Poslat URL e-shopu zdarma a získat první orientaci do tří až pěti dní",
-    tone: "green",
-  },
-  {
     label: "Zaplatit audit do 24 h",
     href: siteConfig.payments.expressAuditHref,
     helper: "Hloubkový audit za 1 500 Kč",
@@ -252,9 +244,9 @@ function QuickActionBlock() {
             Rychlá akce
           </p>
           <p className="mt-2 text-[0.88rem] leading-5 text-white/62 sm:mt-2.5 sm:text-[0.96rem] sm:leading-6">
-            Vyber si nejrychlejší cestu podle toho, jak moc to hoří.
+            Vyber si nejrychlejší placený vstup podle toho, jak moc to hoří.
             <br />
-            Bez scrollování k detailům, rovnou k akci.
+            Bez scrollování k detailům, rovnou k rezervaci zásahu.
           </p>
         </div>
         <div className="lg:justify-self-end">
@@ -269,7 +261,7 @@ function QuickActionBlock() {
         </div>
       </div>
 
-      <div className="mt-3.5 grid grid-cols-2 gap-2 sm:mt-4 xl:grid-cols-4">
+      <div className="mt-3.5 grid gap-2 sm:mt-4 sm:grid-cols-2 lg:grid-cols-3">
         {quickActions.map((action) => {
           const toneClass =
             action.tone === "green"
