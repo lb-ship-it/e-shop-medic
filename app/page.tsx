@@ -613,6 +613,47 @@ function HeroContextPanel() {
   );
 }
 
+function LeadCapturePanel() {
+  return (
+    <div id="kontakt" className="panel-strong rounded-[1.5rem] border border-white/10 px-4 py-5 sm:rounded-[1.9rem] sm:px-8 sm:py-10">
+      <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-7">
+        <div>
+          <p className="text-[0.82rem] font-semibold uppercase tracking-[0.22em] text-white/35 sm:text-sm">
+            Nezávazná analýza
+          </p>
+          <h2 className="mt-3 text-[1.6rem] font-semibold tracking-tight text-white sm:text-[2.35rem]">
+            První dojem z webu musí působit jistě. Stejně jako první zásah.
+          </h2>
+          <p className="mt-4 max-w-xl text-[0.9rem] leading-6 text-white/58 sm:text-[0.98rem] sm:leading-7">
+            Pošli URL svého e-shopu. Podívám se na technický stav, UX tření i první dojem a vrátím
+            ti rychlou orientaci, kde obchod ztrácí nejvíc.
+          </p>
+        </div>
+
+        <div
+          id="audit-zdarma-form"
+          className="rounded-[1.15rem] border border-white/8 bg-[#0a1118]/88 p-3.5 sm:rounded-[1.45rem] sm:p-5"
+        >
+          <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <p className="text-[0.82rem] font-semibold uppercase tracking-[0.2em] text-white/35 sm:text-sm">
+                Varianta A / zdarma
+              </p>
+              <p className="mt-1.5 text-[1rem] font-semibold text-white sm:text-[1.15rem]">
+                Audit zdarma s čekací dobou 3–5 dní
+              </p>
+            </div>
+            <div className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[0.78rem] text-white/58">
+              Omezený rozsah
+            </div>
+          </div>
+          <LeadCaptureForm />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <div id="top" className="relative overflow-hidden">
@@ -645,10 +686,13 @@ export default function Home() {
             <div className="order-2 lg:order-3 lg:col-span-2">
               <QuickActionBlock />
             </div>
-            <div className="order-3 lg:order-2">
+            <div className="order-3 lg:order-4 lg:col-span-2">
+              <LeadCapturePanel />
+            </div>
+            <div className="order-4 lg:order-2">
               <DiagnosticPanel />
             </div>
-            <div className="order-4 lg:col-span-2">
+            <div className="order-5 lg:col-span-2">
               <HeroContextPanel />
             </div>
           </div>
@@ -808,44 +852,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="kontakt" className="mx-auto w-full max-w-7xl px-4 sm:px-10 lg:px-12">
-          <div className="panel-strong rounded-[1.5rem] border border-white/10 px-4 py-5 sm:rounded-[1.9rem] sm:px-8 sm:py-10">
-            <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-7">
-              <div>
-                <p className="text-[0.82rem] font-semibold uppercase tracking-[0.22em] text-white/35 sm:text-sm">
-                  Nezávazná analýza
-                </p>
-                <h2 className="mt-3 text-[1.6rem] font-semibold tracking-tight text-white sm:text-[2.35rem]">
-                  První dojem z webu musí působit jistě. Stejně jako první zásah.
-                </h2>
-                <p className="mt-4 max-w-xl text-[0.9rem] leading-6 text-white/58 sm:text-[0.98rem] sm:leading-7">
-                  Pošli URL svého e-shopu. Podívám se na technický stav, UX tření i první dojem a
-                  vrátím ti rychlou orientaci, kde obchod ztrácí nejvíc.
-                </p>
-              </div>
-
-              <div
-                id="audit-zdarma-form"
-                className="rounded-[1.15rem] border border-white/8 bg-[#0a1118]/88 p-3.5 sm:rounded-[1.45rem] sm:p-5"
-              >
-                <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
-                  <div>
-                    <p className="text-[0.82rem] font-semibold uppercase tracking-[0.2em] text-white/35 sm:text-sm">
-                      Varianta A / zdarma
-                    </p>
-                    <p className="mt-1.5 text-[1rem] font-semibold text-white sm:text-[1.15rem]">
-                      Audit zdarma s čekací dobou 3–5 dní
-                    </p>
-                  </div>
-                  <div className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[0.78rem] text-white/58">
-                    Omezený rozsah
-                  </div>
-                </div>
-                <LeadCaptureForm />
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
     </div>
   );
