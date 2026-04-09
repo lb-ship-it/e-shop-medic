@@ -32,6 +32,13 @@ type ProcessStep = {
   description: string;
 };
 
+type QuickAction = {
+  label: string;
+  href: string;
+  helper: string;
+  tone: "green" | "yellow";
+};
+
 const services: Service[] = [
   {
     title: "Rychlý audit",
@@ -136,6 +143,33 @@ const processSteps: ProcessStep[] = [
   },
 ];
 
+const quickActions: QuickAction[] = [
+  {
+    label: "Audit zdarma",
+    href: "#audit-zdarma-form",
+    helper: "Nezávazný vstup 3-5 dní",
+    tone: "green",
+  },
+  {
+    label: "Express audit 24 h",
+    href: siteConfig.payments.expressAuditHref,
+    helper: "Placená priorita 1 500 Kč",
+    tone: "yellow",
+  },
+  {
+    label: "SOS oprava",
+    href: siteConfig.payments.sosRepairHref,
+    helper: "Akutní zásah 3 500 Kč",
+    tone: "yellow",
+  },
+  {
+    label: "SEO optimalizace",
+    href: siteConfig.payments.seoOptimizationHref,
+    helper: "Rezervace od 6 500 Kč",
+    tone: "yellow",
+  },
+];
+
 const metrics = [
   { value: "24 h", label: "na první diagnostiku" },
   { value: "5 platforem", label: "řeším nejčastěji" },
@@ -185,6 +219,47 @@ function AuditOptionCard({
       <p className={`mt-4 text-base font-medium ${noteClass}`}>{note}</p>
       <div className="mt-5">{children}</div>
     </article>
+  );
+}
+
+function QuickActionBlock() {
+  return (
+    <div className="panel rounded-[1.8rem] border border-white/10 px-5 py-5 sm:px-6 sm:py-6">
+      <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+        <div className="max-w-2xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">
+            Rychlá akce
+          </p>
+          <p className="mt-3 text-base leading-7 text-white/62 sm:text-[1.05rem]">
+            Vyber si nejrychlejší cestu podle toho, jak moc to hoří. Bez scrollování k detailům,
+            rovnou k akci.
+          </p>
+        </div>
+        <p className="text-sm text-white/45">Placené vstupy pokračují přímo přes Stripe.</p>
+      </div>
+
+      <div className="mt-5 grid gap-3 sm:grid-cols-2">
+        {quickActions.map((action) => {
+          const toneClass =
+            action.tone === "green"
+              ? "border-accent-green/22 bg-accent-green text-black hover:bg-[#37ffb3]"
+              : "border-[#ffdd00]/30 bg-[#ffdd00] text-black hover:bg-[#ffe44d]";
+
+          return (
+            <a
+              key={action.label}
+              href={action.href}
+              className={`group flex min-h-16 flex-col justify-center rounded-[1.2rem] border px-4 py-3 transition hover:-translate-y-0.5 ${toneClass}`}
+            >
+              <span className="text-[0.92rem] font-bold uppercase tracking-[0.04em]">
+                {action.label}
+              </span>
+              <span className="mt-1 text-sm text-black/72">{action.helper}</span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
   );
 }
 
@@ -553,36 +628,8 @@ export default function Home() {
                 opravíme to, co má největší dopad.
               </p>
 
-              <div className="mt-8 grid gap-4 xl:grid-cols-2">
-                <AuditOptionCard
-                  eyebrow="Varianta A / Free"
-                  title="Audit zdarma"
-                  description="Omezený vstupní rozsah pro první orientaci, když nechceš řešit problém naslepo."
-                  note="Čekací doba 3–5 dní, omezený rozsah."
-                  accent="green"
-                >
-                  <a
-                    href="#audit-zdarma-form"
-                    className="inline-flex min-h-10 items-center justify-center rounded-full border border-accent-green/22 bg-accent-green px-4 py-2 text-sm font-semibold text-black transition hover:translate-y-[-1px]"
-                  >
-                    AUDIT ZDARMA
-                  </a>
-                  <p className="mt-3 text-sm text-white/48">Zbývají 3 místa v pomalejším režimu.</p>
-                </AuditOptionCard>
-
-                <AuditOptionCard
-                  eyebrow="Varianta B / Paid"
-                  title="Express Medic Audit"
-                  description="Placená priorita pro e-shopy, kde je problém dražší než čekání."
-                  note="Garance do 24 hodin, hloubková analýza + 15min konzultace."
-                  accent="yellow"
-                >
-                  <CheckoutButton
-                    label="CHCI EXPRESS AUDIT DO 24 HODIN (1 500 Kč)"
-                    className="w-full justify-center rounded-xl bg-[#ffdd00] px-4 py-3 text-center text-sm font-bold text-black shadow-[0_18px_42px_rgba(255,221,0,0.18)] hover:bg-[#ffe44d]"
-                  />
-                  <p className="mt-3 text-sm text-white/48">Platba probíhá bezpečně přes Stripe.</p>
-                </AuditOptionCard>
+              <div className="mt-8">
+                <QuickActionBlock />
               </div>
 
             </div>
@@ -693,6 +740,58 @@ export default function Home() {
                 ))}
               </div>
             </div>
+          </div>
+        </section>
+
+        <section
+          id="vstupni-varianty"
+          className="mx-auto w-full max-w-7xl px-6 pb-16 sm:px-10 lg:px-12"
+        >
+          <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-3xl">
+              <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
+                Vstupní režimy
+              </p>
+              <h2 className="mt-4 text-[2.35rem] font-semibold tracking-tight text-white sm:text-[3rem]">
+                Dvě cesty podle toho, jak rychle potřebuješ jasno.
+              </h2>
+            </div>
+            <p className="max-w-xl text-base leading-7 text-white/55">
+              Audit zdarma je pomalejší orientační vstup. Express audit je placená priorita pro
+              chvíli, kdy už je čekání dražší než samotný zásah.
+            </p>
+          </div>
+
+          <div className="grid gap-4 xl:grid-cols-2">
+            <AuditOptionCard
+              eyebrow="Varianta A / Free"
+              title="Audit zdarma"
+              description="Omezený vstupní rozsah pro první orientaci, když nechceš řešit problém naslepo."
+              note="Čekací doba 3-5 dní, omezený rozsah."
+              accent="green"
+            >
+              <a
+                href="#audit-zdarma-form"
+                className="inline-flex min-h-10 items-center justify-center rounded-full border border-accent-green/22 bg-accent-green px-4 py-2 text-sm font-semibold text-black transition hover:translate-y-[-1px]"
+              >
+                AUDIT ZDARMA
+              </a>
+              <p className="mt-3 text-sm text-white/48">Zbývají 3 místa v pomalejším režimu.</p>
+            </AuditOptionCard>
+
+            <AuditOptionCard
+              eyebrow="Varianta B / Paid"
+              title="Express Medic Audit"
+              description="Placená priorita pro e-shopy, kde je problém dražší než čekání."
+              note="Garance do 24 hodin, hloubková analýza + 15min konzultace."
+              accent="yellow"
+            >
+              <CheckoutButton
+                label="CHCI EXPRESS AUDIT DO 24 HODIN (1 500 Kč)"
+                className="w-full justify-center rounded-xl bg-[#ffdd00] px-4 py-3 text-center text-sm font-bold text-black shadow-[0_18px_42px_rgba(255,221,0,0.18)] hover:bg-[#ffe44d]"
+              />
+              <p className="mt-3 text-sm text-white/48">Platba probíhá bezpečně přes Stripe.</p>
+            </AuditOptionCard>
           </div>
         </section>
 
