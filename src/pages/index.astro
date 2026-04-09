@@ -284,23 +284,25 @@ const extraSymptoms = site.symptoms.slice(2);
         <h2 class="section-title mt-3">SLUŽBY</h2>
       </div>
 
-      <div class="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
-        {featuredServices.map((service) => <ServiceCard {...service} />)}
-      </div>
+      <div class="panel-strong p-4 md:p-6">
+        <div class="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
+          {featuredServices.map((service) => <ServiceCard {...service} />)}
+        </div>
 
-      {extraServices.length > 0 && (
-        <>
-          <details class="mt-5 lg:hidden">
-            <summary class="pill cursor-pointer list-none">Další služby</summary>
-            <div class="mt-4 grid gap-4">
+        {extraServices.length > 0 && (
+          <>
+            <details class="mt-5 lg:hidden">
+              <summary class="pill cursor-pointer list-none">Další služby</summary>
+              <div class="mt-4 grid gap-4">
+                {extraServices.map((service) => <ServiceCard {...service} />)}
+              </div>
+            </details>
+            <div class="mt-5 hidden gap-4 lg:grid lg:grid-cols-2">
               {extraServices.map((service) => <ServiceCard {...service} />)}
             </div>
-          </details>
-          <div class="mt-5 hidden gap-4 lg:grid lg:grid-cols-2">
-            {extraServices.map((service) => <ServiceCard {...service} />)}
-          </div>
-        </>
-      )}
+          </>
+        )}
+      </div>
     </section>
 
     <section id="proces" class="shell mt-10 grid gap-4 md:mt-12 lg:grid-cols-[1.05fr_0.95fr]">
