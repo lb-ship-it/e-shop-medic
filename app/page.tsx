@@ -636,10 +636,7 @@ function LeadCapturePanel() {
         >
           <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
             <div>
-              <p className="text-[0.82rem] font-semibold uppercase tracking-[0.2em] text-white/35 sm:text-sm">
-                Varianta A / zdarma
-              </p>
-              <p className="mt-1.5 text-[1rem] font-semibold text-white sm:text-[1.15rem]">
+              <p className="text-[1rem] font-semibold text-white sm:text-[1.15rem]">
                 Audit zdarma s čekací dobou 3–5 dní
               </p>
             </div>
