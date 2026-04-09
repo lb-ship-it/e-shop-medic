@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Noto_Sans, Rubik_Vinyl } from "next/font/google";
+import { K2D, Manrope, Noto_Sans } from "next/font/google";
 import { MobileBottomNav } from "@/components/mobile-bottom-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -18,10 +18,10 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const rubikVinyl = Rubik_Vinyl({
-  variable: "--font-rubik-vinyl",
+const k2d = K2D({
+  variable: "--font-k2d",
   subsets: ["latin-ext"],
-  weight: "400",
+  weight: "700",
   display: "swap",
 });
 
@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html
       lang="cs"
-      className={`${notoSans.variable} ${manrope.variable} ${rubikVinyl.variable} h-full antialiased`}
+      className={`${notoSans.variable} ${manrope.variable} ${k2d.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background text-foreground">
         <SiteHeader />
