@@ -668,11 +668,11 @@ export default function Home() {
               <h1 className="static-copy mt-4 max-w-[10ch] text-[1.52rem] font-bold uppercase leading-[1.08] tracking-[-0.025em] text-[#ff5b5b] [font-family:var(--font-k2d)] sm:mt-4 sm:text-[2.1rem] sm:leading-[1.04] lg:text-[2.55rem] lg:leading-[1.01] xl:text-[2.8rem]">
                 Krvácející e-shop potřebuje zásah
               </h1>
-              <p className="static-copy mt-3 max-w-3xl text-[0.96rem] font-semibold leading-6 text-accent-green sm:mt-4 sm:text-[1.25rem] sm:leading-7">
+              <p className="static-copy mt-5 max-w-3xl text-[0.96rem] font-semibold leading-6 text-accent-green sm:mt-6 sm:text-[1.25rem] sm:leading-7">
                 Technický audit, UX diagnostika a rychlá stabilizace pro e-shopy, které mají
                 potenciál, ale ztrácejí peníze v tichosti.
               </p>
-              <p className="static-copy mt-3 max-w-2xl text-[0.88rem] leading-6 text-white/62 sm:mt-4 sm:text-[1rem] sm:leading-7">
+              <p className="static-copy mt-4 max-w-2xl text-[0.88rem] leading-6 text-white/62 sm:mt-5 sm:text-[1rem] sm:leading-7">
                 Řeším situace, kdy traffic stojí peníze, ale checkout drhne, data lžou, SEO
                 nepomáhá a důvěra je slabší, než by měla být. Nejdřív najdeme kritické místo, pak
                 opravíme to, co má největší dopad.
