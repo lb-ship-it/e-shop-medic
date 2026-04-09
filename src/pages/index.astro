@@ -60,8 +60,81 @@ const extraSymptoms = site.symptoms.slice(2);
         </div>
       </div>
 
-      <div class="mt-6 grid items-start gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(19rem,0.95fr)] xl:gap-8">
-        <div class="space-y-6">
+      <div class="mt-5 panel-strong p-4 md:p-8">
+        <div class="grid gap-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-7">
+          <div>
+            <p class="eyebrow">NezĂˇvaznĂˇ analĂ˝za</p>
+            <h2 class="mt-3 max-w-[15ch] text-[1.4rem] font-semibold tracking-tight text-white md:text-[2rem]">
+              PrvnĂ­ dojem z webu musĂ­ pĹŻsobit jistÄ›.
+            </h2>
+            <p class="mt-4 max-w-xl text-[0.9rem] leading-6 text-white/58 md:text-[0.96rem] md:leading-7">
+              PoĹˇli URL svĂ©ho eâ€‘shopu a e-mail. OtevĹ™e se ti vĂ˝chozĂ­ poĹˇtovnĂ­ klient s pĹ™ipravenou poptĂˇvkou na audit zdarma.
+            </p>
+          </div>
+
+          <div id="audit-zdarma-form" class="rounded-[1.2rem] border border-white/8 bg-[color:var(--bg-soft)]/88 p-4 md:p-5">
+            <div class="mb-4 flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <p class="text-[1rem] font-semibold text-white md:text-[1.08rem]">
+                  Audit zdarma s ÄŤekacĂ­ dobou 3â€“5 dnĂ­
+                </p>
+              </div>
+              <div class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[0.78rem] text-white/58">
+                OmezenĂ˝ rozsah
+              </div>
+            </div>
+
+            <form id="free-audit-form" data-recipient={site.contact.email} class="space-y-3" novalidate>
+              <label class="block">
+                <span class="mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/35">URL eâ€‘shopu</span>
+                <input
+                  id="free-audit-url"
+                  type="url"
+                  name="URL eâ€‘shopu"
+                  placeholder="https://vas-eshop.cz"
+                  autocomplete="url"
+                  aria-required="true"
+                  class="form-field"
+                />
+              </label>
+              <label class="block">
+                <span class="mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/35">TvĹŻj e-mail</span>
+                <input
+                  id="free-audit-email"
+                  type="email"
+                  name="E-mail"
+                  placeholder="vas@email.cz"
+                  autocomplete="email"
+                  inputmode="email"
+                  aria-required="true"
+                  class="form-field"
+                />
+              </label>
+              <label class="block">
+                <span class="mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/35">PoznĂˇmka</span>
+                <textarea
+                  id="free-audit-note"
+                  name="PoznĂˇmka"
+                  rows="3"
+                  placeholder="Co teÄŹ nejvĂ­c bolĂ­?"
+                  class="form-field"
+                ></textarea>
+              </label>
+
+              <div id="free-audit-message" class="form-alert" role="alert" aria-live="polite"></div>
+
+              <div class="flex flex-col gap-3 md:flex-row md:items-center">
+                <button type="submit" class="cta-green min-h-11 w-full md:w-auto">ODESLAT</button>
+                <p class="text-[0.82rem] leading-5 text-white/48">
+                  OtevĹ™e se vĂ˝chozĂ­ poĹˇtovnĂ­ klient. Audit je nezĂˇvaznĂ˝.
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6">
           <div class="hidden panel p-4 md:p-6">
             <div class="space-y-3 border-b border-white/8 pb-4 md:space-y-4">
               <div class="max-w-2xl">
@@ -92,7 +165,7 @@ const extraSymptoms = site.symptoms.slice(2);
             </div>
           </div>
 
-          <div class="panel-strong p-4 md:p-8">
+          <div class="hidden panel-strong p-4 md:p-8" aria-hidden="true">
             <div class="grid gap-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-7">
               <div>
                 <p class="eyebrow">Nezávazná analýza</p>
@@ -104,7 +177,7 @@ const extraSymptoms = site.symptoms.slice(2);
                 </p>
               </div>
 
-              <div id="audit-zdarma-form" class="rounded-[1.2rem] border border-white/8 bg-[color:var(--bg-soft)]/88 p-4 md:p-5">
+              <div id="audit-zdarma-form-legacy" class="rounded-[1.2rem] border border-white/8 bg-[color:var(--bg-soft)]/88 p-4 md:p-5">
                 <div class="mb-4 flex flex-wrap items-start justify-between gap-3">
                   <div>
                     <p class="text-[1rem] font-semibold text-white md:text-[1.08rem]">
@@ -116,11 +189,11 @@ const extraSymptoms = site.symptoms.slice(2);
                   </div>
                 </div>
 
-                <form id="free-audit-form" data-recipient={site.contact.email} class="space-y-3" novalidate>
+                <form id="free-audit-form-legacy" data-recipient={site.contact.email} class="space-y-3" novalidate>
                   <label class="block">
                     <span class="mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/35">URL e‑shopu</span>
                     <input
-                      id="free-audit-url"
+                      id="free-audit-url-legacy"
                       type="url"
                       name="URL e‑shopu"
                       placeholder="https://vas-eshop.cz"
@@ -132,7 +205,7 @@ const extraSymptoms = site.symptoms.slice(2);
                   <label class="block">
                     <span class="mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/35">Tvůj e-mail</span>
                     <input
-                      id="free-audit-email"
+                      id="free-audit-email-legacy"
                       type="email"
                       name="E-mail"
                       placeholder="vas@email.cz"
@@ -145,7 +218,7 @@ const extraSymptoms = site.symptoms.slice(2);
                   <label class="block">
                     <span class="mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/35">Poznámka</span>
                     <textarea
-                      id="free-audit-note"
+                      id="free-audit-note-legacy"
                       name="Poznámka"
                       rows="3"
                       placeholder="Co teď nejvíc bolí?"
@@ -153,7 +226,7 @@ const extraSymptoms = site.symptoms.slice(2);
                     ></textarea>
                   </label>
 
-                  <div id="free-audit-message" class="form-alert" role="alert" aria-live="polite"></div>
+                  <div id="free-audit-message-legacy" class="form-alert" role="alert" aria-live="polite"></div>
 
                   <div class="flex flex-col gap-3 md:flex-row md:items-center">
                     <button type="submit" class="cta-green min-h-11 w-full md:w-auto">ODESLAT</button>
