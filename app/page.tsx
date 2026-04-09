@@ -231,8 +231,9 @@ function QuickActionBlock() {
             Rychlá akce
           </p>
           <p className="mt-3 text-base leading-7 text-white/62 sm:text-[1.05rem]">
-            Vyber si nejrychlejší cestu podle toho, jak moc to hoří. Bez scrollování k detailům,
-            rovnou k akci.
+            Vyber si nejrychlejší cestu podle toho, jak moc to hoří.
+            <br />
+            Bez scrollování k detailům, rovnou k akci.
           </p>
         </div>
         <div className="lg:justify-self-end">
@@ -240,7 +241,9 @@ function QuickActionBlock() {
             Platby
           </p>
           <p className="mt-2 max-w-[14rem] text-sm leading-6 text-white/45">
-            Placené vstupy pokračují přímo přes Stripe.
+            Placené vstupy pokračují
+            <br />
+            přímo přes Stripe.
           </p>
         </div>
       </div>
