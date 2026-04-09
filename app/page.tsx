@@ -680,7 +680,7 @@ export default function Home() {
 
             </div>
 
-            <div className="order-2 lg:order-3 lg:col-span-2">
+            <div className="order-2 lg:order-3 lg:col-span-2 lg:relative lg:z-20 lg:-mt-[12.5rem]">
               <QuickActionBlock />
             </div>
             <div className="order-3 lg:order-4 lg:col-span-2 lg:-mt-4 xl:-mt-5">
