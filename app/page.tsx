@@ -683,7 +683,7 @@ export default function Home() {
             <div className="order-2 lg:order-3 lg:col-span-2">
               <QuickActionBlock />
             </div>
-            <div className="order-3 lg:order-4 lg:col-span-2">
+            <div className="order-3 lg:order-4 lg:col-span-2 lg:-mt-4 xl:-mt-5">
               <LeadCapturePanel />
             </div>
             <div className="order-4 lg:order-2">
