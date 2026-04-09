@@ -245,7 +245,8 @@ function QuickActionBlock() {
           </p>
           <p className="mt-2 text-[0.88rem] leading-5 text-white/62 sm:mt-2.5 sm:text-[0.96rem] sm:leading-6">
             Vyber si nejrychlejší placený vstup podle toho, jak moc to hoří.
-            <br />
+            <br className="lg:hidden" />
+            <span className="hidden lg:inline"> </span>
             Bez scrollování k detailům, rovnou k rezervaci zásahu.
           </p>
         </div>
