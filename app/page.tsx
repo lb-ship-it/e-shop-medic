@@ -627,7 +627,7 @@ export default function Home() {
                 Akutní diagnostika e-shopů do 24 hodin
               </div>
 
-              <h1 className="static-copy mt-4 max-w-[11ch] text-[1.52rem] leading-[1.12] tracking-[-0.015em] text-white [font-family:var(--font-rubik-vinyl)] sm:mt-4 sm:text-[2.1rem] sm:leading-[1.08] lg:text-[2.55rem] lg:leading-[1.04] xl:text-[2.8rem]">
+              <h1 className="static-copy mt-4 max-w-[11ch] text-[1.52rem] leading-[1.12] tracking-[-0.015em] text-[#ff5b5b] [font-family:var(--font-rubik-vinyl)] sm:mt-4 sm:text-[2.1rem] sm:leading-[1.08] lg:text-[2.55rem] lg:leading-[1.04] xl:text-[2.8rem]">
                 Když e-shop krvácí výkonem, nestačí hezký text. Potřebuje zásah.
               </h1>
               <p className="static-copy mt-3 max-w-3xl text-[0.96rem] font-semibold leading-6 text-accent-green sm:mt-4 sm:text-[1.25rem] sm:leading-7">
