@@ -1,3 +1,14 @@
+const nbsp = "\u00A0";
+const price1500 = `1${nbsp}500${nbsp}Kč`;
+const price3500 = `3${nbsp}500${nbsp}Kč`;
+const price6500 = `6${nbsp}500${nbsp}Kč`;
+const price15000 = `15${nbsp}000${nbsp}Kč`;
+const price900Hour = `900${nbsp}Kč${nbsp}/${nbsp}hod`;
+const fromPrice = (price: string) => `od${nbsp}${price}`;
+const forPrice = (price: string) => `za${nbsp}${price}`;
+const withinHours = `24${nbsp}h`;
+const withinTwentyFourHours = `24${nbsp}hodin`;
+
 export const site = {
   brand: {
     name: "E-shop Medic",
@@ -32,24 +43,24 @@ export const site = {
   },
   platforms: ["Shoptet", "PrestaShop", "WooCommerce", "WordPress", "Shopify"],
   metrics: [
-    { value: "24 h", label: "na první diagnostiku" },
+    { value: withinHours, label: "na první diagnostiku" },
     { value: "5 platforem", label: "řeším nejčastěji" },
     { value: "Akutní režim", label: "když je problém hned" },
   ],
   quickActions: [
     {
-      label: "Audit do 24 h",
-      helper: "Hloubkový audit za 1 500 Kč",
+      label: `Audit do ${withinHours}`,
+      helper: `Hloubkový audit ${forPrice(price1500)}`,
       href: "https://buy.stripe.com/fZu8wR7VR6Q38vb6912VG00",
     },
     {
       label: "SOS oprava",
-      helper: "Urgentní zásah za 3 500 Kč",
+      helper: `Urgentní zásah ${forPrice(price3500)}`,
       href: "https://buy.stripe.com/14A7sN2BxeivbHn0OH2VG01",
     },
     {
       label: "SEO optimalizace",
-      helper: "Rezervace práce od 6 500 Kč",
+      helper: `Rezervace práce ${fromPrice(price6500)}`,
       href: "https://buy.stripe.com/dRm14pdgbfmz3aR2WP2VG02",
     },
   ],
@@ -82,44 +93,44 @@ export const site = {
   services: [
     {
       title: "Rychlý audit",
-      price: "1 500 Kč",
+      price: price1500,
       description:
-        "Do 24 hodin dostaneš jasný seznam největších úniků, priorit a doporučených zásahů.",
+        `Do ${withinTwentyFourHours} dostaneš jasný seznam největších úniků, priorit a doporučených zásahů.`,
       icon: "audit",
-      ctaLabel: "Audit 1 500 Kč",
+      ctaLabel: `Audit ${price1500}`,
       ctaHref: "https://buy.stripe.com/fZu8wR7VR6Q38vb6912VG00",
-      note: "Zaplatíš 1 500 Kč za audit s výstupem do 24 hodin.",
+      note: `Rezervace auditu ${forPrice(price1500)} s výstupem do ${withinHours}.`,
     },
     {
       title: "SOS oprava",
-      price: "3 500 Kč",
+      price: price3500,
       description:
         "Akutní zásah, když se rozpadá checkout, měření, šablona nebo důležitý krok objednávky.",
       icon: "fix",
       ctaLabel: "Urgentní zásah",
       ctaHref: "https://buy.stripe.com/14A7sN2BxeivbHn0OH2VG01",
-      note: "Zaplatíš 3 500 Kč za rezervaci akutního zásahu.",
+      note: `Rezervuješ akutní zásah ${forPrice(price3500)}.`,
     },
     {
       title: "SEO optimalizace",
-      price: "od 6 500 Kč",
+      price: fromPrice(price6500),
       description:
         "Technická i obsahová hygiena, aby e-shop nestál jen na placené návštěvnosti.",
       icon: "seo",
       ctaLabel: "SEO zásah",
       ctaHref: "https://buy.stripe.com/dRm14pdgbfmz3aR2WP2VG02",
-      note: "Rezervuješ SEO optimalizaci od 6 500 Kč.",
+      note: `Rezervuješ SEO optimalizaci ${fromPrice(price6500)}.`,
     },
     {
       title: "Konzultace",
-      price: "900 Kč / hod",
+      price: price900Hour,
       description:
         "Rychlé rozhodnutí nad UX, akvizicí, platformou, prioritami a dalším postupem.",
       icon: "consulting",
     },
     {
       title: "Kompletní restart",
-      price: "od 15 000 Kč",
+      price: fromPrice(price15000),
       description:
         "Když je potřeba srovnat design, strukturu, obsah i technický základ do jednoho směru.",
       icon: "restart",
