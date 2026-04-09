@@ -14,12 +14,12 @@ export const site = {
     name: "E-shop Medic",
     domain: "witdesign.cz",
     siteUrl: "https://witdesign.cz",
-    title: "E-shop Medic | Diagnostika a rychlé zásahy pro e-shopy",
+    title: "E‑shop Medic | Diagnostika a rychlé zásahy pro e‑shopy",
     description:
-      "Diagnostika, stabilizace a rychlé zásahy pro e-shopy, které chtějí růst bez slepých míst.",
-    heroTitle: "Krvácející e-shop potřebuje zásah",
+      "Diagnostika, stabilizace a rychlé zásahy pro e‑shopy, které chtějí růst bez slepých míst.",
+    heroTitle: "Krvácející e‑shop potřebuje zásah",
     heroLead:
-      "Technický audit, UX diagnostika a rychlá stabilizace pro e-shopy, které mají potenciál, ale ztrácejí peníze v tichosti.",
+      "Technický audit, UX diagnostika a rychlá stabilizace pro e‑shopy, které mají potenciál, ale ztrácejí peníze v tichosti.",
     heroBody:
       "Řeším situace, kdy traffic stojí peníze, ale checkout drhne, data lžou, SEO nepomáhá a důvěra je slabší, než by měla být. Nejdřív najdeme kritické místo, pak opravíme to, co má největší dopad.",
   },
@@ -115,7 +115,7 @@ export const site = {
       title: "SEO optimalizace",
       price: fromPrice(price6500),
       description:
-        "Technická i obsahová hygiena, aby e-shop nestál jen na placené návštěvnosti.",
+        "Technická i obsahová hygiena, aby e‑shop nestál jen na placené návštěvnosti.",
       icon: "seo",
       ctaLabel: "SEO zásah",
       ctaHref: "https://buy.stripe.com/dRm14pdgbfmz3aR2WP2VG02",
@@ -163,7 +163,7 @@ export const site = {
     "Kontext, proč problém vzniká a kde přesně bolí výkon obchodu.",
   ],
   diagnostic: {
-    title: "Operační pohled na e-shop",
+    title: "Operační pohled na e‑shop",
     pulseLabel: "Pulse of the store",
     modeLabel: "Live audit mode",
     statusLabel: "Monitoring active",
