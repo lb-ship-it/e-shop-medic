@@ -116,28 +116,33 @@ const extraSymptoms = site.symptoms.slice(2);
                   </div>
                 </div>
 
-                <form action={`mailto:${site.contact.email}?subject=Audit zdarma z witdesign.cz`} method="post" enctype="text/plain" class="space-y-3">
+                <form id="free-audit-form" data-recipient={site.contact.email} class="space-y-3">
                   <label class="block">
                     <span class="mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/35">URL e‑shopu</span>
                     <input
+                      id="free-audit-url"
                       type="url"
                       name="URL e‑shopu"
                       placeholder="https://vas-eshop.cz"
+                      required
                       class="w-full rounded-2xl border border-white/10 bg-black/18 px-4 py-3 text-[0.92rem] text-white outline-none transition placeholder:text-white/28 focus:border-[color:var(--blue)]/45"
                     />
                   </label>
                   <label class="block">
                     <span class="mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/35">Tvůj e-mail</span>
                     <input
+                      id="free-audit-email"
                       type="email"
                       name="E-mail"
                       placeholder="vas@email.cz"
+                      required
                       class="w-full rounded-2xl border border-white/10 bg-black/18 px-4 py-3 text-[0.92rem] text-white outline-none transition placeholder:text-white/28 focus:border-[color:var(--blue)]/45"
                     />
                   </label>
                   <label class="block">
                     <span class="mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/35">Poznámka</span>
                     <textarea
+                      id="free-audit-note"
                       name="Poznámka"
                       rows="3"
                       placeholder="Co teď nejvíc bolí?"
@@ -415,4 +420,43 @@ const extraSymptoms = site.symptoms.slice(2);
       </div>
     </section>
   </main>
+  <script is:inline>
+    const freeAuditForm = document.getElementById("free-audit-form");
+
+    if (freeAuditForm instanceof HTMLFormElement) {
+      freeAuditForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        if (!freeAuditForm.reportValidity()) {
+          return;
+        }
+
+        const urlInput = document.getElementById("free-audit-url");
+        const emailInput = document.getElementById("free-audit-email");
+        const noteInput = document.getElementById("free-audit-note");
+
+        if (!(urlInput instanceof HTMLInputElement) || !(emailInput instanceof HTMLInputElement) || !(noteInput instanceof HTMLTextAreaElement)) {
+          return;
+        }
+
+        const recipient = freeAuditForm.getAttribute("data-recipient");
+
+        if (!recipient) {
+          return;
+        }
+
+        const subject = "Audit zdarma z witdesign.cz";
+        const body = [
+          `URL e-shopu: ${urlInput.value.trim()}`,
+          `E-mail: ${emailInput.value.trim()}`,
+          "",
+          "Poznámka:",
+          noteInput.value.trim() || "Bez poznámky",
+        ].join("\n");
+
+        const mailtoHref = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoHref;
+      });
+    }
+  </script>
 </BaseLayout>
