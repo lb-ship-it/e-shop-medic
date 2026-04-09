@@ -225,7 +225,7 @@ function AuditOptionCard({
 function QuickActionBlock() {
   return (
     <div className="panel rounded-[1.8rem] border border-white/10 px-5 py-5 sm:px-6 sm:py-6">
-      <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+      <div className="grid gap-4 border-b border-white/8 pb-5 lg:grid-cols-[minmax(0,1fr)_16rem] lg:items-end lg:gap-8">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">
             Rychlá akce
@@ -235,7 +235,14 @@ function QuickActionBlock() {
             rovnou k akci.
           </p>
         </div>
-        <p className="text-sm text-white/45">Placené vstupy pokračují přímo přes Stripe.</p>
+        <div className="lg:justify-self-end">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/28">
+            Platby
+          </p>
+          <p className="mt-2 max-w-[14rem] text-sm leading-6 text-white/45">
+            Placené vstupy pokračují přímo přes Stripe.
+          </p>
+        </div>
       </div>
 
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
