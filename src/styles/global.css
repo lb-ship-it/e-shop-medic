@@ -35,13 +35,25 @@ body {
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+a,
+button,
+input,
+textarea,
+[contenteditable="true"] {
+  -webkit-user-select: text;
+  user-select: text;
+  cursor: auto;
 }
 
 a,
 button,
 summary,
-input,
-textarea,
 select {
   -webkit-tap-highlight-color: transparent;
 }
