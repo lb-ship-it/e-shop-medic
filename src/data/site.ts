@@ -38,17 +38,17 @@ export const site = {
   ],
   quickActions: [
     {
-      label: "Zaplatit audit do 24 h",
+      label: "Audit do 24 h",
       helper: "Hloubkový audit za 1 500 Kč",
       href: "https://buy.stripe.com/fZu8wR7VR6Q38vb6912VG00",
     },
     {
-      label: "Zaplatit SOS opravu",
+      label: "SOS oprava",
       helper: "Urgentní zásah za 3 500 Kč",
       href: "https://buy.stripe.com/14A7sN2BxeivbHn0OH2VG01",
     },
     {
-      label: "Zaplatit SEO optimalizaci",
+      label: "SEO optimalizace",
       helper: "Rezervace práce od 6 500 Kč",
       href: "https://buy.stripe.com/dRm14pdgbfmz3aR2WP2VG02",
     },
@@ -86,7 +86,7 @@ export const site = {
       description:
         "Do 24 hodin dostaneš jasný seznam největších úniků, priorit a doporučených zásahů.",
       icon: "audit",
-      ctaLabel: "Zaplatit audit 1 500 Kč",
+      ctaLabel: "Audit 1 500 Kč",
       ctaHref: "https://buy.stripe.com/fZu8wR7VR6Q38vb6912VG00",
       note: "Zaplatíš 1 500 Kč za audit s výstupem do 24 hodin.",
     },
@@ -96,7 +96,7 @@ export const site = {
       description:
         "Akutní zásah, když se rozpadá checkout, měření, šablona nebo důležitý krok objednávky.",
       icon: "fix",
-      ctaLabel: "Zaplatit urgentní zásah",
+      ctaLabel: "Urgentní zásah",
       ctaHref: "https://buy.stripe.com/14A7sN2BxeivbHn0OH2VG01",
       note: "Zaplatíš 3 500 Kč za rezervaci akutního zásahu.",
     },
@@ -106,7 +106,7 @@ export const site = {
       description:
         "Technická i obsahová hygiena, aby e-shop nestál jen na placené návštěvnosti.",
       icon: "seo",
-      ctaLabel: "Zaplatit SEO zásah",
+      ctaLabel: "SEO zásah",
       ctaHref: "https://buy.stripe.com/dRm14pdgbfmz3aR2WP2VG02",
       note: "Rezervuješ SEO optimalizaci od 6 500 Kč.",
     },
