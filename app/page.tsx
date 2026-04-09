@@ -711,13 +711,10 @@ export default function Home() {
         </section>
 
         <section className="mx-auto w-full max-w-7xl px-4 pb-10 sm:px-10 sm:pb-14 lg:px-12">
-          <div className="mb-7 max-w-3xl">
+          <div className="mb-5 max-w-3xl sm:mb-6">
             <p className="text-[0.82rem] font-semibold uppercase tracking-[0.22em] text-white/35 sm:text-sm">
-              Kdy volat medika
+              Kdy kontaktovat medika
             </p>
-            <h2 className="mt-3 text-[1.55rem] font-semibold tracking-tight text-white sm:text-[2.35rem]">
-              Tohle jsou symptomy, které obvykle najdu během prvních 15 minut.
-            </h2>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2 md:gap-5">
