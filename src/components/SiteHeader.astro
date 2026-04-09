@@ -1,0 +1,28 @@
+---
+import { site } from "../data/site";
+---
+
+<header class="sticky top-0 z-50 border-b border-white/8 bg-[rgba(4,7,11,0.82)] backdrop-blur">
+  <div class="shell flex items-center justify-between gap-3 py-3">
+    <a href="/" class="flex min-w-0 items-center gap-3">
+      <img src="/logo-mark.png" alt="E-shop Medic" width="44" height="44" class="h-10 w-10 shrink-0" loading="eager" decoding="async" />
+      <div class="min-w-0">
+        <p class="truncate text-[0.78rem] font-semibold uppercase tracking-[0.22em] text-white/38 md:text-[0.82rem]">
+          {site.brand.name}
+        </p>
+        <p class="hidden text-[0.84rem] text-white/66 md:block">
+          Diagnostika, stabilizace a rychlé zásahy pro e-shopy
+        </p>
+      </div>
+    </a>
+
+    <div class="flex items-center gap-2">
+      <a href={`mailto:${site.contact.email}`} class="hidden rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-[0.78rem] text-white/80 transition hover:border-white/20 hover:text-white md:inline-flex">
+        Napsat e-mail
+      </a>
+      <a href={site.payments.sosRepairHref} class="cta-yellow">
+        Urgent zásah
+      </a>
+    </div>
+  </div>
+</header>

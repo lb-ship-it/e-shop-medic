@@ -1,64 +1,45 @@
-# e-shop-medic
+# E-shop Medic | Astro
 
-Starter storefront for `Vercel + Stripe Checkout`, prepared as a fast first version for `witdesign.cz`.
+Statický Astro web pro `witdesign.cz` s Tailwind CSS, minimem klientského JavaScriptu a strukturou připravenou pro nasazení na Vercel přes GitHub.
 
 ## Stack
 
-- `Next.js 16` with App Router
-- `Tailwind CSS 4`
-- `Stripe Checkout Sessions`
-- deployment target: `Vercel`
+- `Astro`
+- `Tailwind CSS` přes `@tailwindcss/vite`
+- statické `.astro` stránky bez hydratovaných UI ostrovů
 
-## Why this setup
-
-For a first ecommerce launch with one-time payments, Stripe best practices recommend `Checkout Sessions`. It is the fastest safe path to production and fits Vercel very well.
-
-This starter intentionally keeps scope small:
-
-- one featured product flow
-- fresh homepage instead of boilerplate
-- success and cancel return pages
-- no cart, no order database, no webhook fulfillment yet
-
-## Local run
-
-1. Copy `.env.example` to `.env.local`
-2. Fill in:
-   - `STRIPE_SECRET_KEY`
-   - `STRIPE_PRICE_ID`
-   - optionally `NEXT_PUBLIC_SITE_URL`
-3. Install dependencies:
+## Lokální vývoj
 
 ```bash
 npm install
-```
-
-4. Start development:
-
-```bash
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+## Kontrola a build
 
-## Stripe setup
+```bash
+npm run lint
+npm run build
+```
 
-1. In Stripe Dashboard create a product and a one-time price
-2. Copy the resulting `price_...` ID into `STRIPE_PRICE_ID`
-3. Copy your secret key into `STRIPE_SECRET_KEY`
+## Nasazení na Vercel
 
-The current checkout route is in `app/api/checkout/route.ts`.
+Projekt je připravený jako statický Astro web. Na Vercelu stačí:
 
-## Vercel deploy
+1. Připojit GitHub repo.
+2. Framework se detekuje jako `Astro`.
+3. Není potřeba žádný vlastní runtime ani `vercel.json`.
 
-1. Import the repo/project into Vercel
-2. Add the same environment variables in the Vercel project settings:
-   - `STRIPE_SECRET_KEY`
-   - `STRIPE_PRICE_ID`
-   - `NEXT_PUBLIC_SITE_URL`
-3. Set `NEXT_PUBLIC_SITE_URL` to your production URL, for example `https://witdesign.cz`
-4. Deploy
+## Struktura
 
-## Next recommended step
+- `src/layouts/BaseLayout.astro` – SEO metadata, Open Graph a JSON-LD pro lokální byznys
+- `src/components/ServiceCard.astro` – karty služeb
+- `src/pages/index.astro` – landing page
+- `src/pages/gdpr.astro` – zásady ochrany osobních údajů
+- `src/pages/vop.astro` – obchodní podmínky
+- `src/pages/portfolio.astro` – portfolio placeholder
+- `src/pages/blog.astro` – blog placeholder
 
-Before going live with real orders, add a Stripe webhook for `checkout.session.completed` and connect it to order creation, email, or fulfillment.
+## Poznámka k UX
+
+Rozestupy a velikosti jsou schválně kompaktní na mobilu. U bloků a tlačítek je preferovaný pattern typu `p-4 md:p-6` namísto robustních desktop-first hodnot.

@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+---
+
+<BaseLayout title={`GDPR | ${site.brand.name}`} description="Jak pracuji s údaji z poptávky." path="/gdpr">
+  <main class="shell py-10 md:py-14">
+    <section class="panel-strong p-5 md:p-8 prose-lite">
+      <p class="eyebrow">Ochrana osobních údajů</p>
+      <h1 class="mt-3 text-[1.5rem] font-semibold tracking-tight text-white md:text-[2.1rem]">
+        Jak pracuji s údaji z poptávky
+      </h1>
+      <p class="mt-4 text-[0.84rem] leading-6 text-white/48 md:text-[0.9rem]">
+        Správce: {site.contact.operatorName}, IČO: {site.contact.ico}, {site.contact.legalStatus}.
+      </p>
+      <div class="mt-6">
+        <p>Pokud odešleš e-mail nebo URL svého e-shopu přes kontaktní formulář, zpracovávám jen údaje potřebné k tomu, abych mohl odpovědět na poptávku a navrhnout další postup.</p>
+        <p>Typicky jde o kontaktní e-mail, adresu webu a případné informace, které dobrovolně doplníš v komunikaci. Tyto údaje neslouží k dalšímu prodeji a používám je pouze pro vyřízení poptávky nebo navazující spolupráci.</p>
+        <p>Pokud si budeš přát údaje upravit nebo smazat, napiš na <a href={`mailto:${site.contact.email}`} class="text-[color:var(--green)] transition hover:text-white">{site.contact.email}</a>.</p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,82 @@
+---
+import { site } from "../data/site";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  path?: string;
+  structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
+}
+
+const {
+  title = site.brand.title,
+  description = site.brand.description,
+  path = "/",
+  structuredData,
+} = Astro.props;
+
+const canonical = new URL(path, site.brand.siteUrl).toString();
+const defaultStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${site.brand.siteUrl}/#business`,
+  name: site.brand.name,
+  alternateName: "Witdesign",
+  description: site.brand.description,
+  url: site.brand.siteUrl,
+  email: site.contact.email,
+  image: `${site.brand.siteUrl}/logo-mark.png`,
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Hlohová 367",
+    postalCode: "326 00",
+    addressLocality: "Letkov",
+    addressRegion: "Plzeňský kraj",
+    addressCountry: "CZ",
+  },
+  areaServed: [
+    { "@type": "City", name: "Plzeň" },
+    { "@type": "AdministrativeArea", name: "Plzeňský kraj" },
+    { "@type": "Country", name: "Česká republika" },
+  ],
+};
+
+const ldPayload = Array.isArray(structuredData)
+  ? [defaultStructuredData, ...structuredData]
+  : structuredData
+    ? [defaultStructuredData, structuredData]
+    : [defaultStructuredData];
+---
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.brand.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${site.brand.siteUrl}/logo-mark.png`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="theme-color" content="#04070b" />
+    <link rel="icon" type="image/png" href="/logo-mark.png" />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(ldPayload)} />
+  </head>
+  <body>
+    <SiteHeader />
+    <slot />
+    <SiteFooter />
+  </body>
+</html>

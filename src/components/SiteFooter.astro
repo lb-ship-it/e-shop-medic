@@ -1,0 +1,46 @@
+---
+import { site } from "../data/site";
+---
+
+<footer class="border-t border-white/8 bg-black/30">
+  <div class="shell grid gap-6 py-8 md:grid-cols-3 md:gap-8 md:py-10">
+    <div class="space-y-3">
+      <div class="flex items-center gap-3">
+        <img src="/logo-mark.png" alt="E-shop Medic" width="40" height="40" class="h-9 w-9" loading="lazy" decoding="async" />
+        <div>
+          <p class="text-sm font-semibold text-white">{site.brand.name}</p>
+          <p class="text-[0.82rem] text-white/52">Witdesign</p>
+        </div>
+      </div>
+      <p class="max-w-sm text-[0.86rem] leading-6 text-white/62">
+        Diagnostika, stabilizace a rychlé zásahy pro e-shopy, které chtějí mít výkon i důvěru pod kontrolou.
+      </p>
+    </div>
+
+    <div class="space-y-3">
+      <p class="eyebrow">Rychlé odkazy</p>
+      <div class="flex flex-col gap-2 text-[0.9rem] text-white/72">
+        <a href="/gdpr" class="transition hover:text-white">GDPR / Ochrana osobních údajů</a>
+        <a href="/vop" class="transition hover:text-white">VOP</a>
+        <a href="/portfolio" class="transition hover:text-white">Portfolio</a>
+        <a href="/blog" class="transition hover:text-white">Blog</a>
+      </div>
+    </div>
+
+    <div class="space-y-3">
+      <p class="eyebrow">Kontakt</p>
+      <div class="flex flex-col gap-2 text-[0.9rem] text-white/72">
+        <a href={`mailto:${site.contact.email}`} class="transition hover:text-white">{site.contact.email}</a>
+        <p>{site.contact.location}</p>
+        <p>{site.contact.registeredOffice}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-white/8 py-4">
+    <div class="shell flex flex-col gap-2 text-[0.78rem] text-white/48 md:flex-row md:flex-wrap md:items-center md:justify-between">
+      <p>{site.contact.operatorName} | Sídlo: {site.contact.registeredOffice} | IČO: {site.contact.ico} | {site.contact.legalStatus} | {site.contact.vatStatus}</p>
+      <p>© 2026 witdesign.cz</p>
+    </div>
+  </div>
+</footer>

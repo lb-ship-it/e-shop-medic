@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://witdesign.cz/sitemap.xml

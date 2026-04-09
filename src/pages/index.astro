@@ -1,0 +1,401 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import { site } from "../data/site";
+
+const featuredServices = site.services.slice(0, 3);
+const extraServices = site.services.slice(3);
+const featuredSymptoms = site.symptoms.slice(0, 2);
+const extraSymptoms = site.symptoms.slice(2);
+---
+
+<BaseLayout path="/">
+  <main class="relative overflow-hidden pb-12 md:pb-16">
+    <div class="absolute inset-0 mesh opacity-55"></div>
+    <div class="absolute left-0 top-24 h-60 w-60 rounded-full bg-[color:var(--green)]/10 blur-3xl"></div>
+    <div class="absolute right-0 top-0 h-72 w-72 rounded-full bg-[color:var(--blue)]/10 blur-3xl"></div>
+
+    <section class="shell relative pt-6 md:pt-10">
+      <div class="grid items-start gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(19rem,0.95fr)] xl:gap-8">
+        <div class="space-y-6">
+          <div class="max-w-3xl">
+            <h1 class="max-w-[11ch] text-[1.7rem] font-bold uppercase leading-[0.96] tracking-[-0.04em] text-[color:var(--red)] md:text-[2.7rem] xl:text-[3.2rem]">
+              {site.brand.heroTitle}
+            </h1>
+            <p class="mt-6 max-w-3xl text-[0.96rem] font-semibold leading-6 text-[color:var(--green)] md:text-[1.08rem] md:leading-7">
+              {site.brand.heroLead}
+            </p>
+            <p class="mt-5 max-w-2xl text-[0.9rem] leading-6 text-white/64 md:text-[0.98rem] md:leading-7">
+              {site.brand.heroBody}
+            </p>
+          </div>
+
+          <div class="panel p-4 md:p-6">
+            <div class="grid gap-3 border-b border-white/8 pb-4 md:grid-cols-[minmax(0,1fr)_13rem] md:items-end md:gap-6">
+              <div class="max-w-2xl">
+                <p class="eyebrow">Rychlá akce</p>
+                <p class="mt-2 text-[0.88rem] leading-6 text-white/62 md:text-[0.95rem]">
+                  Vyber si nejrychlejší placený vstup podle toho, jak moc to hoří.
+                  <span class="hidden md:inline"> Bez scrollování k detailům, rovnou k rezervaci zásahu.</span>
+                </p>
+                <p class="mt-1 text-[0.88rem] leading-6 text-white/62 md:hidden">
+                  Bez scrollování k detailům, rovnou k rezervaci zásahu.
+                </p>
+              </div>
+              <div class="md:justify-self-end">
+                <p class="eyebrow">Platby</p>
+                <p class="mt-1 max-w-[12rem] text-[0.78rem] leading-5 text-white/45">
+                  Placené vstupy pokračují přímo přes Stripe.
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-4 grid gap-2 md:grid-cols-3">
+              {site.quickActions.map((action) => (
+                <a href={action.href} class="cta-yellow flex min-h-14 flex-col items-start justify-center rounded-3xl px-4 py-3 text-left md:min-h-16">
+                  <span class="text-[0.76rem] font-bold uppercase tracking-[0.04em]">{action.label}</span>
+                  <span class="mt-1 text-[0.8rem] font-medium normal-case tracking-normal text-black/72">{action.helper}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="panel-strong p-4 md:p-8">
+            <div class="grid gap-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-7">
+              <div>
+                <p class="eyebrow">Nezávazná analýza</p>
+                <h2 class="mt-3 max-w-[15ch] text-[1.4rem] font-semibold tracking-tight text-white md:text-[2rem]">
+                  První dojem z webu musí působit jistě.
+                </h2>
+                <p class="mt-4 max-w-xl text-[0.9rem] leading-6 text-white/58 md:text-[0.96rem] md:leading-7">
+                  Pošli URL svého e-shopu a e-mail. Otevře se ti výchozí poštovní klient s připravenou poptávkou na audit zdarma.
+                </p>
+              </div>
+
+              <div id="audit-zdarma-form" class="rounded-[1.2rem] border border-white/8 bg-[color:var(--bg-soft)]/88 p-4 md:p-5">
+                <div class="mb-4 flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <p class="text-[1rem] font-semibold text-white md:text-[1.08rem]">
+                      Audit zdarma s čekací dobou 3–5 dní
+                    </p>
+                  </div>
+                  <div class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[0.78rem] text-white/58">
+                    Omezený rozsah
+                  </div>
+                </div>
+
+                <form action={`mailto:${site.contact.email}?subject=Audit zdarma z witdesign.cz`} method="post" enctype="text/plain" class="space-y-3">
+                  <label class="block">
+                    <span class="mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/35">URL e-shopu</span>
+                    <input
+                      type="url"
+                      name="URL e-shopu"
+                      placeholder="https://vas-eshop.cz"
+                      class="w-full rounded-2xl border border-white/10 bg-black/18 px-4 py-3 text-[0.92rem] text-white outline-none transition placeholder:text-white/28 focus:border-[color:var(--blue)]/45"
+                    />
+                  </label>
+                  <label class="block">
+                    <span class="mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/35">Tvůj e-mail</span>
+                    <input
+                      type="email"
+                      name="E-mail"
+                      placeholder="vas@email.cz"
+                      class="w-full rounded-2xl border border-white/10 bg-black/18 px-4 py-3 text-[0.92rem] text-white outline-none transition placeholder:text-white/28 focus:border-[color:var(--blue)]/45"
+                    />
+                  </label>
+                  <label class="block">
+                    <span class="mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/35">Poznámka</span>
+                    <textarea
+                      name="Poznámka"
+                      rows="3"
+                      placeholder="Co teď nejvíc bolí?"
+                      class="w-full rounded-2xl border border-white/10 bg-black/18 px-4 py-3 text-[0.92rem] text-white outline-none transition placeholder:text-white/28 focus:border-[color:var(--blue)]/45"
+                    ></textarea>
+                  </label>
+
+                  <div class="flex flex-col gap-3 md:flex-row md:items-center">
+                    <button type="submit" class="cta-green min-h-11 w-full md:w-auto">
+                      Poslat URL zdarma
+                    </button>
+                    <p class="text-[0.82rem] leading-5 text-white/48">
+                      Otevře se výchozí poštovní klient. Audit je nezávazný.
+                    </p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div class="relative hidden h-[7rem] lg:block">
+            <div class="absolute left-0 top-0 rounded-[1.2rem] border border-[color:var(--red)]/35 bg-black/72 px-4 py-3 text-sm text-white/88 shadow-[0_0_0_1px_rgba(239,68,68,0.14),0_0_28px_rgba(239,68,68,0.16)] backdrop-blur">
+              <p class="text-[0.68rem] uppercase tracking-[0.24em] text-red-300/72">Urgent fix</p>
+              <p class="mt-2 font-medium">Checkout friction detected</p>
+            </div>
+            <div class="absolute left-[12.5rem] top-[2.7rem] rounded-[1.2rem] border border-[color:var(--blue)]/25 bg-black/62 px-4 py-3 text-sm text-white/82 backdrop-blur">
+              <p class="text-[0.68rem] uppercase tracking-[0.24em] text-white/35">Tracking</p>
+              <p class="mt-2 font-medium">Ve měření chybí 2 události</p>
+            </div>
+          </div>
+
+          <div class="panel-strong hero-noise mesh relative overflow-hidden p-4 md:p-5">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <div class="max-w-[18rem]">
+                <p class="text-[0.72rem] uppercase tracking-[0.24em] text-white/35">Diagnostický panel</p>
+                <h2 class="mt-2 text-[1.1rem] font-semibold leading-tight text-white md:text-[1.35rem]">
+                  {site.diagnostic.title}
+                </h2>
+              </div>
+              <div class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[0.74rem] text-white/62">
+                {site.diagnostic.modeLabel}
+              </div>
+            </div>
+
+            <div class="mt-4 rounded-[1.2rem] border border-white/8 bg-[#091018]/90 p-3 md:p-4">
+              <div class="flex items-center justify-between text-[0.66rem] uppercase tracking-[0.2em] text-white/35">
+                <span>{site.diagnostic.pulseLabel}</span>
+                <span class="text-[color:var(--green)]">{site.diagnostic.statusLabel}</span>
+              </div>
+              <div class="mt-4 overflow-hidden rounded-[1rem] border border-white/6 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] p-3">
+                <svg viewBox="0 0 320 100" class="h-24 w-full" aria-hidden="true">
+                  <path d="M0 50 H54 L72 50 L84 32 L96 70 L112 18 L128 84 L144 50 H196 L214 50 L228 36 L240 66 L254 30 L268 50 H320" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2" />
+                  <path d="M0 50 H54 L72 50 L84 32 L96 70 L112 18 L128 84 L144 50 H196 L214 50 L228 36 L240 66 L254 30 L268 50 H320" fill="none" stroke="url(#pulseGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                  <defs>
+                    <linearGradient id="pulseGradient" x1="0" x2="1" y1="0" y2="0">
+                      <stop offset="0%" stop-color="#18f7a2"></stop>
+                      <stop offset="100%" stop-color="#1ea0ff"></stop>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+
+              <div class="mt-4 grid grid-cols-2 gap-2">
+                {site.diagnostic.cards.map((item) => (
+                  <div class:list={["rounded-2xl border px-3 py-3", item.tone === "green" ? "border-[color:var(--green)]/18 bg-[color:var(--green)]/6" : "border-[color:var(--blue)]/18 bg-[color:var(--blue)]/6"]}>
+                    <p class="text-[0.78rem] text-white/55">{item.label}</p>
+                    <p class="mt-1 text-[0.96rem] font-semibold text-white">{item.score}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div class="panel p-4 md:p-6">
+            <div class="grid gap-6 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] xl:gap-8">
+              <div>
+                <p class="eyebrow">Kde a jak zasahuju</p>
+                <h3 class="mt-2 max-w-2xl text-[1.12rem] font-semibold text-white md:text-[1.45rem]">
+                  Nejčastěji Shoptet, PrestaShop, WooCommerce, WordPress a Shopify.
+                </h3>
+                <p class="mt-3 max-w-2xl text-[0.88rem] leading-6 text-white/62 md:text-[0.94rem]">
+                  Tohle jsou prostředí, kde nejčastěji hledám, kudy utíkají objednávky, data nebo důvěra v prvních vteřinách.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-1.5">
+                  {site.platforms.map((platform) => <span class="pill">{platform}</span>)}
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <div>
+                  <p class="eyebrow">Co čekat po prvním kontaktu</p>
+                  <div class="mt-3 grid grid-cols-3 gap-2">
+                    {site.metrics.map((metric) => (
+                      <div class="metric-card">
+                        <p class="metric-value">{metric.value}</p>
+                        <p class="metric-label">{metric.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="rounded-[1.2rem] border border-white/8 bg-white/[0.03] p-4 md:p-5">
+                  <div class="flex items-start gap-3">
+                    <img src="/logo-mark.png" alt="Witdesign" width="42" height="42" class="mt-0.5 h-10 w-10 shrink-0" loading="lazy" decoding="async" />
+                    <div>
+                      <p class="eyebrow">Studio / přímý kontakt</p>
+                      <p class="mt-2 text-[1rem] font-semibold text-white md:text-[1.2rem]">
+                        Bez přeposílání mezi accounty. Zásah držím osobně.
+                      </p>
+                      <p class="mt-3 text-[0.88rem] leading-6 text-white/62 md:text-[0.94rem]">
+                        Když e-shop zlobí, nechceš čekat na kolečko mezi projektovým manažerem, vývojem a marketingem. Potřebuješ člověka, který problém rychle najde a dovede ho do opravy.
+                      </p>
+                      <div class="mt-4 flex flex-col gap-2 md:flex-row md:flex-wrap">
+                        <a href={`mailto:${site.contact.email}`} class="pill">{site.contact.email}</a>
+                        <span class="pill">{site.contact.location}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell mt-10 md:mt-12">
+      <div class="panel p-4 md:p-6">
+        <div class="mb-5 max-w-3xl">
+          <p class="eyebrow">Kdy kontaktovat e-shop medika</p>
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-2">
+          {featuredSymptoms.map((symptom) => (
+            <article class:list={["rounded-[1.25rem] border p-4 md:p-5", symptom.tone === "green" ? "border-[color:var(--green)]/18 bg-[color:var(--green)]/[0.06]" : "border-[color:var(--blue)]/18 bg-[color:var(--blue)]/[0.06]"]}>
+              <div class="flex items-center gap-3">
+                <span class:list={["h-3 w-3 rounded-full", symptom.tone === "green" ? "bg-[color:var(--green)]" : "bg-[color:var(--blue)]"]}></span>
+                <p class="text-[0.72rem] uppercase tracking-[0.24em] text-white/35">První nález</p>
+              </div>
+              <h3 class="mt-4 text-[1rem] font-semibold text-white md:text-[1.2rem]">{symptom.title}</h3>
+              <p class="mt-2 text-[0.88rem] leading-6 text-white/60 md:text-[0.94rem]">{symptom.description}</p>
+            </article>
+          ))}
+        </div>
+
+        {extraSymptoms.length > 0 && (
+          <>
+            <details class="mt-5 md:hidden">
+              <summary class="pill cursor-pointer list-none">Více symptomů</summary>
+              <div class="mt-4 grid gap-4">
+                {extraSymptoms.map((symptom) => (
+                  <article class:list={["rounded-[1.25rem] border p-4", symptom.tone === "green" ? "border-[color:var(--green)]/18 bg-[color:var(--green)]/[0.06]" : "border-[color:var(--blue)]/18 bg-[color:var(--blue)]/[0.06]"]}>
+                    <div class="flex items-center gap-3">
+                      <span class:list={["h-3 w-3 rounded-full", symptom.tone === "green" ? "bg-[color:var(--green)]" : "bg-[color:var(--blue)]"]}></span>
+                      <p class="text-[0.72rem] uppercase tracking-[0.24em] text-white/35">První nález</p>
+                    </div>
+                    <h3 class="mt-4 text-[1rem] font-semibold text-white">{symptom.title}</h3>
+                    <p class="mt-2 text-[0.88rem] leading-6 text-white/60">{symptom.description}</p>
+                  </article>
+                ))}
+              </div>
+            </details>
+
+            <div class="mt-5 hidden md:grid md:grid-cols-2 md:gap-4">
+              {extraSymptoms.map((symptom) => (
+                <article class:list={["rounded-[1.25rem] border p-5", symptom.tone === "green" ? "border-[color:var(--green)]/18 bg-[color:var(--green)]/[0.06]" : "border-[color:var(--blue)]/18 bg-[color:var(--blue)]/[0.06]"]}>
+                  <div class="flex items-center gap-3">
+                    <span class:list={["h-3 w-3 rounded-full", symptom.tone === "green" ? "bg-[color:var(--green)]" : "bg-[color:var(--blue)]"]}></span>
+                    <p class="text-[0.72rem] uppercase tracking-[0.24em] text-white/35">První nález</p>
+                  </div>
+                  <h3 class="mt-4 text-[1rem] font-semibold text-white md:text-[1.2rem]">{symptom.title}</h3>
+                  <p class="mt-2 text-[0.88rem] leading-6 text-white/60 md:text-[0.94rem]">{symptom.description}</p>
+                </article>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    </section>
+
+    <section id="sluzby" class="shell mt-10 md:mt-12">
+      <div class="mb-6 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+        <div class="max-w-3xl">
+          <p class="eyebrow">Služby</p>
+          <h2 class="section-title mt-3">Zásahy od rychlé první pomoci po kompletní restart.</h2>
+        </div>
+        <p class="max-w-xl text-[0.9rem] leading-6 text-white/55 md:text-[0.96rem] md:leading-7">
+          Každá služba míří na jiný typ bolesti. Někdy stačí přesná diagnóza, jindy je potřeba akutní technický zásah nebo srovnání celé prezentace obchodu.
+        </p>
+      </div>
+
+      <div class="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
+        {featuredServices.map((service) => <ServiceCard {...service} />)}
+      </div>
+
+      {extraServices.length > 0 && (
+        <>
+          <details class="mt-5 lg:hidden">
+            <summary class="pill cursor-pointer list-none">Další služby</summary>
+            <div class="mt-4 grid gap-4">
+              {extraServices.map((service) => <ServiceCard {...service} />)}
+            </div>
+          </details>
+          <div class="mt-5 hidden gap-4 lg:grid lg:grid-cols-2">
+            {extraServices.map((service) => <ServiceCard {...service} />)}
+          </div>
+        </>
+      )}
+    </section>
+
+    <section id="proces" class="shell mt-10 grid gap-4 md:mt-12 lg:grid-cols-[1.05fr_0.95fr]">
+      <div class="panel-strong p-4 md:p-6">
+        <p class="eyebrow">Jak to probíhá</p>
+        <div class="mt-4 grid gap-3">
+          {site.process.map((item) => (
+            <article class="panel p-4 md:p-5">
+              <div class="flex items-center gap-3">
+                <span class="flex h-9 w-9 items-center justify-center rounded-full border border-[color:var(--green)]/20 bg-[color:var(--green)]/10 text-[0.82rem] font-semibold text-[color:var(--green)]">
+                  {item.step}
+                </span>
+                <h3 class="text-[1rem] font-semibold text-white md:text-[1.2rem]">{item.title}</h3>
+              </div>
+              <p class="mt-3 text-[0.88rem] leading-6 text-white/60 md:text-[0.94rem]">{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <div class="panel p-4 md:p-6">
+        <p class="eyebrow">Co dostaneš do ruky</p>
+        <h2 class="mt-3 text-[1.32rem] font-semibold text-white md:text-[1.85rem]">
+          Ne pocit. Konkrétní orientaci.
+        </h2>
+        <div class="mt-4 space-y-3">
+          {site.deliverables.map((item) => (
+            <div class="flex items-start gap-3 rounded-[1rem] border border-white/8 bg-white/[0.03] px-3 py-3 md:px-4">
+              <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[color:var(--blue)]/12 text-[0.82rem] text-[color:var(--blue)]">
+                +
+              </span>
+              <p class="text-[0.88rem] leading-6 text-white/72 md:text-[0.94rem]">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="vstupni-varianty" class="shell mt-10 md:mt-12">
+      <div class="mb-6 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+        <div class="max-w-3xl">
+          <p class="eyebrow">Vstupní režimy</p>
+          <h2 class="section-title mt-3">Dvě cesty podle toho, jak rychle potřebuješ jasno.</h2>
+        </div>
+        <p class="max-w-xl text-[0.9rem] leading-6 text-white/55 md:text-[0.96rem] md:leading-7">
+          Audit zdarma je pomalejší orientační vstup. Express audit je placená priorita pro chvíli, kdy už je čekání dražší než samotný zásah.
+        </p>
+      </div>
+
+      <div class="grid gap-4 xl:grid-cols-2">
+        <article class="panel border-[color:var(--green)]/16 bg-[color:var(--green)]/[0.05] p-4 md:p-5">
+          <p class="eyebrow">Varianta A / Free</p>
+          <h3 class="mt-3 text-[1.1rem] font-semibold text-white md:text-[1.3rem]">Audit zdarma</h3>
+          <p class="mt-2 text-[0.88rem] leading-6 text-white/66 md:text-[0.94rem]">
+            Omezený vstupní rozsah pro první orientaci, když nechceš řešit problém naslepo.
+          </p>
+          <p class="mt-3 text-[0.9rem] font-medium text-[color:var(--green)]">
+            Čekací doba 3–5 dní, omezený rozsah.
+          </p>
+          <div class="mt-4">
+            <a href="#audit-zdarma-form" class="cta-green">Poslat URL zdarma</a>
+            <p class="mt-2 text-[0.78rem] text-white/48">Zbývají 3 místa v pomalejším režimu.</p>
+          </div>
+        </article>
+
+        <article class="panel border-[#ffdd00]/28 bg-[#ffdd00]/[0.06] p-4 md:p-5">
+          <p class="eyebrow">Varianta B / Paid</p>
+          <h3 class="mt-3 text-[1.1rem] font-semibold text-white md:text-[1.3rem]">Express Medic Audit</h3>
+          <p class="mt-2 text-[0.88rem] leading-6 text-white/66 md:text-[0.94rem]">
+            Placená priorita pro e-shopy, kde je problém dražší než čekání.
+          </p>
+          <p class="mt-3 text-[0.9rem] font-medium text-[#ffe67a]">
+            Garance do 24 hodin, hloubková analýza + 15min konzultace.
+          </p>
+          <div class="mt-4">
+            <a href={site.payments.expressAuditHref} class="cta-yellow">Zaplatit express audit 1 500 Kč</a>
+            <p class="mt-2 text-[0.78rem] text-white/48">Platba probíhá bezpečně přes Stripe.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

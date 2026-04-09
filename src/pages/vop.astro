@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+---
+
+<BaseLayout title={`VOP | ${site.brand.name}`} description="Jednoduchý rámec spolupráce." path="/vop">
+  <main class="shell py-10 md:py-14">
+    <section class="panel-strong p-5 md:p-8 prose-lite">
+      <p class="eyebrow">Všeobecné obchodní podmínky</p>
+      <h1 class="mt-3 text-[1.5rem] font-semibold tracking-tight text-white md:text-[2.1rem]">
+        Jednoduchý rámec spolupráce
+      </h1>
+      <p class="mt-4 text-[0.84rem] leading-6 text-white/48 md:text-[0.9rem]">
+        Poskytovatel služeb: {site.contact.operatorName}, IČO: {site.contact.ico}, {site.contact.legalStatus}.
+      </p>
+      <div class="mt-6">
+        <p>Spolupráce obvykle začíná úvodní analýzou nebo nezávaznou poptávkou. Na základě zadání připravím doporučení dalšího postupu, rozsah prací a orientační cenu.</p>
+        <p>Pokud se domluvíme na realizaci, potvrzení probíhá e-mailem nebo jinou prokazatelnou formou. Každý zásah má vlastní rozsah, termín a způsob předání, který si odsouhlasíme předem.</p>
+        <p>U rychlých auditů a jednorázových zásahů je výstupem typicky seznam priorit, návrh úprav nebo samotná implementace do dohodnutého rozsahu. U větších projektů následuje samostatná nabídka nebo etapizace.</p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
