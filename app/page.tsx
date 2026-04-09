@@ -660,12 +660,7 @@ export default function Home() {
         <section className="mx-auto w-full max-w-7xl px-4 pb-10 sm:px-10 sm:pb-16 lg:px-12">
           <div className="grid items-start gap-9 lg:grid-cols-[minmax(0,1.03fr)_minmax(22rem,0.97fr)] lg:gap-9 xl:grid-cols-[minmax(0,1.06fr)_minmax(24rem,0.94fr)]">
             <div className="order-1 max-w-none lg:pr-4 xl:pr-8">
-              <div className="static-copy glow-blue inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[0.7rem] text-white/70 sm:gap-2.5 sm:px-3.5 sm:py-1.5 sm:text-[0.8rem]">
-                <span className="h-2 w-2 rounded-full bg-accent-green" />
-                Akutní diagnostika e-shopů do 24 hodin
-              </div>
-
-              <h1 className="static-copy mt-4 max-w-[10ch] text-[1.52rem] font-bold uppercase leading-[1.08] tracking-[-0.025em] text-[#ff5b5b] [font-family:var(--font-k2d)] sm:mt-4 sm:text-[2.1rem] sm:leading-[1.04] lg:text-[2.55rem] lg:leading-[1.01] xl:text-[2.8rem]">
+              <h1 className="static-copy max-w-[10ch] text-[1.52rem] font-bold uppercase leading-[1.08] tracking-[-0.025em] text-[#ff5b5b] [font-family:var(--font-k2d)] sm:text-[2.1rem] sm:leading-[1.04] lg:text-[2.55rem] lg:leading-[1.01] xl:text-[2.8rem]">
                 Krvácející e-shop potřebuje zásah
               </h1>
               <div className="mt-8 sm:mt-10">

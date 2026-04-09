@@ -51,19 +51,19 @@ export function SiteHeader() {
             </ProtectedEmailLink>
           )}
           <a
-            href={siteConfig.contact.ctaHref}
-            className="glow-green inline-flex min-h-9 items-center rounded-full bg-accent-green px-4 py-1.5 text-[0.84rem] font-semibold text-black transition hover:translate-y-[-1px]"
+            href={siteConfig.payments.sosRepairHref}
+            className="inline-flex min-h-9 items-center rounded-full border border-[#ffdd00]/30 bg-[#ffdd00] px-4 py-1.5 text-[0.84rem] font-semibold text-black shadow-[0_18px_42px_rgba(255,221,0,0.16)] transition hover:translate-y-[-1px] hover:bg-[#ffe44d]"
           >
-            {siteConfig.contact.ctaLabel}
+            Urgent zásah
           </a>
         </div>
 
         <div className="flex items-center gap-1.5 md:hidden">
           <a
-            href={siteConfig.contact.ctaHref}
-            className="glow-green inline-flex min-h-8 items-center rounded-full bg-accent-green px-2.5 py-1 text-[0.74rem] font-semibold text-black transition hover:translate-y-[-1px]"
+            href={siteConfig.payments.sosRepairHref}
+            className="inline-flex min-h-8 items-center rounded-full border border-[#ffdd00]/30 bg-[#ffdd00] px-2.5 py-1 text-[0.74rem] font-semibold text-black shadow-[0_14px_28px_rgba(255,221,0,0.14)] transition hover:translate-y-[-1px] hover:bg-[#ffe44d]"
           >
-            Audit
+            Urgent
           </a>
           {hasPhone ? (
             <a
