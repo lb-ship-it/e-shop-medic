@@ -16,6 +16,8 @@ type Service = {
     label: string;
     href: string;
     note?: string;
+    ariaLabel?: string;
+    title?: string;
     tone?: "yellow" | "green";
   };
 };
@@ -36,6 +38,8 @@ type QuickAction = {
   label: string;
   href: string;
   helper: string;
+  ariaLabel?: string;
+  title?: string;
   tone: "green" | "yellow";
 };
 
@@ -47,9 +51,12 @@ const services: Service[] = [
       "Do 24 hodin dostaneš jasný seznam největších úniků, priorit a doporučených zásahů.",
     icon: "audit",
     cta: {
-      label: "CHCI RYCHLÝ AUDIT",
+      label: "Zaplatit audit 1 500 Kč",
       href: siteConfig.payments.expressAuditHref,
-      note: "Expresní rezervace a platba bezpečně přes Stripe.",
+      note: "Zaplatíš 1 500 Kč za audit s výstupem do 24 hodin.",
+      title: "Zaplatit rychlý audit za 1 500 Kč",
+      ariaLabel:
+        "Zaplatit rychlý audit za 1 500 Kč a získat hloubkový audit s výstupem do 24 hodin",
       tone: "yellow",
     },
   },
@@ -57,12 +64,15 @@ const services: Service[] = [
     title: "SOS oprava",
     price: "3 500 Kč",
     description:
-      "Akutní zásah, když se rozpadá checkout, měření, šablona nebo klíčová část funnelu.",
+      "Akutní zásah, když se rozpadá checkout, měření, šablona nebo důležitý krok objednávky.",
     icon: "fix",
     cta: {
-      label: "CHCI SOS OPRAVU",
+      label: "Zaplatit urgentní zásah",
       href: siteConfig.payments.sosRepairHref,
-      note: "Akutní rezervace a platba bezpečně přes Stripe.",
+      note: "Zaplatíš 3 500 Kč za rezervaci akutního zásahu.",
+      title: "Zaplatit SOS opravu za 3 500 Kč",
+      ariaLabel:
+        "Zaplatit SOS opravu za 3 500 Kč a rezervovat akutní zásah pro rozbitý checkout, měření nebo šablonu",
       tone: "yellow",
     },
   },
@@ -73,9 +83,12 @@ const services: Service[] = [
       "Technická i obsahová hygiena, aby e-shop nestál jen na placené návštěvnosti.",
     icon: "seo",
     cta: {
-      label: "CHCI SEO OPTIMALIZACI",
+      label: "Zaplatit SEO zásah",
       href: siteConfig.payments.seoOptimizationHref,
-      note: "Přímá rezervace a platba bezpečně přes Stripe.",
+      note: "Rezervuješ SEO optimalizaci od 6 500 Kč.",
+      title: "Zaplatit SEO optimalizaci od 6 500 Kč",
+      ariaLabel:
+        "Zaplatit SEO optimalizaci od 6 500 Kč a rezervovat technickou i obsahovou SEO práci",
       tone: "yellow",
     },
   },
@@ -145,27 +158,35 @@ const processSteps: ProcessStep[] = [
 
 const quickActions: QuickAction[] = [
   {
-    label: "Audit zdarma",
+    label: "Poslat URL zdarma",
     href: "#audit-zdarma-form",
-    helper: "Nezávazný vstup 3-5 dní",
+    helper: "První orientace do 3-5 dní",
+    title: "Poslat URL e-shopu zdarma a získat první orientaci",
+    ariaLabel: "Poslat URL e-shopu zdarma a získat první orientaci do tří až pěti dní",
     tone: "green",
   },
   {
-    label: "Express audit 24 h",
+    label: "Zaplatit audit do 24 h",
     href: siteConfig.payments.expressAuditHref,
-    helper: "Placená priorita 1 500 Kč",
+    helper: "Hloubkový audit za 1 500 Kč",
+    title: "Zaplatit audit do 24 hodin za 1 500 Kč",
+    ariaLabel: "Zaplatit audit do 24 hodin za 1 500 Kč",
     tone: "yellow",
   },
   {
-    label: "SOS oprava",
+    label: "Zaplatit SOS opravu",
     href: siteConfig.payments.sosRepairHref,
-    helper: "Akutní zásah 3 500 Kč",
+    helper: "Urgentní zásah za 3 500 Kč",
+    title: "Zaplatit SOS opravu za 3 500 Kč",
+    ariaLabel: "Zaplatit SOS opravu za 3 500 Kč",
     tone: "yellow",
   },
   {
-    label: "SEO optimalizace",
+    label: "Zaplatit SEO optimalizaci",
     href: siteConfig.payments.seoOptimizationHref,
-    helper: "Rezervace od 6 500 Kč",
+    helper: "Rezervace práce od 6 500 Kč",
+    title: "Zaplatit SEO optimalizaci od 6 500 Kč",
+    ariaLabel: "Zaplatit SEO optimalizaci od 6 500 Kč",
     tone: "yellow",
   },
 ];
@@ -180,7 +201,7 @@ const dashboardItems = [
   { label: "Checkout flow", score: "68 / 100", tone: "green" },
   { label: "SEO hygiena", score: "41 / 100", tone: "blue" },
   { label: "Rychlost načtení", score: "2.8 s", tone: "green" },
-  { label: "Tracking", score: "Missing events", tone: "blue" },
+  { label: "Tracking", score: "Chybí 2 události", tone: "blue" },
 ];
 
 const platformPills = ["Shoptet", "PrestaShop", "WooCommerce", "WordPress", "Shopify"];
@@ -259,6 +280,8 @@ function QuickActionBlock() {
             <a
               key={action.label}
               href={action.href}
+              title={action.title ?? action.helper}
+              aria-label={action.ariaLabel ?? `${action.label}: ${action.helper}`}
               className={`group flex min-h-[3.85rem] flex-col justify-center rounded-[0.95rem] border px-3 py-2 transition hover:-translate-y-0.5 sm:min-h-14 sm:rounded-[1rem] sm:px-3.5 sm:py-2.5 xl:min-h-[4.4rem] ${toneClass}`}
             >
               <span className="text-[0.72rem] font-bold uppercase tracking-[0.03em] sm:text-[0.8rem] xl:text-[0.78rem]">
@@ -365,7 +388,7 @@ function DiagnosticPanel() {
 
           <div className="static-copy float-card-delayed ml-auto w-fit rounded-2xl border border-accent-blue/25 bg-black/60 px-4 py-3 text-sm text-white/80 backdrop-blur">
           <p className="text-xs uppercase tracking-[0.24em] text-white/35">Tracking</p>
-          <p className="mt-2 font-medium">2 events missing in funnel</p>
+          <p className="mt-2 font-medium">Ve měření chybí 2 události</p>
         </div>
       </div>
 
@@ -377,7 +400,7 @@ function DiagnosticPanel() {
 
         <div className="static-copy float-card-delayed absolute left-[13.75rem] top-[3.125rem] z-10 w-[14rem] rounded-2xl border border-accent-blue/25 bg-black/60 px-4 py-3 text-sm text-white/80 backdrop-blur">
           <p className="text-xs uppercase tracking-[0.24em] text-white/35">Tracking</p>
-          <p className="mt-2 font-medium">2 events missing in funnel</p>
+          <p className="mt-2 font-medium">Ve měření chybí 2 události</p>
         </div>
       </div>
 
@@ -473,6 +496,8 @@ function ServiceCard({ title, price, description, icon, cta }: Service) {
         <div className="mt-auto space-y-2 pt-4 sm:space-y-2.5 sm:pt-5">
           <a
             href={cta.href}
+            title={cta.title ?? cta.note ?? cta.label}
+            aria-label={cta.ariaLabel ?? cta.label}
             className={`inline-flex min-h-9 w-full items-center justify-center rounded-[0.85rem] px-3 py-2 text-center text-[0.7rem] font-bold tracking-[0.05em] transition hover:-translate-y-0.5 sm:min-h-10 sm:rounded-[0.95rem] sm:px-3.5 sm:py-2.5 sm:text-[0.76rem] sm:tracking-[0.06em] ${ctaClass}`}
           >
             {cta.label}
@@ -823,9 +848,11 @@ export default function Home() {
             >
               <a
                 href="#audit-zdarma-form"
+                title="Poslat URL e-shopu zdarma a získat první orientaci"
+                aria-label="Poslat URL e-shopu zdarma a získat první orientaci"
                 className="inline-flex min-h-9 items-center justify-center rounded-full border border-accent-green/22 bg-accent-green px-3.5 py-1.5 text-[0.84rem] font-semibold text-black transition hover:translate-y-[-1px]"
               >
-                AUDIT ZDARMA
+                Poslat URL zdarma
               </a>
               <p className="mt-2.5 text-[0.8rem] text-white/48">Zbývají 3 místa v pomalejším režimu.</p>
             </AuditOptionCard>
@@ -838,7 +865,9 @@ export default function Home() {
               accent="yellow"
             >
               <CheckoutButton
-                label="CHCI EXPRESS AUDIT DO 24 HODIN (1 500 Kč)"
+                label="Zaplatit express audit 1 500 Kč"
+                title="Zaplatit express audit za 1 500 Kč a získat hloubkový audit do 24 hodin"
+                ariaLabel="Zaplatit express audit za 1 500 Kč a získat hloubkový audit do 24 hodin"
                 className="w-full justify-center rounded-[0.95rem] bg-[#ffdd00] px-3.5 py-2.5 text-center text-[0.84rem] font-bold text-black shadow-[0_18px_42px_rgba(255,221,0,0.18)] hover:bg-[#ffe44d]"
               />
               <p className="mt-2.5 text-[0.8rem] text-white/48">Platba probíhá bezpečně přes Stripe.</p>

@@ -6,11 +6,15 @@ import { siteConfig } from "@/lib/site-config";
 type CheckoutButtonProps = {
   className?: string;
   label?: string;
+  title?: string;
+  ariaLabel?: string;
 };
 
 export function CheckoutButton({
   className,
   label = "Chci express audit do 24 hodin (1 500 Kč)",
+  title,
+  ariaLabel,
 }: CheckoutButtonProps) {
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
@@ -64,7 +68,14 @@ export function CheckoutButton({
 
   return (
     <div className="space-y-2">
-      <button type="button" onClick={handleCheckout} disabled={isPending} className={classes}>
+      <button
+        type="button"
+        onClick={handleCheckout}
+        disabled={isPending}
+        className={classes}
+        title={title ?? label}
+        aria-label={ariaLabel ?? label}
+      >
         {isPending ? "Přesměrovávám do Stripe..." : label}
       </button>
       {error ? <p className="text-sm text-[#ffb28b]">{error}</p> : null}
