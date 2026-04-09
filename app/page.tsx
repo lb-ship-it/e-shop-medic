@@ -180,7 +180,7 @@ function AuditOptionCard({
   return (
     <article className={`panel rounded-[1.8rem] border p-5 ${accentClass}`}>
       <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/40">{eyebrow}</p>
-      <h3 className="mt-3 text-2xl font-semibold text-white">{title}</h3>
+      <h3 className="mt-3 text-xl font-semibold text-white sm:text-[1.65rem]">{title}</h3>
       <p className="mt-3 text-base leading-7 text-white/66">{description}</p>
       <p className={`mt-4 text-base font-medium ${noteClass}`}>{note}</p>
       <div className="mt-5">{children}</div>
@@ -302,7 +302,7 @@ function DiagnosticPanel() {
             <p className="text-sm uppercase tracking-[0.28em] text-white/35">
               Diagnostický panel
             </p>
-            <h2 className="mt-3 font-display text-3xl font-semibold leading-tight tracking-[-0.03em] text-white sm:text-[2.1rem]">
+            <h2 className="mt-3 font-display text-[1.85rem] font-semibold leading-tight tracking-[-0.03em] text-white sm:text-[1.95rem]">
               Operační pohled na e-shop
             </h2>
           </div>
@@ -354,7 +354,7 @@ function DiagnosticPanel() {
                 }`}
               >
                 <p className="text-base text-white/55">{item.label}</p>
-                <p className="mt-2 text-xl font-semibold text-white">{item.score}</p>
+                <p className="mt-2 text-[1.1rem] font-semibold text-white sm:text-[1.35rem]">{item.score}</p>
               </div>
             ))}
           </div>
@@ -380,7 +380,7 @@ function ServiceCard({ title, price, description, icon, cta }: Service) {
           {price}
         </span>
       </div>
-      <h3 className="mt-6 text-2xl font-semibold text-white">{title}</h3>
+      <h3 className="mt-6 text-xl font-semibold text-white sm:text-[1.6rem]">{title}</h3>
       <p className="mt-4 text-base leading-7 text-white/60">{description}</p>
       {cta ? (
         <div className="mt-auto pt-6 space-y-3">
@@ -413,7 +413,7 @@ function SymptomCard({ title, description, tone }: Symptom) {
         />
         <p className="text-sm uppercase tracking-[0.24em] text-white/35">První nález</p>
       </div>
-      <h3 className="mt-5 text-2xl font-semibold text-white">{title}</h3>
+      <h3 className="mt-5 text-xl font-semibold text-white sm:text-[1.6rem]">{title}</h3>
       <p className="mt-4 text-base leading-7 text-white/60">{description}</p>
     </article>
   );
@@ -426,7 +426,7 @@ function ProcessCard({ step, title, description }: ProcessStep) {
         <span className="flex h-12 w-12 items-center justify-center rounded-full border border-accent-green/20 bg-accent-green/10 text-base font-semibold text-accent-green">
           {step}
         </span>
-        <h3 className="text-2xl font-semibold text-white">{title}</h3>
+        <h3 className="text-xl font-semibold text-white sm:text-[1.6rem]">{title}</h3>
       </div>
       <p className="mt-5 text-base leading-7 text-white/60">{description}</p>
     </article>
@@ -441,7 +441,7 @@ function HeroContextPanel() {
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">
             Kde a jak zasahuju
           </p>
-          <h3 className="mt-3 max-w-2xl text-2xl font-semibold text-white sm:text-[2rem] lg:text-[2.2rem]">
+          <h3 className="mt-3 max-w-2xl text-[1.85rem] font-semibold text-white sm:text-[1.95rem] lg:text-[2.05rem]">
             Nejčastěji Shoptet, PrestaShop, WooCommerce, WordPress a Shopify.
           </h3>
           <p className="mt-4 max-w-2xl text-base leading-7 text-white/62 sm:text-[1.05rem]">
@@ -472,7 +472,7 @@ function HeroContextPanel() {
                   key={item.value}
                   className="rounded-[1.35rem] border border-white/8 bg-white/[0.03] px-4 py-4"
                 >
-                  <p className="text-[1.9rem] font-semibold leading-none text-white">
+                  <p className="text-[1.55rem] font-semibold leading-none text-white sm:text-[1.7rem]">
                     {item.value}
                   </p>
                   <p className="mt-2 text-sm leading-6 text-white/48">{item.label}</p>
@@ -495,7 +495,7 @@ function HeroContextPanel() {
                   <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">
                     Studio / přímý kontakt
                   </p>
-                  <p className="mt-2 text-2xl font-semibold text-white">
+                  <p className="mt-2 text-[1.7rem] font-semibold text-white sm:text-[1.85rem]">
                     Bez přeposílání mezi accounty. Zásah držím osobně.
                   </p>
                 </div>
@@ -540,7 +540,7 @@ export default function Home() {
                 Akutní diagnostika e-shopů do 24 hodin
               </div>
 
-              <h1 className="static-copy mt-5 max-w-[11ch] font-display text-4xl font-semibold leading-[1.06] tracking-[-0.04em] text-white sm:text-[3rem] sm:leading-[1.02] lg:text-[3.5rem] lg:leading-[0.99] xl:text-[3.85rem]">
+              <h1 className="static-copy mt-5 max-w-[11ch] font-display text-[2rem] font-semibold leading-[1.08] tracking-[-0.04em] text-white sm:text-[2.45rem] sm:leading-[1.04] lg:text-[2.95rem] lg:leading-[1.01] xl:text-[3.2rem]">
                 Když e-shop krvácí výkonem, nestačí hezký text. Potřebuje zásah.
               </h1>
               <p className="static-copy mt-6 max-w-3xl text-xl font-semibold text-accent-green sm:text-2xl">
@@ -599,7 +599,7 @@ export default function Home() {
             <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
               Kdy volat medika
             </p>
-            <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+            <h2 className="mt-4 text-[2.35rem] font-semibold tracking-tight text-white sm:text-[3rem]">
               Tohle jsou symptomy, které obvykle najdu během prvních 15 minut.
             </h2>
           </div>
@@ -627,7 +627,7 @@ export default function Home() {
               <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
                 Služby
               </p>
-              <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+              <h2 className="mt-4 text-[2.35rem] font-semibold tracking-tight text-white sm:text-[3rem]">
                 Zásahy od rychlé první pomoci po kompletní restart.
               </h2>
             </div>
@@ -671,7 +671,7 @@ export default function Home() {
               <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
                 Co dostaneš do ruky
               </p>
-              <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">
+              <h2 className="mt-4 text-[2rem] font-semibold text-white sm:text-[2.55rem]">
                 Ne pocit. Konkrétní orientaci.
               </h2>
               <div className="mt-8 space-y-4">
@@ -703,7 +703,7 @@ export default function Home() {
                 <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
                   Nezávazná analýza
                 </p>
-                <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+                <h2 className="mt-4 text-[2.35rem] font-semibold tracking-tight text-white sm:text-[3rem]">
                   První dojem z webu musí působit jistě. Stejně jako první zásah.
                 </h2>
                 <p className="mt-5 max-w-xl text-base leading-8 text-white/58 sm:text-lg">

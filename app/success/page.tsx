@@ -5,7 +5,7 @@ export default function SuccessPage() {
     <main className="mx-auto flex min-h-screen w-full max-w-3xl items-center px-6 py-12 sm:px-10">
       <section className="panel-strong w-full rounded-[34px] p-8 sm:p-10">
         <p className="text-base uppercase tracking-[0.22em] text-white/48">Platba dokončena</p>
-        <h1 className="mt-4 font-display text-4xl tracking-tight text-white">
+        <h1 className="mt-4 font-display text-3xl tracking-tight text-white sm:text-4xl">
           Stripe vrátil zákazníka zpět do aplikace.
         </h1>
         <p className="mt-5 max-w-2xl text-base leading-7 text-white/62">

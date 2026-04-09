@@ -20,7 +20,7 @@ export default function PortfolioPage() {
         <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
           Portfolio
         </p>
-        <h1 className="mt-4 font-display text-4xl tracking-tight text-white sm:text-5xl">
+        <h1 className="mt-4 font-display text-3xl tracking-tight text-white sm:text-4xl">
           Typy zásahů, které dávají e-shopům rychlý klid
         </h1>
         <p className="mt-5 text-base leading-8 text-white/64">
@@ -38,7 +38,7 @@ export default function PortfolioPage() {
             <p className="text-base font-semibold uppercase tracking-[0.2em] text-white/35">
               Case type
             </p>
-            <h2 className="mt-5 text-2xl font-semibold text-white">{item.title}</h2>
+            <h2 className="mt-5 text-xl font-semibold text-white sm:text-[1.6rem]">{item.title}</h2>
             <p className="mt-4 text-base leading-7 text-white/62">{item.text}</p>
           </article>
         ))}

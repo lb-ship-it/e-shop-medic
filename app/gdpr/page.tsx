@@ -8,7 +8,7 @@ export default function GdprPage() {
         <p className="text-base font-semibold uppercase tracking-[0.24em] text-white/35">
           Ochrana osobních údajů
         </p>
-        <h1 className="mt-4 font-display text-4xl tracking-tight text-white sm:text-5xl">
+        <h1 className="mt-4 font-display text-3xl tracking-tight text-white sm:text-4xl">
           Jak pracuji s údaji z poptávky
         </h1>
         <p className="mt-5 text-sm leading-7 text-white/48">
