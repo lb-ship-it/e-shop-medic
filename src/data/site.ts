@@ -17,7 +17,7 @@ export const site = {
     title: "E‑shop Medic | Diagnostika a rychlé zásahy pro e‑shopy",
     description:
       "Diagnostika, stabilizace a rychlé zásahy pro e‑shopy, které chtějí růst bez slepých míst.",
-    heroTitle: "Krvácející e‑shop potřebuje zásah",
+    heroTitle: "Ošetřím a vyléčím váš krvácející e‑shop",
     heroLead:
       "Technický audit, UX diagnostika a rychlá stabilizace pro e‑shopy, které mají potenciál, ale ztrácejí peníze v tichosti.",
     heroBody:
