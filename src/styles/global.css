@@ -195,6 +195,42 @@ select {
   filter: drop-shadow(0 0 10px rgba(30, 160, 255, 0.4));
 }
 
+.diagnostic-pulse-wrap {
+  position: relative;
+  padding-top: 4.5rem;
+}
+
+.diagnostic-floating {
+  position: absolute;
+  z-index: 2;
+  min-width: 12.5rem;
+  border-radius: 1rem;
+  padding: 0.9rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: rgba(246, 247, 251, 0.9);
+  backdrop-filter: blur(10px);
+  background: rgba(6, 10, 15, 0.76);
+}
+
+.diagnostic-floating-red {
+  left: 16%;
+  top: 1rem;
+  border: 1px solid rgba(255, 91, 91, 0.32);
+  box-shadow:
+    0 0 0 1px rgba(255, 91, 91, 0.1),
+    0 0 28px rgba(255, 91, 91, 0.12);
+}
+
+.diagnostic-floating-blue {
+  right: 11%;
+  top: 2.4rem;
+  border: 1px solid rgba(30, 160, 255, 0.25);
+  box-shadow:
+    0 0 0 1px rgba(30, 160, 255, 0.08),
+    0 0 26px rgba(30, 160, 255, 0.12);
+}
+
 @keyframes diagnostic-flow {
   from {
     stroke-dashoffset: 100;
@@ -216,5 +252,11 @@ select {
 
   .diagnostic-tracer {
     display: none;
+  }
+}
+
+@media (max-width: 1279px) {
+  .diagnostic-pulse-wrap {
+    padding-top: 1rem;
   }
 }

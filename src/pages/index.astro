@@ -138,17 +138,6 @@ const diagnosticPulsePath = "M0 50 H54 L72 50 L84 32 L96 70 L112 18 L128 84 L144
       <div class="mt-6">
 
         <div class="space-y-6">
-          <div class="relative hidden h-[7rem] lg:block">
-            <div class="absolute left-0 top-0 rounded-[1.2rem] border border-[color:var(--red)]/35 bg-black/72 px-4 py-3 text-sm text-white/88 shadow-[0_0_0_1px_rgba(239,68,68,0.14),0_0_28px_rgba(239,68,68,0.16)] backdrop-blur">
-              <p class="text-[0.68rem] uppercase tracking-[0.24em] text-red-300/72">Urgent fix</p>
-              <p class="mt-2 font-medium">Checkout friction detected</p>
-            </div>
-            <div class="absolute left-[12.5rem] top-[2.7rem] rounded-[1.2rem] border border-[color:var(--blue)]/25 bg-black/62 px-4 py-3 text-sm text-white/82 backdrop-blur">
-              <p class="text-[0.68rem] uppercase tracking-[0.24em] text-white/35">Tracking</p>
-              <p class="mt-2 font-medium">Ve měření chybí 2 události</p>
-            </div>
-          </div>
-
           <div class="panel-strong hero-noise mesh relative overflow-hidden p-4 md:p-5">
             <div class="flex flex-wrap items-start justify-between gap-3">
               <div class="max-w-[18rem]">
@@ -167,7 +156,15 @@ const diagnosticPulsePath = "M0 50 H54 L72 50 L84 32 L96 70 L112 18 L128 84 L144
                 <span>{site.diagnostic.pulseLabel}</span>
                 <span class="text-[color:var(--green)]">{site.diagnostic.statusLabel}</span>
               </div>
-              <div class="mt-4 overflow-hidden rounded-[1rem] border border-white/6 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] p-3">
+              <div class="diagnostic-pulse-wrap mt-4 overflow-hidden rounded-[1rem] border border-white/6 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] p-3">
+                <div class="diagnostic-floating diagnostic-floating-red hidden lg:block">
+                  <p class="text-[0.68rem] uppercase tracking-[0.24em] text-red-300/72">Urgent fix</p>
+                  <p class="mt-2 font-medium">Checkout friction detected</p>
+                </div>
+                <div class="diagnostic-floating diagnostic-floating-blue hidden lg:block">
+                  <p class="text-[0.68rem] uppercase tracking-[0.24em] text-white/35">Tracking</p>
+                  <p class="mt-2 font-medium">Ve měření chybí 2 události</p>
+                </div>
                 <svg viewBox="0 0 320 100" class="diagnostic-pulse h-24 w-full" aria-hidden="true">
                   <path id="diagnostic-pulse-path" d={diagnosticPulsePath} fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2" />
                   <path d={diagnosticPulsePath} fill="none" stroke="url(#pulseGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.26" />
