@@ -415,17 +415,17 @@ function DiagnosticPanel() {
           <div className="mt-3 overflow-hidden rounded-[1rem] border border-white/6 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] p-2.5 sm:mt-4 sm:rounded-[1.15rem] sm:p-3">
             <svg viewBox="0 0 320 100" className="h-18 w-full sm:h-24" aria-hidden="true">
               <path
-                d="M0 50 H48 L68 50 L82 26 L96 74 L112 12 L128 88 L144 50 H192 L212 50 L226 30 L240 70 L254 24 L270 50 H320"
+                d="M0 50 H40 L62 50 L78 16 L92 84 L108 2 L124 98 L140 50 H188 L208 50 L224 18 L238 82 L252 10 L268 50 H320"
                 fill="none"
                 stroke="rgba(255,255,255,0.12)"
                 strokeWidth="2"
               />
               <path
                 className="pulse-trace"
-                d="M0 50 H48 L68 50 L82 26 L96 74 L112 12 L128 88 L144 50 H192 L212 50 L226 30 L240 70 L254 24 L270 50 H320"
+                d="M0 50 H40 L62 50 L78 16 L92 84 L108 2 L124 98 L140 50 H188 L208 50 L224 18 L238 82 L252 10 L268 50 H320"
                 fill="none"
                 stroke="url(#pulseGradient)"
-                strokeWidth="3"
+                strokeWidth="5.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />

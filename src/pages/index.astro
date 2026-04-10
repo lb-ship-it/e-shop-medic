@@ -7,7 +7,7 @@ const featuredServices = site.services.slice(0, 3);
 const extraServices = site.services.slice(3);
 const featuredSymptoms = site.symptoms.slice(0, 2);
 const extraSymptoms = site.symptoms.slice(2);
-const diagnosticPulsePath = "M0 50 H48 L68 50 L82 26 L96 74 L112 12 L128 88 L144 50 H192 L212 50 L226 30 L240 70 L254 24 L270 50 H320";
+const diagnosticPulsePath = "M0 50 H40 L62 50 L78 16 L92 84 L108 2 L124 98 L140 50 H188 L208 50 L224 18 L238 82 L252 10 L268 50 H320";
 ---
 
 <BaseLayout path="/">
@@ -145,14 +145,14 @@ const diagnosticPulsePath = "M0 50 H48 L68 50 L82 26 L96 74 L112 12 L128 88 L144
                 </div>
                 <svg viewBox="0 0 320 100" class="diagnostic-pulse h-24 w-full" aria-hidden="true">
                   <path id="diagnostic-pulse-path" d={diagnosticPulsePath} fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2" />
-                  <path d={diagnosticPulsePath} fill="none" stroke="url(#pulseGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.26" />
-                  <path d={diagnosticPulsePath} fill="none" stroke="url(#pulseGradient)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" pathLength="100" class="diagnostic-trace-glow" />
-                  <path d={diagnosticPulsePath} fill="none" stroke="url(#pulseGradient)" stroke-width="3.25" stroke-linecap="round" stroke-linejoin="round" pathLength="100" class="diagnostic-trace" />
+                  <path d={diagnosticPulsePath} fill="none" stroke="url(#pulseGradient)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.3" />
+                  <path d={diagnosticPulsePath} fill="none" stroke="url(#pulseGradient)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" pathLength="100" class="diagnostic-trace-glow" />
+                  <path d={diagnosticPulsePath} fill="none" stroke="url(#pulseGradient)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pathLength="100" class="diagnostic-trace" />
                   <g class="diagnostic-tracer">
-                    <circle r="8" fill="rgba(30,160,255,0.16)"></circle>
-                    <circle r="3.5" fill="#f6f7fb"></circle>
-                    <circle r="2.25" fill="#18f7a2"></circle>
-                    <animateMotion dur="2.8s" repeatCount="indefinite" rotate="auto">
+                    <circle r="14" fill="rgba(30,160,255,0.16)"></circle>
+                    <circle r="5.5" fill="#f6f7fb"></circle>
+                    <circle r="3.5" fill="#18f7a2"></circle>
+                    <animateMotion dur="2.2s" repeatCount="indefinite" rotate="auto">
                       <mpath href="#diagnostic-pulse-path"></mpath>
                     </animateMotion>
                   </g>
