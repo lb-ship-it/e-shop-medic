@@ -406,16 +406,7 @@ function DiagnosticPanel() {
       <div className="panel-strong panel-sheen hero-grid relative overflow-hidden rounded-[1.35rem] border border-white/10 p-3.5 sm:rounded-[1.65rem] sm:p-5">
         <div className="scanline pointer-events-none absolute inset-x-[12%] top-0 h-28 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,255,157,0.14)_0%,rgba(0,170,255,0.08)_24%,rgba(0,170,255,0.03)_46%,transparent_72%)] blur-3xl [mask-image:radial-gradient(ellipse_at_center,black_36%,transparent_78%)]" />
 
-        <div className="static-copy flex flex-wrap items-center justify-between gap-2.5 sm:gap-4">
-          <p className="text-[0.72rem] uppercase tracking-[0.24em] text-white/35 sm:text-[0.78rem]">
-            {"Diagnostick\u00fd panel e-shopu"}
-          </p>
-          <div className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[0.68rem] text-white/62 sm:px-3 sm:text-[0.78rem]">
-            Live audit mode
-          </div>
-        </div>
-
-          <div className="static-copy mt-3 rounded-[1.15rem] border border-white/8 bg-[#091018]/90 p-3 sm:mt-4 sm:rounded-[1.35rem] sm:p-4">
+          <div className="static-copy rounded-[1.15rem] border border-white/8 bg-[#091018]/90 p-3 sm:rounded-[1.35rem] sm:p-4">
           <div className="flex items-center justify-between text-[0.66rem] uppercase tracking-[0.18em] text-white/35 sm:text-[0.76rem] sm:tracking-[0.2em]">
             <span>Pulse of the store</span>
             <span className="text-accent-green">Monitoring active</span>
