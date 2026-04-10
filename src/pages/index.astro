@@ -143,7 +143,7 @@ const diagnosticPulsePath = "M0 50 H40 L62 50 L78 16 L92 84 L108 2 L124 98 L140 
                   <p class="shrink-0 whitespace-nowrap text-[0.58rem] uppercase tracking-[0.18em] text-white/35">Měření</p>
                   <p class="whitespace-nowrap font-medium">Ve měření chybí 2 události</p>
                 </div>
-                <svg viewBox="0 0 320 100" class="diagnostic-pulse h-24 w-full" aria-hidden="true">
+                <svg viewBox="0 0 320 100" class="diagnostic-pulse h-24 w-full md:h-28 lg:h-32 xl:h-36" aria-hidden="true">
                   <path id="diagnostic-pulse-path" d={diagnosticPulsePath} fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2" />
                   <path d={diagnosticPulsePath} fill="none" stroke="url(#pulseGradient)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.3" />
                   <path d={diagnosticPulsePath} fill="none" stroke="url(#pulseGradient)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" pathLength="100" class="diagnostic-trace-glow" />

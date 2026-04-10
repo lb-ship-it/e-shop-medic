@@ -197,7 +197,7 @@ select {
 
 .diagnostic-pulse-wrap {
   position: relative;
-  padding-top: 4.5rem;
+  padding-top: 3rem;
 }
 
 .diagnostic-floating {
@@ -215,7 +215,7 @@ select {
 
 .diagnostic-floating-red {
   left: 16%;
-  top: 1rem;
+  top: 0.75rem;
   border: 1px solid rgba(255, 91, 91, 0.32);
   box-shadow:
     0 0 0 1px rgba(255, 91, 91, 0.1),
@@ -224,7 +224,7 @@ select {
 
 .diagnostic-floating-blue {
   right: 11%;
-  top: 2.4rem;
+  top: 1.5rem;
   border: 1px solid rgba(30, 160, 255, 0.25);
   box-shadow:
     0 0 0 1px rgba(30, 160, 255, 0.08),
@@ -257,6 +257,6 @@ select {
 
 @media (max-width: 1279px) {
   .diagnostic-pulse-wrap {
-    padding-top: 1rem;
+    padding-top: 0.75rem;
   }
 }
