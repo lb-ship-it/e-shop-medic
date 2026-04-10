@@ -386,35 +386,36 @@ function DiagnosticPanel() {
       </div>
 
       <div className="relative mb-5 hidden h-[7.75rem] w-[28rem] max-w-full lg:ml-auto lg:block">
-        <div className="static-copy float-card absolute left-0 top-0 z-20 w-[15rem] rounded-2xl border border-red-500/35 bg-black/72 px-4 py-3 text-sm text-white/88 shadow-[0_0_0_1px_rgba(239,68,68,0.14),0_0_28px_rgba(239,68,68,0.18)] backdrop-blur">
-          <p className="text-xs uppercase tracking-[0.24em] text-red-300/70">Urgent fix</p>
-          <p className="mt-2 font-medium">Checkout friction detected</p>
+        <div className="static-copy float-card absolute left-0 top-0 z-20 flex w-[18rem] items-center gap-2.5 rounded-2xl border border-red-500/35 bg-black/72 px-4 py-3 text-sm text-white/88 shadow-[0_0_0_1px_rgba(239,68,68,0.14),0_0_28px_rgba(239,68,68,0.18)] backdrop-blur">
+          <p className="shrink-0 whitespace-nowrap text-[0.58rem] uppercase tracking-[0.18em] text-red-300/70">
+            {"Akutn\u00ed n\u00e1lez"}
+          </p>
+          <p className="whitespace-nowrap font-medium">{"T\u0159en\u00ed v checkoutu"}</p>
         </div>
 
-        <div className="static-copy float-card-delayed absolute left-[13.75rem] top-[3.125rem] z-10 w-[14rem] rounded-2xl border border-accent-blue/25 bg-black/60 px-4 py-3 text-sm text-white/80 backdrop-blur">
-          <p className="text-xs uppercase tracking-[0.24em] text-white/35">Tracking</p>
-          <p className="mt-2 font-medium">Ve měření chybí 2 události</p>
+        <div className="static-copy float-card-delayed absolute left-[11.75rem] top-[3.125rem] z-10 flex w-[18rem] items-center gap-2.5 rounded-2xl border border-accent-blue/25 bg-black/60 px-4 py-3 text-sm text-white/80 backdrop-blur">
+          <p className="shrink-0 whitespace-nowrap text-[0.58rem] uppercase tracking-[0.18em] text-white/35">
+            {"M\u011b\u0159en\u00ed"}
+          </p>
+          <p className="whitespace-nowrap font-medium">
+            {"Ve m\u011b\u0159en\u00ed chyb\u00ed 2 ud\u00e1losti"}
+          </p>
         </div>
       </div>
 
       <div className="panel-strong panel-sheen hero-grid relative overflow-hidden rounded-[1.35rem] border border-white/10 p-3.5 sm:rounded-[1.65rem] sm:p-5">
         <div className="scanline pointer-events-none absolute inset-x-[12%] top-0 h-28 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,255,157,0.14)_0%,rgba(0,170,255,0.08)_24%,rgba(0,170,255,0.03)_46%,transparent_72%)] blur-3xl [mask-image:radial-gradient(ellipse_at_center,black_36%,transparent_78%)]" />
 
-        <div className="static-copy flex flex-wrap items-start justify-between gap-3 sm:gap-4">
-          <div className="max-w-[18rem]">
-            <p className="text-[0.72rem] uppercase tracking-[0.24em] text-white/35 sm:text-[0.78rem]">
-              Diagnostický panel
-            </p>
-            <h2 className="mt-2 font-display text-[1.18rem] font-semibold leading-tight tracking-[-0.03em] text-white sm:mt-2.5 sm:text-[1.5rem]">
-              Operační pohled na e-shop
-            </h2>
-          </div>
+        <div className="static-copy flex flex-wrap items-center justify-between gap-2.5 sm:gap-4">
+          <p className="text-[0.72rem] uppercase tracking-[0.24em] text-white/35 sm:text-[0.78rem]">
+            {"Diagnostick\u00fd panel e-shopu"}
+          </p>
           <div className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[0.68rem] text-white/62 sm:px-3 sm:text-[0.78rem]">
             Live audit mode
           </div>
         </div>
 
-          <div className="static-copy mt-4 rounded-[1.15rem] border border-white/8 bg-[#091018]/90 p-3 sm:mt-5 sm:rounded-[1.35rem] sm:p-4">
+          <div className="static-copy mt-3 rounded-[1.15rem] border border-white/8 bg-[#091018]/90 p-3 sm:mt-4 sm:rounded-[1.35rem] sm:p-4">
           <div className="flex items-center justify-between text-[0.66rem] uppercase tracking-[0.18em] text-white/35 sm:text-[0.76rem] sm:tracking-[0.2em]">
             <span>Pulse of the store</span>
             <span className="text-accent-green">Monitoring active</span>
@@ -450,14 +451,18 @@ function DiagnosticPanel() {
             {dashboardItems.map((item) => (
               <div
                 key={item.label}
-                className={`rounded-[0.95rem] border px-2.5 py-2.5 sm:rounded-[1.15rem] sm:px-3 sm:py-3 ${
+                className={`flex min-w-0 items-center gap-1.5 rounded-[0.95rem] border px-2.5 py-2.5 sm:rounded-[1.15rem] sm:px-3 sm:py-3 ${
                   item.tone === "green"
                     ? "border-accent-green/20 bg-accent-green/6"
                     : "border-accent-blue/20 bg-accent-blue/6"
                 }`}
               >
-                <p className="text-[0.78rem] text-white/55 sm:text-[0.86rem]">{item.label}</p>
-                <p className="mt-1 text-[0.9rem] font-semibold text-white sm:mt-1.5 sm:text-[1.1rem]">{item.score}</p>
+                <p className="truncate whitespace-nowrap text-[0.66rem] text-white/55 sm:text-[0.78rem]">
+                  {item.label}
+                </p>
+                <p className="shrink-0 whitespace-nowrap text-[0.82rem] font-semibold text-white sm:ml-auto sm:text-[1rem]">
+                  {item.score}
+                </p>
               </div>
             ))}
           </div>

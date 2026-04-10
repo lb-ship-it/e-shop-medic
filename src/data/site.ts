@@ -163,7 +163,7 @@ export const site = {
     "Kontext, proč problém vzniká a kde přesně bolí výkon obchodu.",
   ],
   diagnostic: {
-    title: "Operační pohled na e‑shop",
+    title: "Diagnostický panel e‑shopu",
     pulseLabel: "Pulse of the store",
     modeLabel: "Live audit mode",
     statusLabel: "Monitoring active",

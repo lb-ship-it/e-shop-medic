@@ -21,7 +21,7 @@ const diagnosticPulsePath = "M0 50 H54 L72 50 L84 32 L96 70 L112 18 L128 84 L144
         <p class="mx-auto max-w-[24ch] text-[0.72rem] font-semibold uppercase leading-[1.05] tracking-[-0.03em] text-[#b8ff9b] md:max-w-[32ch] md:text-[0.86rem] xl:max-w-none xl:text-[0.94rem] xl:whitespace-nowrap">
           {site.brand.heroTitle}
         </p>
-        <h1 class="mx-auto mt-3 max-w-6xl text-[0.94rem] font-bold leading-[1.14] tracking-[-0.035em] text-white md:text-[1.08rem] md:leading-[1.12] xl:text-[1.18rem] xl:whitespace-nowrap">
+        <h1 class="mx-auto mt-2.5 max-w-6xl text-[0.72rem] font-bold leading-[1.08] tracking-[-0.03em] text-white md:text-[0.86rem] xl:text-[0.94rem] xl:whitespace-nowrap">
           {site.brand.heroLead}
         </h1>
         <p class="mx-auto mt-3 max-w-5xl text-[0.74rem] leading-5 text-white/64 md:text-[0.82rem] md:leading-6 xl:max-w-none xl:text-[0.82rem] xl:whitespace-nowrap">
@@ -129,31 +129,26 @@ const diagnosticPulsePath = "M0 50 H54 L72 50 L84 32 L96 70 L112 18 L128 84 L144
 
         <div class="space-y-6">
           <div class="panel-strong hero-noise mesh relative overflow-hidden p-4 md:p-5">
-            <div class="flex flex-wrap items-start justify-between gap-3">
-              <div class="max-w-[18rem]">
-                <p class="text-[0.72rem] uppercase tracking-[0.24em] text-white/35">Diagnostický panel</p>
-                <h2 class="mt-2 text-[1.1rem] font-semibold leading-tight text-white md:text-[1.35rem]">
-                  {site.diagnostic.title}
-                </h2>
-              </div>
+            <div class="flex flex-wrap items-center justify-between gap-2.5">
+              <p class="text-[0.72rem] uppercase tracking-[0.24em] text-white/35">{site.diagnostic.title}</p>
               <div class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[0.74rem] text-white/62">
                 {site.diagnostic.modeLabel}
               </div>
             </div>
 
-            <div class="mt-4 rounded-[1.2rem] border border-white/8 bg-[#091018]/90 p-3 md:p-4">
+            <div class="mt-3 rounded-[1.2rem] border border-white/8 bg-[#091018]/90 p-3 md:mt-4 md:p-4">
               <div class="flex items-center justify-between text-[0.66rem] uppercase tracking-[0.2em] text-white/35">
                 <span>{site.diagnostic.pulseLabel}</span>
                 <span class="text-[color:var(--green)]">{site.diagnostic.statusLabel}</span>
               </div>
               <div class="diagnostic-pulse-wrap mt-4 overflow-hidden rounded-[1rem] border border-white/6 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] p-3">
-                <div class="diagnostic-floating diagnostic-floating-red hidden lg:block">
-                  <p class="text-[0.68rem] uppercase tracking-[0.24em] text-red-300/72">Urgentní nález</p>
-                  <p class="mt-2 font-medium">Tření v checkoutu</p>
+                <div class="diagnostic-floating diagnostic-floating-red hidden lg:flex lg:flex-nowrap lg:items-center lg:gap-2.5">
+                  <p class="shrink-0 whitespace-nowrap text-[0.58rem] uppercase tracking-[0.18em] text-red-300/72">Urgentní nález</p>
+                  <p class="whitespace-nowrap font-medium">Tření v checkoutu</p>
                 </div>
-                <div class="diagnostic-floating diagnostic-floating-blue hidden lg:block">
-                  <p class="text-[0.68rem] uppercase tracking-[0.24em] text-white/35">Měření</p>
-                  <p class="mt-2 font-medium">Ve měření chybí 2 události</p>
+                <div class="diagnostic-floating diagnostic-floating-blue hidden lg:flex lg:flex-nowrap lg:items-center lg:gap-2.5">
+                  <p class="shrink-0 whitespace-nowrap text-[0.58rem] uppercase tracking-[0.18em] text-white/35">Měření</p>
+                  <p class="whitespace-nowrap font-medium">Ve měření chybí 2 události</p>
                 </div>
                 <svg viewBox="0 0 320 100" class="diagnostic-pulse h-24 w-full" aria-hidden="true">
                   <path id="diagnostic-pulse-path" d={diagnosticPulsePath} fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2" />
@@ -179,9 +174,9 @@ const diagnosticPulsePath = "M0 50 H54 L72 50 L84 32 L96 70 L112 18 L128 84 L144
 
               <div class="mt-4 grid grid-cols-2 gap-2">
                 {site.diagnostic.cards.map((item) => (
-                  <div class:list={["rounded-2xl border px-3 py-3", item.tone === "green" ? "border-[color:var(--green)]/18 bg-[color:var(--green)]/6" : "border-[color:var(--blue)]/18 bg-[color:var(--blue)]/6"]}>
-                    <p class="text-[0.78rem] text-white/55">{item.label}</p>
-                    <p class="mt-1 text-[0.96rem] font-semibold text-white">{item.score}</p>
+                  <div class:list={["flex min-w-0 items-center gap-1.5 rounded-2xl border px-3 py-2.5", item.tone === "green" ? "border-[color:var(--green)]/18 bg-[color:var(--green)]/6" : "border-[color:var(--blue)]/18 bg-[color:var(--blue)]/6"]}>
+                    <p class="truncate whitespace-nowrap text-[0.66rem] text-white/55 md:text-[0.76rem]">{item.label}</p>
+                    <p class="shrink-0 whitespace-nowrap text-[0.8rem] font-semibold text-white md:ml-auto md:text-[0.94rem]">{item.score}</p>
                   </div>
                 ))}
               </div>
