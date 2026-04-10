@@ -175,3 +175,46 @@ select {
 .form-alert.is-visible {
   display: block;
 }
+
+.diagnostic-trace,
+.diagnostic-trace-glow {
+  stroke-dasharray: 22 78;
+  stroke-dashoffset: 100;
+  animation: diagnostic-flow 2.8s linear infinite;
+}
+
+.diagnostic-trace {
+  filter: drop-shadow(0 0 6px rgba(24, 247, 162, 0.42));
+}
+
+.diagnostic-trace-glow {
+  opacity: 0.22;
+}
+
+.diagnostic-tracer {
+  filter: drop-shadow(0 0 10px rgba(30, 160, 255, 0.4));
+}
+
+@keyframes diagnostic-flow {
+  from {
+    stroke-dashoffset: 100;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .diagnostic-trace,
+  .diagnostic-trace-glow {
+    animation: none;
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+
+  .diagnostic-tracer {
+    display: none;
+  }
+}
