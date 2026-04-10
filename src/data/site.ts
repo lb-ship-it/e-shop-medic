@@ -19,7 +19,7 @@ export const site = {
       "Diagnostika, stabilizace a rychlé zásahy pro e‑shopy, které chtějí růst bez slepých míst.",
     heroTitle: "Ošetřím a vyléčím váš krvácející e‑shop",
     heroLead:
-      "Technický audit, UX diagnostika a rychlá stabilizace pro e‑shopy, které mají potenciál, ale ztrácejí peníze v tichosti.",
+      "Technický audit a UX resuscitace pro e‑shopy, které vnitřně krvácejí. Zastavte tichý únik peněz, než vás konkurence definitivně odpojí od přístrojů.",
     heroBody:
       "Řeším situace, kdy traffic stojí peníze, ale checkout drhne, data lžou, SEO nepomáhá a důvěra je slabší, než by měla být. Nejdřív najdeme kritické místo, pak opravíme to, co má největší dopad.",
   },
