@@ -3,11 +3,11 @@ import { site } from "../data/site";
 ---
 
 <header class="sticky top-0 z-50 border-b border-white/8 bg-[rgba(4,7,11,0.82)] backdrop-blur">
-  <div class="shell flex items-center justify-between gap-3 py-3">
-    <a href="/" class="flex min-w-0 items-center gap-3">
-      <img src="/logo-mark.png" alt="E-shop Medic" width="44" height="44" class="h-10 w-10 shrink-0" loading="eager" decoding="async" />
+  <div class="shell flex items-center justify-between gap-2 py-2.5 md:gap-3 md:py-3">
+    <a href="/" class="flex min-w-0 items-center gap-2.5 md:gap-3">
+      <img src="/logo-mark.png" alt="E-shop Medic" width="44" height="44" class="h-8 w-8 shrink-0 md:h-10 md:w-10" loading="eager" decoding="async" />
       <div class="min-w-0">
-        <p class="truncate text-[0.78rem] font-semibold uppercase tracking-[0.22em] text-white/38 md:text-[0.82rem]">
+        <p class="truncate text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/38 md:text-[0.82rem] md:tracking-[0.22em]">
           {site.brand.name}
         </p>
         <p class="hidden text-[0.84rem] text-white/66 md:block">
@@ -16,11 +16,11 @@ import { site } from "../data/site";
       </div>
     </a>
 
-    <div class="flex items-center gap-2">
+    <div class="flex shrink-0 items-center gap-1.5 md:gap-2">
       <a href={`mailto:${site.contact.email}`} class="hidden rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-[0.78rem] text-white/80 transition hover:border-white/20 hover:text-white md:inline-flex">
         Napsat e-mail
       </a>
-      <a href={site.payments.sosRepairHref} class="cta-yellow">
+      <a href={site.payments.sosRepairHref} class="cta-yellow shrink-0 rounded-[1.15rem] px-3 py-1.5 text-[0.66rem] tracking-[0.04em] md:rounded-2xl md:px-5 md:py-2.5 md:text-[0.78rem]">
         Urgent zásah
       </a>
     </div>

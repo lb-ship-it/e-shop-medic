@@ -44,6 +44,9 @@ const diagnosticPulsePath = "M0 50 H40 L62 50 L78 16 L92 84 L108 2 L124 98 L140 
                 </p>
               </div>
             </div>
+            <div class="hidden shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-0.5 text-[0.64rem] text-white/58 md:px-3 md:py-1 md:text-[0.78rem]">
+              OmezenĂ˝ rozsah
+            </div>
           </div>
 
           <div class="mt-4 grid gap-2 md:grid-cols-3">
@@ -57,25 +60,28 @@ const diagnosticPulsePath = "M0 50 H40 L62 50 L78 16 L92 84 L108 2 L124 98 L140 
         </div>
       </div>
 
-      <div class="mt-5 panel-strong p-4 md:p-6">
-        <div class="grid gap-4">
-          <div class="max-w-4xl">
+      <div class="mt-5 panel-strong p-3.5 md:p-6">
+        <div class="grid gap-3 md:gap-4">
+          <div class="flex flex-row-reverse items-center justify-between gap-3">
+            <div class="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-0.5 text-[0.64rem] text-white/58 md:px-3 md:py-1 md:text-[0.78rem]">
+              Omezený rozsah
+            </div>
             <p class="eyebrow">Nezávazná analýza</p>
           </div>
 
-          <div id="audit-zdarma-form" class="rounded-[1.2rem] border border-white/8 bg-[color:var(--bg-soft)]/88 p-4 md:p-4.5">
-            <div class="mb-3 flex flex-wrap items-start justify-between gap-3">
+          <div id="audit-zdarma-form" class="rounded-[1.2rem] border border-white/8 bg-[color:var(--bg-soft)]/88 p-3 md:p-4.5">
+            <div class="mb-2.5">
               <div>
-                <p class="text-[1rem] font-semibold text-white md:text-[1.08rem]">
+                <p class="text-[0.98rem] font-semibold leading-[1.25] text-white md:text-[1.08rem]">
                   Audit zdarma s čekací dobou 3–5 dní
                 </p>
               </div>
-              <div class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[0.78rem] text-white/58">
+              <div class="hidden rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[0.78rem] text-white/58">
                 Omezený rozsah
               </div>
             </div>
 
-            <form id="free-audit-form" data-recipient={site.contact.email} class="grid gap-3 md:grid-cols-2 md:gap-4" novalidate>
+            <form id="free-audit-form" data-recipient={site.contact.email} class="grid gap-2.5 md:grid-cols-2 md:gap-4" novalidate>
               <label class="block">
                 <span class="mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/35">URL e‑shopu</span>
                 <input
@@ -114,11 +120,11 @@ const diagnosticPulsePath = "M0 50 H40 L62 50 L78 16 L92 84 L108 2 L124 98 L140 
 
               <div id="free-audit-message" class="form-alert md:col-span-2" role="alert" aria-live="polite"></div>
 
-              <div class="flex flex-col gap-3 md:col-span-2 md:flex-row md:items-center md:justify-between">
-                <p class="text-[0.8rem] leading-5 text-white/48 md:order-2">
+              <div class="free-audit-actions flex flex-col gap-2.5 md:col-span-2 md:flex-row md:items-center md:justify-between">
+                <p class="free-audit-note text-[0.72rem] leading-[1.45] text-white/44 md:order-2 md:text-[0.8rem] md:leading-5 md:text-white/48">
                   Otevře se výchozí poštovní klient. Audit je nezávazný.
                 </p>
-                <button type="submit" class="cta-green min-h-11 w-full md:order-1 md:w-auto">ODESLAT</button>
+                <button type="submit" class="cta-green free-audit-submit min-h-10 w-full rounded-[1.15rem] md:order-1 md:min-h-11 md:w-auto md:rounded-2xl">ODESLAT</button>
               </div>
             </form>
           </div>

@@ -176,6 +176,29 @@ select {
   display: block;
 }
 
+@media (max-width: 767px) {
+  #free-audit-form label > span {
+    margin-bottom: 0.25rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.24em;
+  }
+
+  #free-audit-form .form-field {
+    min-height: 2.75rem;
+    padding: 0.7rem 0.95rem;
+    font-size: 0.9rem;
+    border-radius: 1.15rem;
+  }
+
+  #free-audit-form textarea.form-field {
+    min-height: 6.25rem;
+  }
+
+  .free-audit-note {
+    max-width: 30ch;
+  }
+}
+
 .diagnostic-trace,
 .diagnostic-trace-glow {
   stroke-dasharray: 22 78;
