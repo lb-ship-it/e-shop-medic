@@ -51,7 +51,7 @@ const diagnosticPulsePath = "M0 50 H40 L62 50 L78 16 L92 84 L108 2 L124 98 L140 
 
           <div class="mt-4 grid gap-2 md:grid-cols-3">
             {site.quickActions.map((action) => (
-              <a href={action.href} class="cta-yellow flex min-h-14 flex-col items-start justify-center rounded-3xl px-4 py-3 text-left md:min-h-16">
+              <a href={action.href} class="cta-yellow flex min-h-14 flex-col items-start justify-center rounded-3xl px-4 py-3 text-left md:min-h-16" data-analytics-event="stripe_checkout_click" data-analytics-placement="quick_actions" data-analytics-offer={action.label} data-analytics-target={action.helper}>
                 <span class="text-[0.76rem] font-bold uppercase tracking-[0.04em]">{action.label}</span>
                 <span class="mt-1 text-[0.8rem] font-medium normal-case tracking-normal text-black/72">{action.helper}</span>
               </a>
@@ -364,7 +364,7 @@ const diagnosticPulsePath = "M0 50 H40 L62 50 L78 16 L92 84 L108 2 L124 98 L140 
             Čekací doba 3–5 dní, omezený rozsah.
           </p>
           <div class="mt-4">
-            <a href="#audit-zdarma-form" class="cta-green">ODESLAT</a>
+            <a href="#audit-zdarma-form" class="cta-green" data-analytics-event="free_audit_focus_click" data-analytics-placement="entry_modes" data-analytics-target="audit_zdarma">ODESLAT</a>
             <p class="mt-2 text-[0.78rem] text-white/48">Zbývají 3 místa v pomalejším režimu.</p>
           </div>
         </article>
@@ -390,6 +390,10 @@ const diagnosticPulsePath = "M0 50 H40 L62 50 L78 16 L92 84 L108 2 L124 98 L140 
     const freeAuditForm = document.getElementById("free-audit-form");
 
     if (freeAuditForm instanceof HTMLFormElement) {
+      const emitAnalyticsEvent = (name, properties = {}) => {
+        window.dispatchEvent(new CustomEvent("eshopmedic:analytics", { detail: { name, properties } }));
+      };
+
       const urlInput = document.getElementById("free-audit-url");
       const emailInput = document.getElementById("free-audit-email");
       const noteInput = document.getElementById("free-audit-note");
@@ -500,6 +504,20 @@ const diagnosticPulsePath = "M0 50 H40 L62 50 L78 16 L92 84 L108 2 L124 98 L140 
 
         urlInput.value = normalizedUrl;
         emailInput.value = trimmedEmail;
+        const noteValue = noteInput.value.trim();
+        const shopHost = (() => {
+          try {
+            return new URL(normalizedUrl).hostname;
+          } catch {
+            return "";
+          }
+        })();
+
+        emitAnalyticsEvent("free_audit_submit", {
+          placement: "free_audit_form",
+          hasNote: noteValue.length > 0,
+          shopHost,
+        });
 
         const subject = "Audit zdarma z witdesign.cz";
         const body = [
@@ -511,7 +529,9 @@ const diagnosticPulsePath = "M0 50 H40 L62 50 L78 16 L92 84 L108 2 L124 98 L140 
         ].join("\n");
 
         const mailtoHref = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.location.href = mailtoHref;
+        window.setTimeout(() => {
+          window.location.href = mailtoHref;
+        }, 120);
       });
     }
   </script>

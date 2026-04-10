@@ -82,5 +82,98 @@ const ldPayload = Array.isArray(structuredData)
     <SiteFooter />
     <Analytics />
     <SpeedInsights />
+    <script>
+      import { track } from "@vercel/analytics";
+
+      const analyticsPrefix = "analytics";
+
+      const parseDatasetValue = (value) => {
+        if (value === "true") return true;
+        if (value === "false") return false;
+        if (value === "null") return null;
+        if (/^-?\d+(\.\d+)?$/.test(value)) return Number(value);
+        return value;
+      };
+
+      const getAnalyticsProperties = (element) => {
+        const properties = {};
+
+        for (const [key, value] of Object.entries(element.dataset)) {
+          if (!key.startsWith(analyticsPrefix) || key === "analyticsEvent" || !value) continue;
+
+          const propertyName = key.slice(analyticsPrefix.length);
+          if (!propertyName) continue;
+
+          const normalizedName = propertyName.charAt(0).toLowerCase() + propertyName.slice(1);
+          properties[normalizedName] = parseDatasetValue(value);
+        }
+
+        return properties;
+      };
+
+      const normalizeLabel = (value) => value.trim().replace(/\s+/g, " ").slice(0, 80);
+
+      const inferPlacement = (element) => {
+        if (element.dataset.analyticsPlacement) return element.dataset.analyticsPlacement;
+
+        const region = element.closest("header, footer, section, article");
+        if (!(region instanceof HTMLElement)) return "site";
+
+        if (region.tagName === "HEADER") return "header";
+        if (region.tagName === "FOOTER") return "footer";
+        if (region.id) return region.id;
+
+        return "content";
+      };
+
+      document.addEventListener("click", (event) => {
+        const element = event.target instanceof Element ? event.target : null;
+        if (!element) return;
+
+        const target = element.closest("[data-analytics-event]");
+        if (!(target instanceof HTMLElement)) return;
+
+        const eventName = target.dataset.analyticsEvent;
+        if (!eventName) return;
+
+        const properties = getAnalyticsProperties(target);
+        if (!("placement" in properties)) properties.placement = inferPlacement(target);
+
+        const label = normalizeLabel(target.textContent || "");
+        if (label && !("label" in properties)) properties.label = label;
+
+        track(eventName, properties);
+      });
+
+      document.addEventListener("click", (event) => {
+        const anchor = event.target instanceof Element ? event.target.closest("a[href]") : null;
+        if (!(anchor instanceof HTMLAnchorElement) || anchor.dataset.analyticsEvent) return;
+
+        const href = anchor.getAttribute("href") || "";
+        const label = normalizeLabel(anchor.textContent || "");
+        const properties = {
+          placement: inferPlacement(anchor),
+          label,
+        };
+
+        if (href.startsWith("mailto:")) {
+          track("contact_email_click", { ...properties, target: "direct_email" });
+        } else if (href.includes("buy.stripe.com")) {
+          track("stripe_checkout_click", { ...properties, target: "stripe_link" });
+        }
+      });
+
+      window.addEventListener("eshopmedic:analytics", (event) => {
+        if (!(event instanceof CustomEvent)) return;
+
+        const detail = event.detail;
+        if (!detail || typeof detail.name !== "string") return;
+
+        const properties =
+          detail.properties && typeof detail.properties === "object" ? detail.properties : undefined;
+
+        track(detail.name, properties);
+      });
+    </script>
   </body>
 </html>

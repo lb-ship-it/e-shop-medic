@@ -28,7 +28,7 @@ import { site } from "../data/site";
     <div class="space-y-3">
       <p class="eyebrow">Kontakt</p>
       <div class="flex flex-col gap-2 text-[0.9rem] text-white/72">
-        <a href={`mailto:${site.contact.email}`} class="transition hover:text-white">{site.contact.email}</a>
+        <a href={`mailto:${site.contact.email}`} class="transition hover:text-white" data-analytics-event="contact_email_click" data-analytics-placement="footer" data-analytics-target="direct_email">{site.contact.email}</a>
       </div>
     </div>
   </div>

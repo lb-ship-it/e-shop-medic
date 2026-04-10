@@ -51,7 +51,7 @@ const iconPath = getIconPath(icon);
   {
     ctaLabel && ctaHref ? (
       <div class="mt-auto pt-4">
-        <a href={ctaHref} class="cta-yellow w-full" title={ctaLabel}>
+        <a href={ctaHref} class="cta-yellow w-full" title={ctaLabel} data-analytics-event="stripe_checkout_click" data-analytics-placement="services_grid" data-analytics-offer={title} data-analytics-target={ctaLabel}>
           {ctaLabel}
         </a>
         {note ? <p class="mt-2 text-[0.76rem] leading-5 text-white/48 md:text-[0.8rem]">{note}</p> : null}
