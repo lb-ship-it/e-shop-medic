@@ -1,4 +1,6 @@
 ---
+import Analytics from "@vercel/analytics/astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
 import { site } from "../data/site";
 import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
@@ -78,5 +80,7 @@ const ldPayload = Array.isArray(structuredData)
     <SiteHeader />
     <slot />
     <SiteFooter />
+    <Analytics />
+    <SpeedInsights />
   </body>
 </html>
