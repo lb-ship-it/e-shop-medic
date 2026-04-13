@@ -192,27 +192,43 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
 
           <div class="grid gap-3 md:gap-4 lg:grid-cols-[0.98fr_1.02fr]">
             <figure class="panel overflow-hidden p-2 md:p-3">
-              <div class="soft-outline overflow-hidden rounded-[1.2rem] border bg-[color:var(--bg-soft)]">
-                <img
-                  src="/archive/pdf_outcome.png"
-                  alt="Ukázka PDF výstupu s prioritizací, dopadem, důkazy a akčním plánem"
-                  class="block h-auto w-full"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
+              <button
+                type="button"
+                class="preview-trigger group block w-full text-left"
+                data-preview-src="/archive/critical-funnel.png"
+                data-preview-alt="Funnel nákupní cesty s kritickými místy mezi trafficem, landing page, košíkem a checkoutem"
+                aria-label="Zvětšit funnel nákupní cesty"
+              >
+                <div class="preview-frame soft-outline overflow-hidden rounded-[1.2rem] border bg-[color:var(--bg-soft)]">
+                  <img
+                    src="/archive/critical-funnel.png"
+                    alt="Funnel nákupní cesty s kritickými místy mezi trafficem, landing page, košíkem a checkoutem"
+                    class="preview-media block h-auto w-full"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </button>
             </figure>
 
             <figure class="panel overflow-hidden p-2 md:p-3">
-              <div class="soft-outline overflow-hidden rounded-[1.2rem] border bg-[color:var(--bg-soft)]">
-                <img
-                  src="/archive/critical-funnel.png"
-                  alt="Funnel nákupní cesty s kritickými místy mezi trafficem, landing page, košíkem a checkoutem"
-                  class="block h-auto w-full"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
+              <button
+                type="button"
+                class="preview-trigger group block w-full text-left"
+                data-preview-src="/archive/pdf_outcome.png"
+                data-preview-alt="Ukázka PDF výstupu s prioritizací, dopadem, důkazy a akčním plánem"
+                aria-label="Zvětšit ukázku PDF výstupu"
+              >
+                <div class="preview-frame soft-outline overflow-hidden rounded-[1.2rem] border bg-[color:var(--bg-soft)]">
+                  <img
+                    src="/archive/pdf_outcome.png"
+                    alt="Ukázka PDF výstupu s prioritizací, dopadem, důkazy a akčním plánem"
+                    class="preview-media block h-auto w-full"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </button>
             </figure>
           </div>
         </div>
@@ -380,6 +396,13 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
       </div>
     </section>
 
+    <div id="preview-lightbox" class="preview-lightbox" aria-hidden="true">
+      <button type="button" class="preview-lightbox-backdrop" data-preview-close aria-label="Zavřít zvětšený náhled"></button>
+      <div class="preview-lightbox-panel" role="dialog" aria-modal="true" aria-label="Zvětšený náhled obrázku">
+        <button type="button" class="preview-lightbox-close" data-preview-close aria-label="Zavřít náhled">Zavřít</button>
+        <img id="preview-lightbox-image" src="" alt="" class="preview-lightbox-image" decoding="async" />
+      </div>
+    </div>
   </main>
   <script is:inline>
     const freeAuditForm = document.getElementById("free-audit-form");
@@ -527,6 +550,58 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
         window.setTimeout(() => {
           window.location.href = mailtoHref;
         }, 120);
+      });
+    }
+
+    const previewLightbox = document.getElementById("preview-lightbox");
+    const previewLightboxImage = document.getElementById("preview-lightbox-image");
+    const previewTriggers = document.querySelectorAll("[data-preview-src]");
+
+    if (previewLightbox instanceof HTMLDivElement && previewLightboxImage instanceof HTMLImageElement && previewTriggers.length > 0) {
+      let lastPreviewTrigger = null;
+
+      const openPreview = (trigger) => {
+        const src = trigger.getAttribute("data-preview-src");
+        const alt = trigger.getAttribute("data-preview-alt") || "";
+
+        if (!src) {
+          return;
+        }
+
+        lastPreviewTrigger = trigger;
+        previewLightboxImage.src = src;
+        previewLightboxImage.alt = alt;
+        previewLightbox.setAttribute("aria-hidden", "false");
+        document.documentElement.style.overflow = "hidden";
+      };
+
+      const closePreview = () => {
+        previewLightbox.setAttribute("aria-hidden", "true");
+        previewLightboxImage.src = "";
+        previewLightboxImage.alt = "";
+        document.documentElement.style.overflow = "";
+
+        if (lastPreviewTrigger instanceof HTMLElement) {
+          lastPreviewTrigger.focus();
+        }
+      };
+
+      previewTriggers.forEach((trigger) => {
+        if (trigger instanceof HTMLElement) {
+          trigger.addEventListener("click", () => openPreview(trigger));
+        }
+      });
+
+      previewLightbox.querySelectorAll("[data-preview-close]").forEach((element) => {
+        if (element instanceof HTMLElement) {
+          element.addEventListener("click", closePreview);
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && previewLightbox.getAttribute("aria-hidden") === "false") {
+          closePreview();
+        }
       });
     }
   </script>

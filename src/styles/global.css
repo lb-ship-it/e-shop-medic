@@ -223,6 +223,96 @@ input[type="reset"],
   color: rgb(var(--green-soft-rgb) / 0.78);
 }
 
+.preview-trigger {
+  @apply block w-full cursor-pointer border-0 bg-transparent p-0;
+}
+
+.preview-trigger:focus-visible {
+  outline: none;
+}
+
+.preview-frame {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.preview-media {
+  transition: transform 220ms ease;
+  transform-origin: center center;
+}
+
+.preview-trigger:hover .preview-frame,
+.preview-trigger:focus-visible .preview-frame {
+  border-color: rgb(var(--green-soft-rgb) / 0.32);
+  box-shadow:
+    0 0 0 1px rgb(var(--green-soft-rgb) / 0.08),
+    0 14px 40px rgba(0, 0, 0, 0.22);
+}
+
+.preview-trigger:hover .preview-media,
+.preview-trigger:focus-visible .preview-media {
+  transform: scale(1.028);
+}
+
+.preview-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.preview-lightbox[aria-hidden="true"] {
+  display: none;
+}
+
+.preview-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(3, 6, 10, 0.86);
+  backdrop-filter: blur(12px);
+}
+
+.preview-lightbox-panel {
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 1400px);
+  max-height: 90vh;
+  border: 1px solid rgb(var(--green-soft-rgb) / 0.22);
+  border-radius: 1.5rem;
+  background: rgba(8, 12, 18, 0.96);
+  padding: 0.9rem;
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgb(var(--green-soft-rgb) / 0.05);
+}
+
+.preview-lightbox-image {
+  display: block;
+  max-width: 100%;
+  max-height: calc(90vh - 3.2rem);
+  margin: 0 auto;
+  border-radius: 1rem;
+}
+
+.preview-lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: 1px solid rgb(var(--green-soft-rgb) / 0.18);
+  border-radius: 999px;
+  background: rgba(8, 12, 18, 0.82);
+  padding: 0.45rem 0.8rem;
+  font-size: 0.78rem;
+  color: rgb(var(--green-soft-rgb) / 0.88);
+  cursor: pointer;
+}
+
 @media (max-width: 767px) {
   .shell {
     padding-inline: 0.875rem;
@@ -261,6 +351,28 @@ input[type="reset"],
 
   .diagnostic-pulse-wrap {
     padding-top: 0.9rem;
+  }
+
+  .preview-lightbox {
+    padding: 0.75rem;
+  }
+
+  .preview-lightbox-panel {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 1.1rem;
+  }
+
+  .preview-lightbox-image {
+    max-height: calc(100vh - 5rem);
+    border-radius: 0.8rem;
+  }
+
+  .preview-lightbox-close {
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.38rem 0.7rem;
+    font-size: 0.72rem;
   }
 }
 
