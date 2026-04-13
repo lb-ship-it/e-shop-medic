@@ -365,6 +365,14 @@ input[type="reset"],
   cursor: pointer;
 }
 
+.payment-intake-lead {
+  color: rgba(246, 247, 251, 0.8);
+}
+
+.payment-intake-label {
+  color: rgba(246, 247, 251, 0.84);
+}
+
 .payment-intake-grid {
   display: grid;
   gap: 0.9rem;
@@ -373,6 +381,16 @@ input[type="reset"],
 
 .payment-intake-note-field {
   grid-column: 1 / -1;
+}
+
+.payment-intake-actions {
+  display: grid;
+  gap: 1rem;
+}
+
+.payment-intake-meta {
+  max-width: 46ch;
+  color: rgba(246, 247, 251, 0.72);
 }
 
 .payment-intake-submit {
@@ -462,6 +480,10 @@ input[type="reset"],
   .payment-intake-grid {
     grid-template-columns: 1fr;
     gap: 0.75rem;
+  }
+
+  .payment-intake-actions {
+    gap: 1.1rem;
   }
 }
 
