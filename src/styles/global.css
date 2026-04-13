@@ -67,6 +67,19 @@ select {
   -webkit-tap-highlight-color: transparent;
 }
 
+button,
+summary,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+.cta-yellow,
+.cta-green,
+.pill,
+.soft-pill {
+  cursor: pointer;
+}
+
 ::selection {
   background: rgba(24, 247, 162, 0.28);
   color: white;
@@ -143,7 +156,7 @@ select {
 }
 
 .cta-yellow {
-  @apply inline-flex cursor-pointer items-center justify-center rounded-2xl border border-[#ffdd00]/30 bg-[color:var(--yellow)] px-4 py-2 text-[0.74rem] font-bold uppercase tracking-[0.05em] text-black transition hover:-translate-y-0.5 hover:bg-[#ffe44d] md:px-5 md:py-2.5 md:text-[0.78rem];
+  @apply inline-flex items-center justify-center rounded-2xl border border-[#ffdd00]/30 bg-[color:var(--yellow)] px-4 py-2 text-[0.74rem] font-bold uppercase tracking-[0.05em] text-black transition hover:-translate-y-0.5 hover:bg-[#ffe44d] md:px-5 md:py-2.5 md:text-[0.78rem];
 }
 
 .cta-green {
