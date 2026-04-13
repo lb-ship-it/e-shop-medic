@@ -21,6 +21,7 @@
 html {
   font-size: 14px;
   scroll-behavior: smooth;
+  scroll-padding-top: clamp(5.25rem, 9vw, 7rem);
 }
 
 @media (min-width: 768px) {
@@ -112,6 +113,18 @@ input[type="reset"],
   @apply text-[0.68rem] font-medium uppercase leading-[1.22] md:text-[0.8rem] xl:text-[0.86rem];
   letter-spacing: 0.12em;
   color: rgb(var(--green-soft-rgb) / 0.9);
+}
+
+.hero-top-offset {
+  padding-top: clamp(2.4rem, 6vw, 4.8rem);
+}
+
+.section-anchor-offset {
+  scroll-margin-top: clamp(5.25rem, 9vw, 7rem);
+}
+
+.symptoms-section article > div:first-child > span:first-child {
+  display: none;
 }
 
 .site-header-cta {
