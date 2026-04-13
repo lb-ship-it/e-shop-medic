@@ -224,6 +224,20 @@ input[type="reset"],
 }
 
 @media (max-width: 767px) {
+  .shell {
+    padding-inline: 0.875rem;
+  }
+
+  .panel,
+  .panel-strong {
+    border-radius: 1.5rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 8vw, 1.8rem);
+    line-height: 1.08;
+  }
+
   #free-audit-form label > span {
     margin-bottom: 0.25rem;
     font-size: 0.66rem;
@@ -243,6 +257,10 @@ input[type="reset"],
 
   .free-audit-note {
     max-width: 30ch;
+  }
+
+  .diagnostic-pulse-wrap {
+    padding-top: 0.9rem;
   }
 }
 

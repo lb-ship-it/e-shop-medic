@@ -179,7 +179,7 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
                 </svg>
               </div>
 
-              <div class="mt-4 grid grid-cols-2 gap-2">
+              <div class="mt-4 grid gap-2 sm:grid-cols-2">
                 {site.diagnostic.cards.map((item) => (
                   <div class:list={["flex min-w-0 items-center gap-1.5 rounded-2xl border px-3 py-2.5", item.tone === "green" ? "border-[color:var(--green)]/18 bg-[color:var(--green)]/6" : "border-[color:var(--blue)]/18 bg-[color:var(--blue)]/6"]}>
                     <p class="truncate whitespace-nowrap text-[0.66rem] text-white/55 md:text-[0.76rem]">{item.label}</p>
@@ -190,17 +190,31 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
             </div>
           </div>
 
-          <figure class="panel overflow-hidden p-2 md:p-3">
-            <div class="soft-outline overflow-hidden rounded-[1.2rem] border bg-[color:var(--bg-soft)]">
-              <img
-                src="/archive/critical-funnel.png"
-                alt="Funnel nákupní cesty s kritickými místy mezi trafficem, landing page, košíkem a checkoutem"
-                class="block h-auto w-full"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </figure>
+          <div class="grid gap-3 md:gap-4 lg:grid-cols-[0.98fr_1.02fr]">
+            <figure class="panel overflow-hidden p-2 md:p-3">
+              <div class="soft-outline overflow-hidden rounded-[1.2rem] border bg-[color:var(--bg-soft)]">
+                <img
+                  src="/archive/pdf_outcome.png"
+                  alt="Ukázka PDF výstupu s prioritizací, dopadem, důkazy a akčním plánem"
+                  class="block h-auto w-full"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </figure>
+
+            <figure class="panel overflow-hidden p-2 md:p-3">
+              <div class="soft-outline overflow-hidden rounded-[1.2rem] border bg-[color:var(--bg-soft)]">
+                <img
+                  src="/archive/critical-funnel.png"
+                  alt="Funnel nákupní cesty s kritickými místy mezi trafficem, landing page, košíkem a checkoutem"
+                  class="block h-auto w-full"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </figure>
+          </div>
         </div>
       </div>
     </section>
@@ -344,7 +358,7 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
             Čekací doba 3–5 dní, omezený rozsah.
           </p>
           <div class="mt-4">
-            <a href="#audit-zdarma-form" class="cta-green" data-analytics-event="free_audit_focus_click" data-analytics-placement="entry_modes" data-analytics-target="audit_zdarma">ODESLAT</a>
+            <a href="#audit-zdarma-form" class="cta-green w-full sm:w-auto" data-analytics-event="free_audit_focus_click" data-analytics-placement="entry_modes" data-analytics-target="audit_zdarma">ODESLAT</a>
             <p class="soft-note mt-2 text-[0.78rem]">Zbývají 3 místa v pomalejším režimu.</p>
           </div>
         </article>
@@ -359,7 +373,7 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
             {"Garance do 24\u00A0hodin, hloubková analýza + 15min konzultace."}
           </p>
           <div class="mt-4">
-            <a href={site.payments.expressAuditHref} class="cta-yellow">{"Express audit 1\u00A0500\u00A0Kč"}</a>
+            <a href={site.payments.expressAuditHref} class="cta-yellow w-full sm:w-auto">{"Express audit 1\u00A0500\u00A0Kč"}</a>
             <p class="soft-note mt-2 text-[0.78rem]">Platba probíhá bezpečně přes Stripe.</p>
           </div>
         </article>
