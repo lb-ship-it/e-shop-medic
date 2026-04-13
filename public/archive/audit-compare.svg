@@ -1,0 +1,88 @@
+<svg width="1600" height="800" viewBox="0 0 1600 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="180" y1="60" x2="1400" y2="780" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#171C25"/>
+      <stop offset="1" stop-color="#090D13"/>
+    </linearGradient>
+    <linearGradient id="tableFade" x1="70" y1="90" x2="1540" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="rgba(255,255,255,0.07)"/>
+      <stop offset="1" stop-color="rgba(255,255,255,0.03)"/>
+    </linearGradient>
+    <linearGradient id="greenPanel" x1="1040" y1="90" x2="1540" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#103128"/>
+      <stop offset="1" stop-color="#0A1713"/>
+    </linearGradient>
+    <filter id="greenGlow" x="930" y="-10" width="720" height="820" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="32"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="800" fill="url(#bg)"/>
+
+  <g opacity="0.13" stroke="#D9E1EE" stroke-width="2">
+    <path d="M0 36H1600"/>
+    <path d="M0 210H1600"/>
+    <path d="M0 384H1600"/>
+    <path d="M0 558H1600"/>
+    <path d="M0 732H1600"/>
+    <path d="M280 0V800"/>
+    <path d="M530 0V800"/>
+    <path d="M1040 0V800"/>
+    <path d="M1240 0V800"/>
+  </g>
+
+  <rect x="1030" y="84" width="520" height="618" rx="28" fill="#2BFF9C" opacity="0.22" filter="url(#greenGlow)"/>
+
+  <rect x="70" y="92" width="1470" height="608" rx="18" fill="#0D131C" fill-opacity="0.86" stroke="#778399" stroke-opacity="0.42" stroke-width="3"/>
+  <rect x="70" y="92" width="970" height="608" rx="18" fill="url(#tableFade)" fill-opacity="0.24"/>
+  <rect x="70" y="92" width="480" height="608" rx="18" fill="#FFFFFF" fill-opacity="0.05"/>
+  <rect x="1040" y="92" width="500" height="608" rx="18" fill="url(#greenPanel)" stroke="#38F59E" stroke-width="4"/>
+
+  <g opacity="0.55" stroke="#C6D0DE" stroke-width="3">
+    <path d="M550 92V700"/>
+    <path d="M1040 92V700"/>
+    <path d="M70 214H1540"/>
+    <path d="M70 336H1540"/>
+    <path d="M70 458H1540"/>
+    <path d="M70 580H1540"/>
+  </g>
+
+  <g fill="#F5F7FB" font-family="Inter, Arial, sans-serif">
+    <text x="795" y="166" font-size="42" font-weight="500" text-anchor="middle">Audit zdarma</text>
+    <text x="1290" y="166" font-size="42" font-weight="500" text-anchor="middle">Express Audit</text>
+
+    <text x="205" y="289" font-size="36" font-weight="400" opacity="0.55">Čekací doba</text>
+    <text x="205" y="411" font-size="36" font-weight="400" opacity="0.55">Úroveň analýzy</text>
+    <text x="205" y="533" font-size="36" font-weight="400" opacity="0.55">Co dostanete</text>
+    <text x="205" y="655" font-size="36" font-weight="400" opacity="0.55">Investice</text>
+
+    <text x="795" y="289" font-size="36" font-weight="500" text-anchor="middle">3–5 dní</text>
+    <text x="795" y="411" font-size="36" font-weight="500" text-anchor="middle">Povrchová rizika</text>
+    <text x="795" y="533" font-size="36" font-weight="500" text-anchor="middle">Doporučení postupu</text>
+    <text x="795" y="655" font-size="36" font-weight="500" text-anchor="middle">0 Kč</text>
+  </g>
+
+  <g fill="#38F59E" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="500">
+    <text x="1120" y="289">Garance do 24 h</text>
+    <text x="1100" y="411">Hloubková diagnostika</text>
+    <text x="1098" y="533">Akční plán + 15min call</text>
+    <text x="1290" y="655" text-anchor="middle">1 500 Kč</text>
+  </g>
+
+  <g transform="translate(1460 262)">
+    <circle r="17" fill="#38F59E"/>
+    <path d="M-7 0L-1 6L9 -8" stroke="#092116" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(1516 384)">
+    <circle r="17" fill="#38F59E"/>
+    <path d="M-7 0L-1 6L9 -8" stroke="#092116" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(1526 506)">
+    <circle r="17" fill="#38F59E"/>
+    <path d="M-7 0L-1 6L9 -8" stroke="#092116" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(1362 628)">
+    <circle r="17" fill="#38F59E"/>
+    <path d="M-7 0L-1 6L9 -8" stroke="#092116" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
