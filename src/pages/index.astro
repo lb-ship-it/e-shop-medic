@@ -190,17 +190,45 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
             </div>
           </div>
 
-          <figure class="overflow-hidden rounded-[1.6rem] border border-white/8 bg-[linear-gradient(180deg,rgba(12,17,24,0.92),rgba(8,11,16,0.96))] shadow-[0_24px_80px_rgba(0,0,0,0.28)]">
-            <div class="overflow-hidden">
-              <img
-                src="/archive/critical-funnel.svg"
-                alt="Funnel nákupní cesty s kritickými místy mezi trafficem, landing page, košíkem a checkoutem"
-                class="block h-auto w-full"
-                loading="lazy"
-                decoding="async"
-              />
+          <div class="panel p-4 md:p-6">
+            <div class="grid gap-6 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] xl:gap-8">
+              <div>
+                <p class="eyebrow">Kde a jak zasahuju</p>
+                <ul class="mt-4 space-y-3 text-[0.9rem] leading-6 text-white/68 md:text-[0.96rem]">
+                  <li class="flex gap-3">
+                    <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[color:var(--green)]"></span>
+                    <span>Nejčastěji zasahuju v prostředí <strong class="font-semibold text-white">Shoptet, PrestaShop, WooCommerce, WordPress a Shopify</strong>.</span>
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[color:var(--green)]"></span>
+                    <span>Hledám, kudy utíkají objednávky, data nebo důvěra v prvních vteřinách nákupní cesty.</span>
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[color:var(--green)]"></span>
+                    <span>Neřeším dekoraci, ale rychlou orientaci a zásah s reálným dopadem na konverzi.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="rounded-[1.2rem] border border-white/8 bg-white/[0.03] p-4 md:p-5">
+                <p class="eyebrow">Co čekat po prvním kontaktu</p>
+                <ul class="mt-4 space-y-3 text-[0.9rem] leading-6 text-white/68 md:text-[0.96rem]">
+                  <li class="flex gap-3">
+                    <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[color:var(--blue)]"></span>
+                    <span><strong class="font-semibold text-white">{"První orientace do 24\u00A0hodin"}</strong>, když je problém akutní.</span>
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[color:var(--blue)]"></span>
+                    <span><strong class="font-semibold text-white">Zásah držím osobně</strong>, bez přeposílání mezi accounty.</span>
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[color:var(--blue)]"></span>
+                    <span>Kontakt a další postup uzavřeme přímo přes <a href={`mailto:${site.contact.email}`} class="text-white underline decoration-white/20 underline-offset-4 transition hover:decoration-white/60">{site.contact.email}</a>.</span>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </figure>
+          </div>
         </div>
       </div>
     </section>
