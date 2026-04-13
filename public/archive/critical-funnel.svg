@@ -1,0 +1,128 @@
+<svg width="1800" height="820" viewBox="0 0 1800 820" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="60" x2="1670" y2="790" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#171D27"/>
+      <stop offset="1" stop-color="#090D14"/>
+    </linearGradient>
+    <linearGradient id="funnelGlow" x1="274" y1="332" x2="1580" y2="332" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8AFFF0" stop-opacity="0.42"/>
+      <stop offset="0.55" stop-color="#F4FFFE" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#DFFFF8" stop-opacity="0.42"/>
+    </linearGradient>
+    <linearGradient id="flowGlow" x1="280" y1="340" x2="1572" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4EF3E1" stop-opacity="0.56"/>
+      <stop offset="1" stop-color="#F8FFFF" stop-opacity="0.42"/>
+    </linearGradient>
+    <filter id="tealGlow" x="-60" y="-60" width="820" height="420" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <filter id="redGlow" x="430" y="110" width="980" height="430" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+
+  <rect width="1800" height="820" fill="url(#bg)"/>
+
+  <g opacity="0.12" stroke="#DCE6F4" stroke-width="2">
+    <path d="M0 40H1800"/>
+    <path d="M0 210H1800"/>
+    <path d="M0 380H1800"/>
+    <path d="M0 550H1800"/>
+    <path d="M0 720H1800"/>
+    <path d="M12 0V820"/>
+    <path d="M270 0V820"/>
+    <path d="M530 0V820"/>
+    <path d="M1045 0V820"/>
+    <path d="M1590 0V820"/>
+  </g>
+
+  <rect x="46" y="54" width="460" height="164" rx="12" fill="#21373C" fill-opacity="0.72" stroke="#51F4E3" stroke-width="4"/>
+  <rect x="46" y="54" width="460" height="164" rx="12" fill="#43FFF0" fill-opacity="0.16" filter="url(#tealGlow)"/>
+  <path d="M74 54H169L176 44H264L271 54" stroke="#51F4E3" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M132 218V314H268V340" stroke="#51F4E3" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M172 340H296" stroke="#51F4E3" stroke-width="5" stroke-linecap="round"/>
+  <path d="M268 320L310 340L268 360" fill="none" stroke="#51F4E3" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g font-family="Inter, Arial, sans-serif" fill="#F4F7FB">
+    <text x="72" y="110" font-size="31" font-weight="500">Nejdřív najdeme <tspan fill="#51F4E3" font-weight="700">kritické</tspan></text>
+    <text x="72" y="150" font-size="31" font-weight="700" fill="#51F4E3">místo, <tspan fill="#F4F7FB" font-weight="500">pak opravíme to, co</tspan></text>
+    <text x="72" y="190" font-size="31" font-weight="500">má největší dopad.</text>
+  </g>
+
+  <g stroke="url(#funnelGlow)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="320" cy="310" rx="34" ry="128"/>
+    <ellipse cx="671" cy="330" rx="31" ry="112"/>
+    <ellipse cx="1000" cy="329" rx="26" ry="86"/>
+    <ellipse cx="1560" cy="330" rx="16" ry="64"/>
+
+    <path d="M320 182L1560 266"/>
+    <path d="M320 210L1560 285"/>
+    <path d="M320 240L1560 306"/>
+    <path d="M320 270L1560 325"/>
+    <path d="M320 300L1560 343"/>
+    <path d="M320 330L1560 361"/>
+    <path d="M320 360L1560 379"/>
+    <path d="M320 390L1560 398"/>
+    <path d="M320 418L1560 417"/>
+    <path d="M320 438L1560 436"/>
+
+    <path d="M320 438L1560 394"/>
+    <path d="M320 410L1560 374"/>
+    <path d="M320 380L1560 354"/>
+    <path d="M320 350L1560 334"/>
+    <path d="M320 320L1560 316"/>
+    <path d="M320 290L1560 298"/>
+    <path d="M320 260L1560 279"/>
+    <path d="M320 232L1560 260"/>
+  </g>
+
+  <g opacity="0.4" stroke="url(#flowGlow)" stroke-width="10" stroke-linecap="round">
+    <path d="M304 307H1570"/>
+    <path d="M304 326H1570"/>
+    <path d="M304 345H1570"/>
+  </g>
+
+  <g filter="url(#redGlow)">
+    <g stroke="#FF6676" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M518 182L526 222L516 246L530 270L520 297L532 330L520 360L530 401L519 452"/>
+      <path d="M995 205L1004 236L995 264L1008 292L996 324L1006 356L995 388"/>
+      <path d="M1350 244L1359 276L1348 305L1361 333L1349 362L1357 394"/>
+    </g>
+    <g fill="#FF6676" fill-opacity="0.72">
+      <circle cx="510" cy="160" r="5"/>
+      <circle cx="548" cy="92" r="5"/>
+      <circle cx="1008" cy="204" r="5"/>
+      <circle cx="1358" cy="246" r="5"/>
+      <circle cx="1329" cy="215" r="5"/>
+      <circle cx="520" cy="468" r="5"/>
+      <circle cx="1010" cy="420" r="5"/>
+      <circle cx="1360" cy="410" r="5"/>
+      <circle cx="1414" cy="332" r="4"/>
+      <circle cx="470" cy="360" r="4"/>
+      <circle cx="930" cy="270" r="4"/>
+    </g>
+  </g>
+
+  <g stroke="#C96B73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M580 128H848"/>
+    <path d="M580 128L544 162"/>
+    <path d="M1090 178H1348"/>
+    <path d="M1090 178L1042 222"/>
+    <path d="M1462 246H1678"/>
+    <path d="M1462 246L1416 286"/>
+  </g>
+
+  <g font-family="Inter, Arial, sans-serif" fill="#F5F7FB">
+    <text x="635" y="112" font-size="32" font-weight="500">Chyba měření</text>
+    <text x="1098" y="162" font-size="32" font-weight="500">Ztráta důvěry</text>
+    <text x="1498" y="230" font-size="32" font-weight="500">Tření v checkoutu</text>
+
+    <text x="324" y="356" font-size="38" font-weight="600">Traffic</text>
+    <text x="640" y="356" font-size="38" font-weight="600">Landing Page</text>
+    <text x="1068" y="356" font-size="38" font-weight="600">Cart</text>
+    <text x="1406" y="356" font-size="38" font-weight="600">Checkout</text>
+
+    <text x="92" y="695" font-size="36" font-weight="500">Hledám, kudy utíkají objednávky, data nebo důvěra v prvních vteřinách nákupní cesty.</text>
+    <text x="198" y="748" font-size="36" font-weight="500">Neřeším dekoraci, ale rychlou orientaci a zásah s reálným dopadem na konverzi.</text>
+  </g>
+</svg>
