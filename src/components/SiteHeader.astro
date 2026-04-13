@@ -3,11 +3,11 @@ import { site } from "../data/site";
 ---
 
 <header class="soft-outline sticky top-0 z-50 border-b bg-[rgba(4,7,11,0.82)] backdrop-blur">
-  <div class="shell flex items-center justify-between gap-2 py-2.5 md:gap-3 md:py-3">
-    <a href="/" class="flex min-w-0 items-center gap-2.5 md:gap-3">
-      <img src="/logo-mark.png" alt="E-shop Medic" width="44" height="44" class="h-8 w-8 shrink-0 md:h-10 md:w-10" loading="eager" decoding="async" />
+  <div class="site-header-shell shell flex items-center justify-between gap-2 py-2.5 md:gap-3 md:py-3">
+    <a href="/" class="site-header-brand flex min-w-0 items-center gap-2.5 md:gap-3">
+      <img src="/logo-mark.png" alt="E-shop Medic" width="44" height="44" class="site-header-logo h-8 w-8 shrink-0 md:h-10 md:w-10" loading="eager" decoding="async" />
       <div class="min-w-0">
-        <p class="soft-caption truncate text-[0.68rem] font-semibold uppercase tracking-[0.18em] md:text-[0.82rem] md:tracking-[0.22em]">
+        <p class="site-header-name soft-caption truncate text-[0.68rem] font-semibold uppercase tracking-[0.18em] md:text-[0.82rem] md:tracking-[0.22em]">
           {site.brand.name}
         </p>
         <p class="hidden text-[0.84rem] text-white/66 md:block">
@@ -16,13 +16,13 @@ import { site } from "../data/site";
       </div>
     </a>
 
-    <div class="flex shrink-0 items-center gap-1.5 md:gap-2">
-      <a href={`mailto:${site.contact.email}`} class="soft-pill hidden rounded-full border px-3 py-2 text-[0.78rem] transition hover:text-white md:inline-flex" data-analytics-event="contact_email_click" data-analytics-placement="header" data-analytics-target="direct_email">
+    <div class="site-header-actions flex shrink-0 items-center gap-1.5 md:gap-2">
+      <a href={`mailto:${site.contact.email}`} class="soft-pill hidden rounded-full border px-3 py-2 text-[0.78rem] transition hover:text-white lg:inline-flex" data-analytics-event="contact_email_click" data-analytics-placement="header" data-analytics-target="direct_email">
         Napsat e-mail
       </a>
-      <a href={site.payments.sosRepairHref} class="cta-yellow min-w-[7.6rem] shrink-0 flex-col gap-0.5 rounded-[1.15rem] px-2.5 py-1.5 leading-none text-center md:min-w-[9.25rem] md:rounded-2xl md:px-4 md:py-2" data-analytics-event="stripe_checkout_click" data-analytics-placement="header" data-analytics-offer="sos_repair" data-analytics-target="urgent_zasah">
-        <span class="whitespace-nowrap text-[0.6rem] font-extrabold tracking-[0.14em] md:text-[0.68rem]">URGENT ZÁSAH</span>
-        <span class="whitespace-nowrap text-[0.78rem] font-semibold normal-case tracking-normal md:text-[0.92rem]">za&nbsp;3&nbsp;500&nbsp;Kč</span>
+      <a href={site.payments.sosRepairHref} class="site-header-cta cta-yellow min-w-[7rem] shrink-0 flex-col gap-0.5 rounded-[1.15rem] px-2.5 py-1.5 leading-none text-center md:min-w-[8rem] md:rounded-2xl md:px-3.5 md:py-2 lg:min-w-[9.25rem] lg:px-4" data-analytics-event="stripe_checkout_click" data-analytics-placement="header" data-analytics-offer="sos_repair" data-analytics-target="urgent_zasah">
+        <span class="site-header-cta-label whitespace-nowrap text-[0.58rem] font-extrabold tracking-[0.12em] md:text-[0.62rem] lg:text-[0.68rem]">URGENT ZÁSAH</span>
+        <span class="site-header-cta-price whitespace-nowrap text-[0.74rem] font-semibold normal-case tracking-normal md:text-[0.84rem] lg:text-[0.92rem]">za&nbsp;3&nbsp;500&nbsp;Kč</span>
       </a>
     </div>
   </div>

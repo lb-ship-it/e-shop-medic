@@ -57,9 +57,19 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
             </div>
           </div>
 
-          <div class="mt-4 grid gap-2 md:grid-cols-3">
-            {site.quickActions.map((action) => (
-              <a href={action.href} class="cta-yellow flex min-h-14 flex-col items-start justify-center rounded-3xl px-4 py-3 text-left md:min-h-16" data-analytics-event="stripe_checkout_click" data-analytics-placement="quick_actions" data-analytics-offer={action.label} data-analytics-target={action.helper}>
+          <div class="mt-4 grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
+            {site.quickActions.map((action, index) => (
+              <a
+                href={action.href}
+                class:list={[
+                  "cta-yellow flex min-h-14 flex-col items-start justify-center rounded-3xl px-4 py-3 text-left md:min-h-16",
+                  index === site.quickActions.length - 1 ? "sm:col-span-2 xl:col-span-1" : "",
+                ]}
+                data-analytics-event="stripe_checkout_click"
+                data-analytics-placement="quick_actions"
+                data-analytics-offer={action.label}
+                data-analytics-target={action.helper}
+              >
                 <span class="text-[0.76rem] font-bold uppercase tracking-[0.04em]">{action.label}</span>
                 <span class="mt-1 text-[0.8rem] font-medium normal-case tracking-normal text-black/72">{action.helper}</span>
               </a>
@@ -149,11 +159,11 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
                 <span class="text-[color:var(--green)]">{site.diagnostic.statusLabel}</span>
               </div>
               <div class="soft-outline diagnostic-pulse-wrap mt-4 overflow-hidden rounded-[1rem] border bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] p-3">
-                <div class="diagnostic-floating diagnostic-floating-red hidden lg:flex lg:flex-nowrap lg:items-center lg:gap-2.5">
+                <div class="diagnostic-floating diagnostic-floating-red hidden xl:flex xl:flex-nowrap xl:items-center xl:gap-2.5">
                   <p class="shrink-0 whitespace-nowrap text-[0.58rem] uppercase tracking-[0.18em] text-red-300/72">Urgentní nález</p>
                   <p class="whitespace-nowrap font-medium">Tření v checkoutu</p>
                 </div>
-                <div class="diagnostic-floating diagnostic-floating-blue hidden lg:flex lg:flex-nowrap lg:items-center lg:gap-2.5">
+                <div class="diagnostic-floating diagnostic-floating-blue hidden xl:flex xl:flex-nowrap xl:items-center xl:gap-2.5">
                   <p class="soft-caption shrink-0 whitespace-nowrap text-[0.58rem] uppercase tracking-[0.18em]">Měření</p>
                   <p class="whitespace-nowrap font-medium">Ve měření chybí 2 události</p>
                 </div>
@@ -298,19 +308,19 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
       </div>
 
       <div class="panel-strong p-4 md:p-6">
-        <div class="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
+        <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {featuredServices.map((service) => <ServiceCard {...service} />)}
         </div>
 
         {extraServices.length > 0 && (
           <>
-            <details class="mt-5 lg:hidden">
+            <details class="mt-5 md:hidden">
               <summary class="pill cursor-pointer list-none">Další služby</summary>
               <div class="mt-4 grid gap-4">
                 {extraServices.map((service) => <ServiceCard {...service} />)}
               </div>
             </details>
-            <div class="mt-5 hidden gap-4 lg:grid lg:grid-cols-2">
+            <div class="mt-5 hidden gap-4 md:grid md:grid-cols-2">
               {extraServices.map((service) => <ServiceCard {...service} />)}
             </div>
           </>

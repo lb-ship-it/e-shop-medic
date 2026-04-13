@@ -114,6 +114,10 @@ input[type="reset"],
   color: rgb(var(--green-soft-rgb) / 0.9);
 }
 
+.site-header-cta {
+  align-self: stretch;
+}
+
 .muted {
   color: var(--muted);
 }
@@ -401,6 +405,52 @@ input[type="reset"],
 
 .payment-intake-submit {
   width: 100%;
+}
+
+@media (max-width: 479px) {
+  .site-header-shell {
+    gap: 0.55rem;
+  }
+
+  .site-header-brand {
+    gap: 0.65rem;
+  }
+
+  .site-header-logo {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  .site-header-name {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+  }
+
+  .site-header-actions {
+    gap: 0.35rem;
+  }
+
+  .site-header-cta {
+    min-width: 6.45rem;
+    padding-inline: 0.55rem;
+    padding-block: 0.52rem;
+    border-radius: 1rem;
+  }
+
+  .site-header-cta-label {
+    font-size: 0.54rem;
+    letter-spacing: 0.1em;
+  }
+
+  .site-header-cta-price {
+    font-size: 0.7rem;
+  }
+
+  .hero-claim {
+    font-size: 0.63rem;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+  }
 }
 
 @media (max-width: 767px) {
