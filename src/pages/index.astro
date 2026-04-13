@@ -8,6 +8,9 @@ const extraServices = site.services.slice(3);
 const featuredSymptoms = site.symptoms.slice(0, 2);
 const extraSymptoms = site.symptoms.slice(2);
 const diagnosticPulsePath = "M0 50 H40 L62 50 L78 16 L92 84 L108 2 L124 98 L140 50 H188 L208 50 L224 18 L238 82 L252 10 L268 50 H320";
+const [heroHeadlineLead, ...heroHeadlineTail] = site.brand.heroLead.split(". ");
+const heroHeadline = heroHeadlineLead.endsWith(".") ? heroHeadlineLead : `${heroHeadlineLead}.`;
+const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
 ---
 
 <BaseLayout path="/">
@@ -22,8 +25,13 @@ const diagnosticPulsePath = "M0 50 H40 L62 50 L78 16 L92 84 L108 2 L124 98 L140 
           {site.brand.heroTitle}
         </p>
         <h1 class="mx-auto mt-2.5 max-w-6xl text-[0.72rem] font-bold leading-[1.08] tracking-[-0.03em] text-white md:text-[0.86rem] xl:text-[0.94rem] xl:whitespace-nowrap">
-          {site.brand.heroLead}
+          {heroHeadline}
         </h1>
+        {heroHeadlineSupport && (
+          <p class="mx-auto mt-0.5 max-w-6xl text-[0.72rem] font-bold leading-[1.08] tracking-[-0.03em] text-white md:text-[0.86rem] xl:text-[0.94rem] xl:whitespace-nowrap">
+            {heroHeadlineSupport}
+          </p>
+        )}
         <p class="mx-auto mt-3 max-w-5xl text-[0.74rem] leading-5 text-white/64 md:text-[0.82rem] md:leading-6 xl:max-w-none xl:text-[0.82rem] xl:whitespace-nowrap">
           {site.brand.heroBody}
         </p>
