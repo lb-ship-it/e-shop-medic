@@ -108,6 +108,12 @@ input[type="reset"],
   @apply text-[1.35rem] font-semibold tracking-tight text-white md:text-[1.8rem] xl:text-[2.1rem];
 }
 
+.hero-claim {
+  @apply text-[0.68rem] font-medium uppercase leading-[1.22] md:text-[0.8rem] xl:text-[0.86rem];
+  letter-spacing: 0.12em;
+  color: rgb(var(--green-soft-rgb) / 0.9);
+}
+
 .muted {
   color: var(--muted);
 }

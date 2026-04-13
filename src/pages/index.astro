@@ -24,11 +24,11 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
         <p class="mx-auto max-w-[24ch] text-[0.72rem] font-semibold uppercase leading-[1.05] tracking-[-0.03em] text-[#b8ff9b] md:max-w-[32ch] md:text-[0.86rem] xl:max-w-none xl:text-[0.94rem] xl:whitespace-nowrap">
           {site.brand.heroTitle}
         </p>
-        <h1 class="mx-auto mt-2.5 max-w-6xl text-[0.72rem] font-bold leading-[1.08] tracking-[-0.03em] text-white md:text-[0.86rem] xl:text-[0.94rem] xl:whitespace-nowrap">
+        <h1 class="hero-claim mx-auto mt-2.5 max-w-6xl xl:whitespace-nowrap">
           {heroHeadline}
         </h1>
         {heroHeadlineSupport && (
-          <p class="mx-auto mt-0.5 max-w-6xl text-[0.72rem] font-bold leading-[1.08] tracking-[-0.03em] text-white md:text-[0.86rem] xl:text-[0.94rem] xl:whitespace-nowrap">
+          <p class="hero-claim mx-auto mt-1 max-w-6xl xl:whitespace-nowrap">
             {heroHeadlineSupport}
           </p>
         )}
