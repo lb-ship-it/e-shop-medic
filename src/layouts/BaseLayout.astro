@@ -80,59 +80,63 @@ const ldPayload = Array.isArray(structuredData)
     <SiteHeader />
     <slot />
     <SiteFooter />
-    <div id="payment-intake" class="payment-intake" aria-hidden="true">
-      <button type="button" class="payment-intake-backdrop" data-payment-intake-close aria-label="Zavřít formulář před platbou"></button>
-      <div class="payment-intake-panel" role="dialog" aria-modal="true" aria-labelledby="payment-intake-title">
-        <button type="button" class="payment-intake-close" data-payment-intake-close aria-label="Zavřít formulář">Zavřít</button>
-        <p class="eyebrow">Před platbou</p>
-        <h1 id="payment-intake-title" class="payment-intake-title pt-20 mt-2.5 text-[1.18rem] font-light tracking-tight text-[#90EE90] whitespace-nowrap md:mt-3 md:text-[1.55rem]">
-    Nejdřív potřebuji podklady pro servis e-shopu.
+    <div id="payment-intake" class="payment-intake fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/80" aria-hidden="true">
+      <button type="button" class="payment-intake-backdrop absolute inset-0 w-full h-full cursor-default" data-payment-intake-close aria-label="Zavřít formulář před platbou"></button>
+      
+      <div class="payment-intake-panel relative w-full max-w-xl max-h-[90dvh] overflow-y-auto overflow-x-hidden bg-[#121212] rounded-2xl p-6 sm:p-8 shadow-2xl" role="dialog" aria-modal="true" aria-labelledby="payment-intake-title">
+        
+        <button type="button" class="payment-intake-close absolute top-4 right-4 z-10 text-[0.8rem] text-gray-400 hover:text-white uppercase font-bold tracking-widest" data-payment-intake-close aria-label="Zavřít formulář">Zavřít</button>
+        
+        <p class="eyebrow mt-4 text-sm text-gray-400 uppercase tracking-widest">Před platbou</p>
+        
+        <h1 id="payment-intake-title" class="payment-intake-title mt-2.5 text-[1.18rem] font-semibold tracking-tight text-[#90EE90] whitespace-nowrap md:mt-3 md:text-[1.55rem]">
+          Nejdřív potřebuji podklady pro servis e-shopu.
         </h1>
-        <p class="payment-intake-lead mt-2.5 max-w-2xl text-[0.86rem] leading-5.5 md:mt-3 md:text-[0.94rem] md:leading-6">
+        
+        <p class="payment-intake-lead mt-2.5 max-w-2xl text-[0.86rem] text-gray-300 leading-5.5 whitespace-nowrap md:mt-3 md:text-[0.94rem] md:leading-6">
           Vyplň prosím všechna pole. Hned potom tě pustím na Stripe platbu pro vybranou službu.
         </p>
 
         <form id="payment-intake-form" class="payment-intake-form mt-4 md:mt-5" novalidate>
           <div class="payment-intake-grid">
-            <label class="block">
-              <span class="payment-intake-label mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em]">Jméno a příjmení</span>
-              <input id="payment-intake-name" name="name" type="text" autocomplete="name" class="form-field" placeholder="Jan Novák" aria-required="true" />
+            <label class="block mb-3">
+              <span class="payment-intake-label mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-gray-300">Jméno a příjmení</span>
+              <input id="payment-intake-name" name="name" type="text" autocomplete="name" class="form-field w-full bg-[#1A1A1A] text-white border border-gray-700 rounded-lg px-4 py-2 focus:border-[#D4A63A] focus:ring-1 focus:ring-[#D4A63A] outline-none transition-colors" placeholder="Jan Novák" aria-required="true" />
             </label>
 
-            <label class="block">
-              <span class="payment-intake-label mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em]">Telefon</span>
-              <input id="payment-intake-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" class="form-field" placeholder="+420 777 000 000" aria-required="true" />
+            <label class="block mb-3">
+              <span class="payment-intake-label mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-gray-300">Telefon</span>
+              <input id="payment-intake-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" class="form-field w-full bg-[#1A1A1A] text-white border border-gray-700 rounded-lg px-4 py-2 focus:border-[#D4A63A] focus:ring-1 focus:ring-[#D4A63A] outline-none transition-colors" placeholder="+420 777 000 000" aria-required="true" />
             </label>
 
-            <label class="block">
-              <span class="payment-intake-label mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em]">E-mail</span>
-              <input id="payment-intake-email" name="email" type="email" autocomplete="email" inputmode="email" class="form-field" placeholder="jan@firma.cz" aria-required="true" />
+            <label class="block mb-3">
+              <span class="payment-intake-label mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-gray-300">E-mail</span>
+              <input id="payment-intake-email" name="email" type="email" autocomplete="email" inputmode="email" class="form-field w-full bg-[#1A1A1A] text-white border border-gray-700 rounded-lg px-4 py-2 focus:border-[#D4A63A] focus:ring-1 focus:ring-[#D4A63A] outline-none transition-colors" placeholder="jan@firma.cz" aria-required="true" />
             </label>
 
-            <label class="block">
-              <span class="payment-intake-label mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em]">URL e-shopu</span>
-              <input id="payment-intake-url" name="url" type="url" autocomplete="url" inputmode="url" class="form-field" placeholder="https://vas-eshop.cz" aria-required="true" />
+            <label class="block mb-3">
+              <span class="payment-intake-label mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-gray-300">URL e-shopu</span>
+              <input id="payment-intake-url" name="url" type="url" autocomplete="url" inputmode="url" class="form-field w-full bg-[#1A1A1A] text-white border border-gray-700 rounded-lg px-4 py-2 focus:border-[#D4A63A] focus:ring-1 focus:ring-[#D4A63A] outline-none transition-colors" placeholder="https://vas-eshop.cz" aria-required="true" />
             </label>
 
-            <label class="block payment-intake-note-field">
-              <span class="payment-intake-label mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em]">Poznámka</span>
-              <textarea id="payment-intake-note" name="note" rows="4" class="form-field" placeholder="Co přesně potřebuješ vyřešit a proč to hoří právě teď?" aria-required="true"></textarea>
+            <label class="block payment-intake-note-field mb-3">
+              <span class="payment-intake-label mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-gray-300">Poznámka</span>
+              <textarea id="payment-intake-note" name="note" rows="4" class="form-field w-full bg-[#1A1A1A] text-white border border-gray-700 rounded-lg px-4 py-2 focus:border-[#D4A63A] focus:ring-1 focus:ring-[#D4A63A] outline-none transition-colors" placeholder="Co přesně potřebuješ vyřešit a proč to hoří právě teď?" aria-required="true"></textarea>
             </label>
           </div>
 
-          <div id="payment-intake-message" class="form-alert mt-3.5 md:mt-4" role="alert" aria-live="polite"></div>
+          <div id="payment-intake-message" class="form-alert mt-3.5 md:mt-4 text-red-500 text-sm hidden" role="alert" aria-live="polite"></div>
 
           <div class="payment-intake-actions mt-4 md:mt-5">
-            <p class="payment-intake-meta text-[0.78rem] leading-5 md:text-[0.84rem]">
+            <p class="payment-intake-meta text-[0.78rem] leading-5 text-gray-400 md:text-[0.84rem] mb-4">
               Údaje použiju jen k přiřazení platby ke konkrétnímu e-shopu a k rychlému navázání zásahu.
             </p>
-            <button type="submit" id="payment-intake-submit" class="cta-yellow payment-intake-submit">Pokračovat na platbu</button>
+            <button type="submit" id="payment-intake-submit" class="cta-yellow payment-intake-submit w-full bg-[#D4A63A] text-black font-bold py-3 px-4 rounded-lg hover:bg-[#b58b2e] transition-colors">Pokračovat na platbu</button>
           </div>
         </form>
       </div>
     </div>
-    <Analytics />
-    <SpeedInsights />
+
     <script>
       // @ts-nocheck
       import { track } from "@vercel/analytics";
@@ -326,17 +330,17 @@ const ldPayload = Array.isArray(structuredData)
         };
 
         const togglePaymentFieldError = (field, isInvalid) => {
-          field.classList.toggle("is-invalid", isInvalid);
+          field.classList.toggle("border-red-500", isInvalid);
         };
 
         const showPaymentMessage = (message) => {
           paymentIntake.message.textContent = message;
-          paymentIntake.message.classList.add("is-visible");
+          paymentIntake.message.classList.remove("hidden");
         };
 
         const hidePaymentMessage = () => {
           paymentIntake.message.textContent = "";
-          paymentIntake.message.classList.remove("is-visible");
+          paymentIntake.message.classList.add("hidden");
         };
 
         const closePaymentIntake = () => {
@@ -370,7 +374,7 @@ const ldPayload = Array.isArray(structuredData)
         paymentFields.forEach((field) => {
           field.addEventListener("input", () => {
             togglePaymentFieldError(field, false);
-            if (paymentIntake.message.classList.contains("is-visible")) {
+            if (!paymentIntake.message.classList.contains("hidden")) {
               hidePaymentMessage();
             }
             persistPaymentIntakeDraft();
