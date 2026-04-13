@@ -10,6 +10,8 @@
   --muted: rgba(246, 247, 251, 0.68);
   --dim: rgba(246, 247, 251, 0.48);
   --green: #18f7a2;
+  --green-soft: #91c884;
+  --green-soft-rgb: 145 200 132;
   --green-strong: #0cf0a3;
   --blue: #1ea0ff;
   --yellow: #ffdd00;
@@ -75,15 +77,18 @@ select {
 }
 
 .panel {
-  @apply rounded-3xl border border-white/10 bg-[color:var(--panel)] shadow-[0_18px_60px_rgba(0,0,0,0.25)] backdrop-blur;
+  @apply rounded-3xl border bg-[color:var(--panel)] shadow-[0_18px_60px_rgba(0,0,0,0.25)] backdrop-blur;
+  border-color: rgb(var(--green-soft-rgb) / 0.16);
 }
 
 .panel-strong {
-  @apply rounded-3xl border border-white/10 bg-[color:var(--panel-strong)] shadow-[0_22px_70px_rgba(0,0,0,0.3)] backdrop-blur;
+  @apply rounded-3xl border bg-[color:var(--panel-strong)] shadow-[0_22px_70px_rgba(0,0,0,0.3)] backdrop-blur;
+  border-color: rgb(var(--green-soft-rgb) / 0.16);
 }
 
 .eyebrow {
-  @apply text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-white/34 md:text-xs;
+  @apply text-[0.72rem] font-semibold uppercase tracking-[0.28em] md:text-xs;
+  color: rgb(var(--green-soft-rgb) / 0.82);
 }
 
 .section-title {
@@ -124,7 +129,8 @@ select {
 }
 
 .metric-card {
-  @apply rounded-2xl border border-white/8 bg-white/[0.03] px-3 py-3 md:px-3.5 md:py-3.5;
+  @apply rounded-2xl border bg-white/[0.03] px-3 py-3 md:px-3.5 md:py-3.5;
+  border-color: rgb(var(--green-soft-rgb) / 0.14);
 }
 
 .metric-value {
@@ -132,7 +138,8 @@ select {
 }
 
 .metric-label {
-  @apply mt-1 text-[0.74rem] leading-5 text-white/48 md:text-[0.8rem];
+  @apply mt-1 text-[0.74rem] leading-5 md:text-[0.8rem];
+  color: rgb(var(--green-soft-rgb) / 0.72);
 }
 
 .cta-yellow {
@@ -144,7 +151,10 @@ select {
 }
 
 .pill {
-  @apply inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[0.72rem] text-white/72 md:px-3.5 md:text-[0.78rem];
+  @apply inline-flex items-center rounded-full border px-3 py-1 text-[0.72rem] md:px-3.5 md:text-[0.78rem];
+  border-color: rgb(var(--green-soft-rgb) / 0.18);
+  background: rgb(var(--green-soft-rgb) / 0.04);
+  color: rgb(var(--green-soft-rgb) / 0.78);
 }
 
 .prose-lite p {
@@ -156,7 +166,13 @@ select {
 }
 
 .form-field {
-  @apply w-full rounded-2xl border border-white/10 bg-black/18 px-4 py-3 text-[0.92rem] text-white outline-none transition placeholder:text-white/28 focus:border-[color:var(--blue)]/45;
+  @apply w-full rounded-2xl border bg-black/18 px-4 py-3 text-[0.92rem] text-white outline-none transition placeholder:text-white/28;
+  border-color: rgb(var(--green-soft-rgb) / 0.18);
+}
+
+.form-field:focus {
+  border-color: rgb(var(--green-soft-rgb) / 0.42);
+  box-shadow: 0 0 0 1px rgb(var(--green-soft-rgb) / 0.12);
 }
 
 .form-field.is-invalid {
@@ -174,6 +190,24 @@ select {
 
 .form-alert.is-visible {
   display: block;
+}
+
+.soft-caption {
+  color: rgb(var(--green-soft-rgb) / 0.82);
+}
+
+.soft-note {
+  color: rgb(var(--green-soft-rgb) / 0.7);
+}
+
+.soft-outline {
+  border-color: rgb(var(--green-soft-rgb) / 0.16);
+}
+
+.soft-pill {
+  border-color: rgb(var(--green-soft-rgb) / 0.18);
+  background: rgb(var(--green-soft-rgb) / 0.04);
+  color: rgb(var(--green-soft-rgb) / 0.78);
 }
 
 @media (max-width: 767px) {

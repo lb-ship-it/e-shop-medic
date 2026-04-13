@@ -39,7 +39,7 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
 
       <div class="mt-7">
         <div class="panel p-4 md:p-6">
-          <div class="border-b border-white/8 pb-4">
+          <div class="soft-outline border-b pb-4">
             <p class="eyebrow">Rychlá akce</p>
             <div class="mt-2 flex flex-col gap-2 md:flex-row md:items-center md:justify-between md:gap-6">
               <p class="text-[0.88rem] leading-6 text-white/62 md:text-[0.95rem]">
@@ -52,7 +52,7 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
                 </p>
               </div>
             </div>
-            <div class="hidden shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-0.5 text-[0.64rem] text-white/58 md:px-3 md:py-1 md:text-[0.78rem]">
+            <div class="soft-pill hidden shrink-0 rounded-full border px-2.5 py-0.5 text-[0.64rem] md:px-3 md:py-1 md:text-[0.78rem]">
               OmezenĂ˝ rozsah
             </div>
           </div>
@@ -71,27 +71,27 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
       <div class="mt-5 panel-strong p-3.5 md:p-6">
         <div class="grid gap-3 md:gap-4">
           <div class="flex flex-row-reverse items-center justify-between gap-3">
-            <div class="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-0.5 text-[0.64rem] text-white/58 md:px-3 md:py-1 md:text-[0.78rem]">
+            <div class="soft-pill shrink-0 rounded-full border px-2.5 py-0.5 text-[0.64rem] md:px-3 md:py-1 md:text-[0.78rem]">
               Omezený rozsah
             </div>
             <p class="eyebrow">Nezávazná analýza</p>
           </div>
 
-          <div id="audit-zdarma-form" class="rounded-[1.2rem] border border-white/8 bg-[color:var(--bg-soft)]/88 p-3 md:p-4.5">
+          <div id="audit-zdarma-form" class="soft-outline rounded-[1.2rem] border bg-[color:var(--bg-soft)]/88 p-3 md:p-4.5">
             <div class="mb-2.5">
               <div>
                 <p class="text-[0.98rem] font-semibold leading-[1.25] text-white md:text-[1.08rem]">
                   Audit zdarma s čekací dobou 3–5 dní
                 </p>
               </div>
-              <div class="hidden rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[0.78rem] text-white/58">
+              <div class="soft-pill hidden rounded-full border px-3 py-1 text-[0.78rem]">
                 Omezený rozsah
               </div>
             </div>
 
             <form id="free-audit-form" data-recipient={site.contact.email} class="grid gap-2.5 md:grid-cols-2 md:gap-4" novalidate>
               <label class="block">
-                <span class="mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/35">URL e‑shopu</span>
+                <span class="soft-caption mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em]">URL e‑shopu</span>
                 <input
                   id="free-audit-url"
                   type="url"
@@ -103,7 +103,7 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
                 />
               </label>
               <label class="block">
-                <span class="mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/35">Tvůj e-mail</span>
+                <span class="soft-caption mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em]">Tvůj e-mail</span>
                 <input
                   id="free-audit-email"
                   type="email"
@@ -116,7 +116,7 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
                 />
               </label>
               <label class="block md:col-span-2">
-                <span class="mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/35">Poznámka</span>
+                <span class="soft-caption mb-1.5 block text-[0.78rem] font-semibold uppercase tracking-[0.18em]">Poznámka</span>
                 <textarea
                   id="free-audit-note"
                   name="Poznámka"
@@ -129,7 +129,7 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
               <div id="free-audit-message" class="form-alert md:col-span-2" role="alert" aria-live="polite"></div>
 
               <div class="free-audit-actions flex flex-col gap-2.5 md:col-span-2 md:flex-row md:items-center md:justify-between">
-                <p class="free-audit-note text-[0.72rem] leading-[1.45] text-white/44 md:order-2 md:text-[0.8rem] md:leading-5 md:text-white/48">
+                <p class="soft-note free-audit-note text-[0.72rem] leading-[1.45] md:order-2 md:text-[0.8rem] md:leading-5">
                   Otevře se výchozí poštovní klient. Audit je nezávazný.
                 </p>
                 <button type="submit" class="cta-green free-audit-submit min-h-10 w-full rounded-[1.15rem] md:order-1 md:min-h-11 md:w-auto md:rounded-2xl">ODESLAT</button>
@@ -143,18 +143,18 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
 
         <div class="space-y-6">
           <div class="panel-strong hero-noise mesh relative overflow-hidden p-4 md:p-5">
-            <div class="rounded-[1.2rem] border border-white/8 bg-[#091018]/90 p-3 md:p-4">
-              <div class="flex items-center justify-between text-[0.66rem] uppercase tracking-[0.2em] text-white/35">
+            <div class="soft-outline rounded-[1.2rem] border bg-[#091018]/90 p-3 md:p-4">
+              <div class="soft-caption flex items-center justify-between text-[0.66rem] uppercase tracking-[0.2em]">
                 <span>{site.diagnostic.pulseLabel}</span>
                 <span class="text-[color:var(--green)]">{site.diagnostic.statusLabel}</span>
               </div>
-              <div class="diagnostic-pulse-wrap mt-4 overflow-hidden rounded-[1rem] border border-white/6 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] p-3">
+              <div class="soft-outline diagnostic-pulse-wrap mt-4 overflow-hidden rounded-[1rem] border bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] p-3">
                 <div class="diagnostic-floating diagnostic-floating-red hidden lg:flex lg:flex-nowrap lg:items-center lg:gap-2.5">
                   <p class="shrink-0 whitespace-nowrap text-[0.58rem] uppercase tracking-[0.18em] text-red-300/72">Urgentní nález</p>
                   <p class="whitespace-nowrap font-medium">Tření v checkoutu</p>
                 </div>
                 <div class="diagnostic-floating diagnostic-floating-blue hidden lg:flex lg:flex-nowrap lg:items-center lg:gap-2.5">
-                  <p class="shrink-0 whitespace-nowrap text-[0.58rem] uppercase tracking-[0.18em] text-white/35">Měření</p>
+                  <p class="soft-caption shrink-0 whitespace-nowrap text-[0.58rem] uppercase tracking-[0.18em]">Měření</p>
                   <p class="whitespace-nowrap font-medium">Ve měření chybí 2 události</p>
                 </div>
                 <svg viewBox="0 0 320 100" class="diagnostic-pulse h-24 w-full md:h-28 lg:h-32 xl:h-36" aria-hidden="true">
@@ -191,7 +191,7 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
           </div>
 
           <figure class="panel overflow-hidden p-2 md:p-3">
-            <div class="overflow-hidden rounded-[1.2rem] border border-white/8 bg-[color:var(--bg-soft)]">
+            <div class="soft-outline overflow-hidden rounded-[1.2rem] border bg-[color:var(--bg-soft)]">
               <img
                 src="/archive/critical-funnel.png"
                 alt="Funnel nákupní cesty s kritickými místy mezi trafficem, landing page, košíkem a checkoutem"
@@ -216,7 +216,7 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
             <article class:list={["rounded-[1.25rem] border p-4 md:p-5", symptom.tone === "green" ? "border-[color:var(--green)]/18 bg-[color:var(--green)]/[0.06]" : "border-[color:var(--blue)]/18 bg-[color:var(--blue)]/[0.06]"]}>
               <div class="flex items-center gap-3">
                 <span class:list={["h-3 w-3 rounded-full", symptom.tone === "green" ? "bg-[color:var(--green)]" : "bg-[color:var(--blue)]"]}></span>
-                <p class="text-[0.72rem] uppercase tracking-[0.24em] text-white/35">První nález</p>
+                <p class="soft-caption text-[0.72rem] uppercase tracking-[0.24em]">První nález</p>
               </div>
               <h3 class="mt-4 text-[1rem] font-semibold text-white md:text-[1.2rem]">{symptom.title}</h3>
               <p class="mt-2 text-[0.88rem] leading-6 text-white/60 md:text-[0.94rem]">{symptom.description}</p>
@@ -233,7 +233,7 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
                   <article class:list={["rounded-[1.25rem] border p-4", symptom.tone === "green" ? "border-[color:var(--green)]/18 bg-[color:var(--green)]/[0.06]" : "border-[color:var(--blue)]/18 bg-[color:var(--blue)]/[0.06]"]}>
                     <div class="flex items-center gap-3">
                       <span class:list={["h-3 w-3 rounded-full", symptom.tone === "green" ? "bg-[color:var(--green)]" : "bg-[color:var(--blue)]"]}></span>
-                      <p class="text-[0.72rem] uppercase tracking-[0.24em] text-white/35">První nález</p>
+                      <p class="soft-caption text-[0.72rem] uppercase tracking-[0.24em]">První nález</p>
                     </div>
                     <h3 class="mt-4 text-[1rem] font-semibold text-white">{symptom.title}</h3>
                     <p class="mt-2 text-[0.88rem] leading-6 text-white/60">{symptom.description}</p>
@@ -247,7 +247,7 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
                 <article class:list={["rounded-[1.25rem] border p-5", symptom.tone === "green" ? "border-[color:var(--green)]/18 bg-[color:var(--green)]/[0.06]" : "border-[color:var(--blue)]/18 bg-[color:var(--blue)]/[0.06]"]}>
                   <div class="flex items-center gap-3">
                     <span class:list={["h-3 w-3 rounded-full", symptom.tone === "green" ? "bg-[color:var(--green)]" : "bg-[color:var(--blue)]"]}></span>
-                    <p class="text-[0.72rem] uppercase tracking-[0.24em] text-white/35">První nález</p>
+                    <p class="soft-caption text-[0.72rem] uppercase tracking-[0.24em]">První nález</p>
                   </div>
                   <h3 class="mt-4 text-[1rem] font-semibold text-white md:text-[1.2rem]">{symptom.title}</h3>
                   <p class="mt-2 text-[0.88rem] leading-6 text-white/60 md:text-[0.94rem]">{symptom.description}</p>
@@ -311,7 +311,7 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
         </h2>
         <div class="mt-4 space-y-3">
           {site.deliverables.map((item) => (
-            <div class="flex items-start gap-3 rounded-[1rem] border border-white/8 bg-white/[0.03] px-3 py-3 md:px-4">
+            <div class="soft-outline flex items-start gap-3 rounded-[1rem] border bg-white/[0.03] px-3 py-3 md:px-4">
               <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[color:var(--blue)]/12 text-[0.82rem] text-[color:var(--blue)]">
                 +
               </span>
@@ -345,7 +345,7 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
           </p>
           <div class="mt-4">
             <a href="#audit-zdarma-form" class="cta-green" data-analytics-event="free_audit_focus_click" data-analytics-placement="entry_modes" data-analytics-target="audit_zdarma">ODESLAT</a>
-            <p class="mt-2 text-[0.78rem] text-white/48">Zbývají 3 místa v pomalejším režimu.</p>
+            <p class="soft-note mt-2 text-[0.78rem]">Zbývají 3 místa v pomalejším režimu.</p>
           </div>
         </article>
 
@@ -360,7 +360,7 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
           </p>
           <div class="mt-4">
             <a href={site.payments.expressAuditHref} class="cta-yellow">{"Express audit 1\u00A0500\u00A0Kč"}</a>
-            <p class="mt-2 text-[0.78rem] text-white/48">Platba probíhá bezpečně přes Stripe.</p>
+            <p class="soft-note mt-2 text-[0.78rem]">Platba probíhá bezpečně přes Stripe.</p>
           </div>
         </article>
       </div>
@@ -379,7 +379,7 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
 
       <div class="grid gap-4 xl:grid-cols-[1.02fr_0.98fr]">
         <figure class="panel-strong overflow-hidden p-2 md:p-3">
-          <div class="overflow-hidden rounded-[1.4rem] border border-white/8 bg-[color:var(--bg-soft)]">
+          <div class="soft-outline overflow-hidden rounded-[1.4rem] border bg-[color:var(--bg-soft)]">
             <img
               src="/archive/audit-compare.svg"
               alt="Srovnání auditu zdarma a Express Auditu"
@@ -388,13 +388,13 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
               decoding="async"
             />
           </div>
-          <figcaption class="px-1.5 pb-1 pt-3 text-[0.84rem] leading-6 text-white/58 md:px-2 md:text-[0.92rem]">
+          <figcaption class="soft-note px-1.5 pb-1 pt-3 text-[0.84rem] leading-6 md:px-2 md:text-[0.92rem]">
             Rychlé srovnání čekací doby, hloubky analýzy, výstupu a investice bez hledání v textu.
           </figcaption>
         </figure>
 
         <figure class="panel-strong overflow-hidden p-2 md:p-3">
-          <div class="overflow-hidden rounded-[1.4rem] border border-white/8 bg-[color:var(--bg-soft)]">
+          <div class="soft-outline overflow-hidden rounded-[1.4rem] border bg-[color:var(--bg-soft)]">
             <img
               src="/archive/audit-output.svg"
               alt="Ukázka výstupu pro audit zdarma a Express Audit"
@@ -403,7 +403,7 @@ const heroHeadlineSupport = heroHeadlineTail.join(". ").trim();
               decoding="async"
             />
           </div>
-          <figcaption class="px-1.5 pb-1 pt-3 text-[0.84rem] leading-6 text-white/58 md:px-2 md:text-[0.92rem]">
+          <figcaption class="soft-note px-1.5 pb-1 pt-3 text-[0.84rem] leading-6 md:px-2 md:text-[0.92rem]">
             Druhý náhled ukazuje rozdíl mezi základním PDF doporučením a express výstupem s akčním plánem a osobním kontaktem.
           </figcaption>
         </figure>

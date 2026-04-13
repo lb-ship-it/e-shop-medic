@@ -40,7 +40,7 @@ const iconPath = getIconPath(icon);
         ))}
       </svg>
     </div>
-    <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[0.72rem] text-white/62 md:text-[0.8rem]">
+    <span class="soft-pill rounded-full border px-2.5 py-1 text-[0.72rem] md:text-[0.8rem]">
       {price}
     </span>
   </div>
@@ -54,7 +54,7 @@ const iconPath = getIconPath(icon);
         <a href={ctaHref} class="cta-yellow w-full" title={ctaLabel} data-analytics-event="stripe_checkout_click" data-analytics-placement="services_grid" data-analytics-offer={title} data-analytics-target={ctaLabel}>
           {ctaLabel}
         </a>
-        {note ? <p class="mt-2 text-[0.76rem] leading-5 text-white/48 md:text-[0.8rem]">{note}</p> : null}
+        {note ? <p class="soft-note mt-2 text-[0.76rem] leading-5 md:text-[0.8rem]">{note}</p> : null}
       </div>
     ) : null
   }
