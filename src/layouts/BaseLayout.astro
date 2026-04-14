@@ -295,15 +295,6 @@ const ldPayload = Array.isArray(structuredData)
         }
       };
 
-      const openFallbackMailto = (mailtoHref) => {
-        const fallbackLink = document.createElement("a");
-        fallbackLink.href = mailtoHref;
-        fallbackLink.style.display = "none";
-        document.body.appendChild(fallbackLink);
-        fallbackLink.click();
-        fallbackLink.remove();
-      };
-
       if (
         paymentIntake.root instanceof HTMLDivElement &&
         paymentIntake.form instanceof HTMLFormElement &&
@@ -484,25 +475,17 @@ const ldPayload = Array.isArray(structuredData)
                 offer: paymentIntakeState.offer,
                 placement: paymentIntakeState.placement,
                 shopHost: host,
-                fallback: Boolean(payload.fallbackMailto),
+                notificationSkipped: Boolean(payload.notificationSkipped),
               });
             } catch {
               track("payment_intake_submit", {
                 offer: paymentIntakeState.offer,
                 placement: paymentIntakeState.placement,
-                fallback: Boolean(payload.fallbackMailto),
+                notificationSkipped: Boolean(payload.notificationSkipped),
               });
             }
 
             closePaymentIntake();
-
-            if (typeof payload.fallbackMailto === "string" && payload.fallbackMailto) {
-              openFallbackMailto(payload.fallbackMailto);
-              window.setTimeout(() => {
-                window.location.href = appendPrefilledEmail(paymentIntakeState.paymentUrl, normalizedEmail);
-              }, 240);
-              return;
-            }
 
             window.location.href = appendPrefilledEmail(paymentIntakeState.paymentUrl, normalizedEmail);
           } catch (error) {

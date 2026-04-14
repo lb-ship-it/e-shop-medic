@@ -89,29 +89,6 @@ function escapeHtml(value) {
     .replace(/'/g, "&#39;");
 }
 
-function buildMailto(toEmail, payload) {
-  const params = new URLSearchParams({
-    subject: `Nová platba před Stripe: ${payload.offer}`,
-    body: [
-      "Přišla nová poptávka před přechodem na Stripe platbu.",
-      "",
-      `Služba: ${payload.offer}`,
-      `Umístění CTA: ${payload.placement}`,
-      `Stripe odkaz: ${payload.paymentUrl}`,
-      "",
-      `Jméno: ${payload.name}`,
-      `Telefon: ${payload.phone}`,
-      `E-mail: ${payload.email}`,
-      `URL e-shopu: ${payload.url}`,
-      "",
-      "Poznámka:",
-      payload.note,
-    ].join("\n"),
-  });
-
-  return `mailto:${toEmail}?${params.toString()}`;
-}
-
 export default async function handler(request, response) {
   if (request.method !== "POST") {
     response.setHeader("Allow", "POST");
@@ -166,7 +143,7 @@ export default async function handler(request, response) {
     if (!resendApiKey || !fromEmail) {
       return response.status(200).json({
         ok: true,
-        fallbackMailto: buildMailto(toEmail, payload),
+        notificationSkipped: true,
       });
     }
 
