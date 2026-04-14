@@ -535,6 +535,59 @@ input[type="reset"],
     line-height: 1.08;
   }
 
+  .symptoms-section > .panel {
+    padding: 0.95rem;
+  }
+
+  .symptoms-section .eyebrow {
+    font-size: 0.64rem;
+    letter-spacing: 0.22em;
+  }
+
+  .symptoms-section .grid {
+    gap: 0.8rem;
+  }
+
+  .symptoms-section article {
+    padding: 0.95rem;
+    border-radius: 1.05rem;
+  }
+
+  .symptoms-section article > div:first-child {
+    gap: 0;
+  }
+
+  .symptoms-section article > div:first-child > span {
+    display: none;
+  }
+
+  .symptoms-section article .soft-caption {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+  }
+
+  .symptoms-section article h3 {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.38;
+  }
+
+  .symptoms-section article p.text-white\/60 {
+    margin-top: 0.55rem;
+    font-size: 0.8rem;
+    line-height: 1.58;
+  }
+
+  .symptoms-section details {
+    margin-top: 0.9rem;
+  }
+
+  .symptoms-section details > summary {
+    padding-inline: 0.95rem;
+    padding-block: 0.5rem;
+    font-size: 0.82rem;
+  }
+
   #free-audit-form label > span {
     margin-bottom: 0.25rem;
     font-size: 0.66rem;
