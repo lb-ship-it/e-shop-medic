@@ -14,6 +14,14 @@ export const site = {
     name: "E-shop Medic",
     domain: "witdesign.cz",
     siteUrl: "https://witdesign.cz",
+    seoTitle: "Audit e-shopu, UX audit a rychlé zásahy | E-shop Medic",
+    seoDescription:
+      "Audit e-shopu, UX audit a SEO optimalizace e-shopu pro Shoptet, WooCommerce, Shopify a PrestaShop. Odhalím, kde e-shop ztrácí konverze, data a důvěru.",
+    heroSeoTitle: "Audit e-shopu pro Shoptet, WooCommerce, Shopify a PrestaShop",
+    heroSeoLead:
+      "Technický audit e-shopu a UX audit pro e-shopy, které ztrácejí objednávky, data nebo důvěru. Zastavte tichý únik peněz dřív, než začne brzdit růst vašeho e-shopu.",
+    heroSeoBody:
+      "Pomáhám e-shopům, které potřebují audit e-shopu, UX audit nebo SEO optimalizaci e-shopu. Nejdřív najdeme kritické místo v nákupní cestě, měření nebo technickém základu, pak opravíme to, co má největší dopad na konverze.",
     title: "E‑shop Medic | Diagnostika a rychlé zásahy pro e‑shopy",
     description:
       "Diagnostika, stabilizace a rychlé zásahy pro e‑shopy, které chtějí růst bez slepých míst.",
